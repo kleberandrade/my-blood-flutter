@@ -9,7 +9,7 @@ class TextButton extends StatelessWidget {
     Key key,
     this.question,
     this.label,
-    this.onTap,
+    @required this.onTap,
   }) : super(key: key);
 
   @override

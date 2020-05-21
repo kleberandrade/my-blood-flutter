@@ -5,13 +5,17 @@ class PasswordInputField extends StatefulWidget {
   final Function(String) onSaved;
   final Color fillColor;
   final bool forgetPassword;
+  final bool busy;
+  final Function onTap;
 
   const PasswordInputField({
     Key key,
     this.label = 'Senha',
     this.onSaved,
+    this.busy = false,
     this.fillColor = const Color(0xfff3f3f4),
     this.forgetPassword = false,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -34,41 +38,37 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            widget.label,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
           TextFormField(
             obscureText: _isHidden,
             decoration: InputDecoration(
               border: InputBorder.none,
               fillColor: widget.fillColor,
               filled: true,
+              labelText: widget.label,
               suffixIcon: IconButton(
-                icon: _isHidden
-                    ? Icon(Icons.visibility_off)
-                    : Icon(Icons.visibility),
+                icon: Icon(_isHidden ? Icons.visibility_off : Icons.visibility),
                 onPressed: _toggleVisibility,
               ),
             ),
             onSaved: widget.onSaved,
           ),
-          widget.forgetPassword
-              ? Container(
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'Esqueceu a senha ?',
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+          Visibility(
+            visible: widget.forgetPassword,
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              alignment: Alignment.centerRight,
+              child: InkWell(
+                onTap: widget.onTap,
+                child: Text(
+                  'Esqueceu a senha ?',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
                   ),
-                )
-              : SizedBox(),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

@@ -2,10 +2,18 @@ import 'package:flutter/material.dart';
 
 class SubmitButton extends StatelessWidget {
   final String label;
+  final IconData icon;
+  final Color firstColor;
+  final Color secondColor;
+  final bool busy;
 
   const SubmitButton({
     Key key,
     this.label = 'Login',
+    this.icon,
+    this.busy = false,
+    @required this.firstColor,
+    @required this.secondColor,
   }) : super(key: key);
 
   @override
@@ -15,7 +23,9 @@ class SubmitButton extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 15),
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(5)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(5),
+        ),
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.grey.shade200,
@@ -28,17 +38,32 @@ class SubmitButton extends StatelessWidget {
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
           colors: [
-            Theme.of(context).accentColor,
-            Theme.of(context).primaryColor,
+            firstColor,
+            secondColor,
           ],
         ),
       ),
-      child: Text(
-        label,
-        style: TextStyle(
-          fontSize: 20,
-          color: Colors.white,
-        ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Visibility(
+            visible: icon != null,
+            child: Icon(
+              icon ?? null,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(width: icon != null ? 20 : 0),
+          Text(
+            label,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ],
       ),
     );
   }
