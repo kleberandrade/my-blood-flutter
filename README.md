@@ -18,8 +18,9 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 
 ## Funcionalidades
 
+-   [x] Splash screen
+-   [x] Fazer login
 -   [ ] Criar conta
--   [ ] Fazer login
 -   [ ] Perfil do usuário
 -   [ ] Cadastrar hospitais e banco de sangue
 -   [ ] Cadastrar campanhas

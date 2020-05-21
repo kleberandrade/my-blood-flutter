@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_blood/app/themes/app_theme.dart';
 
-import 'app/themes/app_theme.dart';
+import 'app/modules/login/pages/app_splash_screen.dart';
+
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -11,10 +16,10 @@ class MyApp extends StatelessWidget {
     ]);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'My Blood',
       theme: appTheme,
-      initialRoute: '/',
-      debugShowCheckedModeBanner: false,
+      home: AppSplashScreen(),
     );
   }
 }
