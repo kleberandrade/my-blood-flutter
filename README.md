@@ -2,6 +2,13 @@
 
 Aplicativo para tornar as doações de sangue mais simples tanto para quem precisa do sangue quanto para o doador, possibilitando que a própria comunidade publique campanhas de doação e que os doadores consigam filtrar estas campanhas por estado, cidade e tipo de sangue.
 
+## Screenshots
+
+<p align="center">
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/splash.png" height="250"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/login.png" height="250"/>
+</p>
+
 ## Equipe
 
 -   Guilbert Adalson de Oliveira
