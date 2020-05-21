@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class EmailInputField extends StatelessWidget {
+class CustomInputField extends StatelessWidget {
   final String label;
   final Function(String) onSaved;
   final Color fillColor;
 
-  const EmailInputField({
+  const CustomInputField({
     Key key,
-    this.label = 'Email',
+    this.label,
     this.onSaved,
     this.fillColor = const Color(0xfff3f3f4),
   }) : super(key: key);

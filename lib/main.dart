@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_blood/app/modules/login/pages/splash_page.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
-
-import 'app/modules/login/pages/app_splash_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'My Blood',
       theme: appTheme,
-      home: AppSplashScreen(),
+      home: SplashPage(),
     );
   }
 }

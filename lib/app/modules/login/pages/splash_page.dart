@@ -3,12 +3,12 @@ import 'package:splashscreen/splashscreen.dart';
 
 import 'login_page.dart';
 
-class AppSplashScreen extends StatefulWidget {
+class SplashPage extends StatefulWidget {
   @override
-  _AppSplashScreenState createState() => _AppSplashScreenState();
+  _SplashPageState createState() => _SplashPageState();
 }
 
-class _AppSplashScreenState extends State<AppSplashScreen> {
+class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(

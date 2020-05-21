@@ -4,12 +4,14 @@ class PasswordInputField extends StatefulWidget {
   final String label;
   final Function(String) onSaved;
   final Color fillColor;
+  final bool forgetPassword;
 
   const PasswordInputField({
     Key key,
     this.label = 'Senha',
     this.onSaved,
     this.fillColor = const Color(0xfff3f3f4),
+    this.forgetPassword = false,
   }) : super(key: key);
 
   @override
@@ -57,14 +59,16 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
             ),
             onSaved: widget.onSaved,
           ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            alignment: Alignment.centerRight,
-            child: Text(
-              'Esqueceu a senha ?',
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-            ),
-          ),
+          widget.forgetPassword
+              ? Container(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    'Esqueceu a senha ?',
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                  ),
+                )
+              : SizedBox(),
         ],
       ),
     );

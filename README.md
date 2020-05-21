@@ -5,29 +5,17 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 ## Screenshots
 
 <p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/splash.png" height="250"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/login.png" height="250"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/splash.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/login.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/register.png" width="200"/>
 </p>
-
-## Equipe
-
--   Guilbert Adalson de Oliveira
--   Ricki Warley Villanueva Mujica
--   Romanti-Ezer Gomes dos Santos
--   Silas Rodrigues Gouveia Junior
--   Kleber de Oliveira Andrade
-
-## Ferramentas
-
--   Dart
--   Flutter
--   Firebase
 
 ## Funcionalidades
 
 -   [x] Splash screen
 -   [x] Fazer login
--   [ ] Criar conta
+-   [ ] Criar conta com email e senha
+-   [ ] Criar conta com google
 -   [ ] Perfil do usuário
 -   [ ] Cadastrar hospitais e banco de sangue
 -   [ ] Cadastrar campanhas

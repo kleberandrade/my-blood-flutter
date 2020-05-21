@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_blood/app/modules/login/widgets/custom_input_field.dart';
-import 'package:my_blood/app/modules/login/widgets/horizontal_line.dart';
 import 'package:my_blood/app/modules/login/widgets/logotipo.dart';
 import 'package:my_blood/app/modules/login/widgets/password_input_field.dart';
-import 'package:my_blood/app/modules/login/widgets/social_submit_button.dart';
 import 'package:my_blood/app/modules/login/widgets/submit_button.dart';
 import 'package:my_blood/app/modules/login/widgets/text_button.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -30,19 +27,13 @@ class _LoginPageState extends State<LoginPage> {
                 children: <Widget>[
                   Logotipo(color: Theme.of(context).primaryColor),
                   SizedBox(height: height * 0.05),
+                  CustomInputField(label: 'Nome'),
+                  SizedBox(height: 10),
                   CustomInputField(label: 'Email'),
                   SizedBox(height: 10),
-                  PasswordInputField(forgetPassword: true),
+                  PasswordInputField(),
                   SizedBox(height: 20),
                   SubmitButton(),
-                  SizedBox(height: 20),
-                  HorizontalLine(),
-                  SizedBox(height: 20),
-                  SocialSubmitButton(
-                    label: 'Login com Google',
-                    icon: FontAwesomeIcons.google,
-                    backgroundColor: const Color(0xfff54a3a),
-                  ),
                 ],
               ),
             ),
@@ -52,8 +43,8 @@ class _LoginPageState extends State<LoginPage> {
             left: 0,
             right: 0,
             child: TextButton(
-              question: 'Não tem uma conta ?',
-              label: 'Registrar',
+              question: 'Já tem uma conta ?',
+              label: 'Login',
               onTap: () {},
             ),
           ),
