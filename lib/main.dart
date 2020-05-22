@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:my_blood/app/modules/login/controllers/account_controller.dart';
-import 'package:my_blood/app/modules/login/pages/splash_page.dart';
+import 'package:my_blood/app/shared/helpers/app_routes.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,13 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'My Blood',
         theme: appTheme,
-        home: SplashPage(),
+        initialRoute: '/',
+        routes: appRoutes,
+        localizationsDelegates: [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate
+        ],
+        supportedLocales: [const Locale('pt', 'BR')],
       ),
     );
   }

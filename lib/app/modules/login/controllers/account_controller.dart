@@ -16,6 +16,9 @@ abstract class _AccountControllerBase with Store {
   bool busy = false;
 
   @observable
+  String userName = "";
+
+  @observable
   String userEmail = '';
 
   @observable
@@ -31,21 +34,38 @@ abstract class _AccountControllerBase with Store {
   void setPassword(String value) => userPassword = value;
 
   @action
-  Future signInWithCredentials({Function onSuccess, Function(String) onError}) async {
+  void setName(String value) => userName = value;
+
+  @action
+  Future signInWithCredentials(
+      {Function onSuccess, Function(String) onError}) async {
     setBusy(true);
     _repository
-        .signInWithCredentials(userEmail, userPassword)
+        .signInWithCredentials(email: userEmail, password: userPassword)
         .then((value) => onSuccess())
         .catchError(onError)
         .whenComplete(() => setBusy(false));
   }
 
   @action
-  Future loginWithGoogle() async {}
+  Future signUpWithCredentials(
+      {Function onSuccess, Function(String) onError}) async {
+    setBusy(true);
+    _repository
+        .createUserWithEmailAndPassword(email: userEmail, password: userPassword, name: userName)
+        .then((value) => onSuccess())
+        .catchError(onError)
+        .whenComplete(() => setBusy(false));
+  }
 
   @action
-  Future register() async {}
-
-  @action
-  Future logout() async {}
+  Future sendPasswordResetEmail(
+      {Function onSuccess, Function(String) onError}) async {
+    setBusy(true);
+    _repository
+        .sendPasswordResetEmail(email: userEmail)
+        .then((value) => onSuccess())
+        .catchError(onError)
+        .whenComplete(() => setBusy(false));
+  }
 }

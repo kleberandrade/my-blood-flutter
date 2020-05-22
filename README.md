@@ -8,15 +8,15 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
     <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/splash.png" width="200"/>
     <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/login.png" width="200"/>
     <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/register.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/forget_paswd.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/forget.png" width="200"/>
 </p>
 
 ## Funcionalidades
 
 -   [x] Splash screen
 -   [x] Login com email e senha
--   [ ] Esqueceu a senha?
--   [ ] Registrar novo usuário
+-   [x] Registrar novo usuário
+-   [x] Esqueceu a senha?
 -   [ ] Menu lateral (drawer)
 -   [ ] Perfil do usuário
 -   [ ] Página inicial (home)

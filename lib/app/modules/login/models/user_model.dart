@@ -1,48 +1,38 @@
 import 'dart:convert';
 
 class UserModel {
-  String id;
+  String uid;
   String name;
   String email;
   String picture;
-  String role;
-  String token;
-
+  
   UserModel({
-    this.id,
+    this.uid,
     this.name,
     this.email,
     this.picture,
-    this.role,
-    this.token,
   });
 
   UserModel copyWith({
-    String id,
+    String uid,
     String name,
     String email,
     String picture,
-    String role,
-    String token,
   }) {
     return UserModel(
-      id: id ?? this.id,
+      uid: uid ?? this.uid,
       name: name ?? this.name,
       email: email ?? this.email,
       picture: picture ?? this.picture,
-      role: role ?? this.role,
-      token: token ?? this.token,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
+      'uid': uid,
       'name': name,
       'email': email,
       'picture': picture,
-      'role': role,
-      'token': token,
     };
   }
 
@@ -50,12 +40,10 @@ class UserModel {
     if (map == null) return null;
 
     return UserModel(
-      id: map['id'],
+      uid: map['uid'],
       name: map['name'],
       email: map['email'],
       picture: map['picture'],
-      role: map['role'],
-      token: map['token'],
     );
   }
 
@@ -65,7 +53,7 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, name: $name, email: $email, picture: $picture, role: $role, token: $token)';
+    return 'UserModel(uid: $uid, name: $name, email: $email, picture: $picture)';
   }
 
   @override
@@ -73,21 +61,14 @@ class UserModel {
     if (identical(this, o)) return true;
 
     return o is UserModel &&
-        o.id == id &&
+        o.uid == uid &&
         o.name == name &&
         o.email == email &&
-        o.picture == picture &&
-        o.role == role &&
-        o.token == token;
+        o.picture == picture;
   }
 
   @override
   int get hashCode {
-    return id.hashCode ^
-        name.hashCode ^
-        email.hashCode ^
-        picture.hashCode ^
-        role.hashCode ^
-        token.hashCode;
+    return uid.hashCode ^ name.hashCode ^ email.hashCode ^ picture.hashCode;
   }
 }

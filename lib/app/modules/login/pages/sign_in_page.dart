@@ -15,6 +15,7 @@ import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
 class SignInPage extends StatefulWidget {
+  static const String routeName = '/signin';
   @override
   _SignInPageState createState() => _SignInPageState();
 }
@@ -39,35 +40,20 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   onSuccess() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => HomePage(),
-      ),
-    );
+    Navigator.pushReplacementNamed(context, HomePage.routeName);
   }
 
   onError(error) {
     SnackBarHelper.showFailureMessage(context,
-        title: 'Falha no login', message: error);
+        title: 'Erro', message: error);
   }
 
-  onGoToRegisterPage() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => SignUpPage(),
-      ),
-    );
+  navigatorToRegisterPage() {
+    Navigator.pushReplacementNamed(context, SignUpPage.routeName);
   }
 
-  onGoToForgetPasswordPage() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ForgetPage(),
-      ),
-    );
+  navigatorToForgetPasswordPage() {
+    Navigator.pushNamed(context, ForgetPage.routeName);
   }
 
   @override
@@ -106,8 +92,8 @@ class _SignInPageState extends State<SignInPage> {
                     return PasswordInputField(
                       forgetPassword: true,
                       busy: _controller.busy,
-                      validator: Validator.isNotEmptyText,
-                      onTap: onGoToForgetPasswordPage,
+                      validator: Validator.isValidatePassword,
+                      onTap: navigatorToForgetPasswordPage,
                       onSaved: _controller.setPassword,
                     );
                   },
@@ -127,7 +113,7 @@ class _SignInPageState extends State<SignInPage> {
                 TextButton(
                   question: 'Não tem uma conta ?',
                   label: 'Registrar',
-                  onTap: onGoToRegisterPage,
+                  onTap: navigatorToRegisterPage,
                 ),
               ],
             ),

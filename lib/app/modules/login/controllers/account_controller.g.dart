@@ -24,6 +24,21 @@ mixin _$AccountController on _AccountControllerBase, Store {
     });
   }
 
+  final _$userNameAtom = Atom(name: '_AccountControllerBase.userName');
+
+  @override
+  String get userName {
+    _$userNameAtom.reportRead();
+    return super.userName;
+  }
+
+  @override
+  set userName(String value) {
+    _$userNameAtom.reportWrite(value, super.userName, () {
+      super.userName = value;
+    });
+  }
+
   final _$userEmailAtom = Atom(name: '_AccountControllerBase.userEmail');
 
   @override
@@ -64,26 +79,24 @@ mixin _$AccountController on _AccountControllerBase, Store {
         super.signInWithCredentials(onSuccess: onSuccess, onError: onError));
   }
 
-  final _$loginWithGoogleAsyncAction =
-      AsyncAction('_AccountControllerBase.loginWithGoogle');
+  final _$signUpWithCredentialsAsyncAction =
+      AsyncAction('_AccountControllerBase.signUpWithCredentials');
 
   @override
-  Future<dynamic> loginWithGoogle() {
-    return _$loginWithGoogleAsyncAction.run(() => super.loginWithGoogle());
+  Future<dynamic> signUpWithCredentials(
+      {Function onSuccess, dynamic Function(String) onError}) {
+    return _$signUpWithCredentialsAsyncAction.run(() =>
+        super.signUpWithCredentials(onSuccess: onSuccess, onError: onError));
   }
 
-  final _$registerAsyncAction = AsyncAction('_AccountControllerBase.register');
+  final _$sendPasswordResetEmailAsyncAction =
+      AsyncAction('_AccountControllerBase.sendPasswordResetEmail');
 
   @override
-  Future<dynamic> register() {
-    return _$registerAsyncAction.run(() => super.register());
-  }
-
-  final _$logoutAsyncAction = AsyncAction('_AccountControllerBase.logout');
-
-  @override
-  Future<dynamic> logout() {
-    return _$logoutAsyncAction.run(() => super.logout());
+  Future<dynamic> sendPasswordResetEmail(
+      {Function onSuccess, dynamic Function(String) onError}) {
+    return _$sendPasswordResetEmailAsyncAction.run(() =>
+        super.sendPasswordResetEmail(onSuccess: onSuccess, onError: onError));
   }
 
   final _$_AccountControllerBaseActionController =
@@ -123,9 +136,21 @@ mixin _$AccountController on _AccountControllerBase, Store {
   }
 
   @override
+  void setName(String value) {
+    final _$actionInfo = _$_AccountControllerBaseActionController.startAction(
+        name: '_AccountControllerBase.setName');
+    try {
+      return super.setName(value);
+    } finally {
+      _$_AccountControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 busy: ${busy},
+userName: ${userName},
 userEmail: ${userEmail},
 userPassword: ${userPassword}
     ''';
