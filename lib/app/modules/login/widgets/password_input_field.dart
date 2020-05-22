@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 
 class PasswordInputField extends StatefulWidget {
   final String label;
-  final Function(String) onSaved;
   final Color fillColor;
   final bool forgetPassword;
   final bool busy;
   final Function onTap;
+  final TextInputType textInputType;
+  final Function(String) onSaved;
+  final Function(String) validator;
 
   const PasswordInputField({
     Key key,
@@ -16,6 +18,8 @@ class PasswordInputField extends StatefulWidget {
     this.fillColor = const Color(0xfff3f3f4),
     this.forgetPassword = false,
     this.onTap,
+    this.textInputType,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -39,7 +43,11 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           TextFormField(
+            enabled: !widget.busy,
             obscureText: _isHidden,
+            keyboardType: widget.textInputType,
+            validator: widget.validator,
+            onSaved: widget.onSaved,
             decoration: InputDecoration(
               border: InputBorder.none,
               fillColor: widget.fillColor,
@@ -50,7 +58,6 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
                 onPressed: _toggleVisibility,
               ),
             ),
-            onSaved: widget.onSaved,
           ),
           Visibility(
             visible: widget.forgetPassword,

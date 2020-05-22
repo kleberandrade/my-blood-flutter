@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class CustomInputField extends StatelessWidget {
   final String label;
-  final Function(String) onSaved;
   final Color fillColor;
   final bool busy;
+  final TextInputType textInputType;
+  final Function(String) onSaved;
+  final Function(String) validator;
 
   const CustomInputField({
     Key key,
@@ -12,6 +14,8 @@ class CustomInputField extends StatelessWidget {
     this.onSaved,
     this.busy = false,
     this.fillColor = const Color(0xfff3f3f4),
+    this.textInputType = TextInputType.text,
+    this.validator,
   }) : super(key: key);
 
   @override
@@ -23,13 +27,15 @@ class CustomInputField extends StatelessWidget {
         children: <Widget>[
           TextFormField(
             enabled: !busy,
+            keyboardType: textInputType,
+            validator: validator,
+            onSaved: onSaved,
             decoration: InputDecoration(
               border: InputBorder.none,
               labelText: label,
               fillColor: fillColor,
               filled: true,
             ),
-            onSaved: onSaved,
           )
         ],
       ),

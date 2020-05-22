@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:my_blood/app/modules/login/controllers/forget_passwod_controller.dart';
-import 'package:my_blood/app/modules/login/pages/register_page.dart';
+import 'package:my_blood/app/modules/login/pages/sign_up_page.dart';
 import 'package:my_blood/app/modules/login/widgets/custom_input_field.dart';
 import 'package:my_blood/app/modules/login/widgets/logotipo.dart';
 import 'package:my_blood/app/modules/login/widgets/submit_button.dart';
 import 'package:my_blood/app/modules/login/widgets/text_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 
-class ForgetPasswordPage extends StatefulWidget {
+class ForgetPage extends StatefulWidget {
   @override
-  _ForgetPasswordPageState createState() => _ForgetPasswordPageState();
+  _ForgetPageState createState() => _ForgetPageState();
 }
 
-class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
+class _ForgetPageState extends State<ForgetPage> {
   final _formKey = new GlobalKey<FormState>();
-  final _controller = new ForgetPasswordController();
 
   onGoToRegisterPage() {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => RegisterPage(),
+        builder: (context) => SignUpPage(),
       ),
     );
   }
@@ -71,6 +69,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   label: 'Enviar',
                   firstColor: accentColor,
                   secondColor: primaryColor,
+                  onTap: (){},
                 ),
                 SizedBox(height: 20),
                 Expanded(child: SizedBox()),

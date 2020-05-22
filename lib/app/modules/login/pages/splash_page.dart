@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_blood/app/modules/login/pages/sign_in_page.dart';
 import 'package:splashscreen/splashscreen.dart';
-
-import 'login_page.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -12,8 +11,8 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 14,
-      navigateAfterSeconds: new LoginPage(),
+      seconds: 10,
+      navigateAfterSeconds: new SignInPage(),
       backgroundColor: Theme.of(context).primaryColor,
       loaderColor: Theme.of(context).canvasColor,
       photoSize: 75.0,

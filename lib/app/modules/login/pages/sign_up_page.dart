@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_blood/app/modules/login/controllers/register_controller.dart';
-import 'package:my_blood/app/modules/login/pages/login_page.dart';
+import 'package:my_blood/app/modules/login/pages/sign_in_page.dart';
 import 'package:my_blood/app/modules/login/widgets/custom_input_field.dart';
 import 'package:my_blood/app/modules/login/widgets/logotipo.dart';
 import 'package:my_blood/app/modules/login/widgets/password_input_field.dart';
@@ -8,20 +7,19 @@ import 'package:my_blood/app/modules/login/widgets/submit_button.dart';
 import 'package:my_blood/app/modules/login/widgets/text_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 
-class RegisterPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _RegisterPageState createState() => _RegisterPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _SignUpPageState extends State<SignUpPage> {
   final _formKey = new GlobalKey<FormState>();
-  final _controller = new RegisterController();
 
   onGoToLoginPage() {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => LoginPage(),
+        builder: (context) => SignInPage(),
       ),
     );
   }
@@ -55,6 +53,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 SubmitButton(
                   firstColor: accentColor,
                   secondColor: primaryColor,
+                  onTap: (){},
                 ),
                 Expanded(child: SizedBox()),
                 TextButton(

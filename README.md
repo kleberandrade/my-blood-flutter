@@ -14,15 +14,25 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 ## Funcionalidades
 
 -   [x] Splash screen
--   [x] Fazer login
--   [ ] Criar conta com email e senha
--   [ ] Criar conta com google
+-   [x] Login com email e senha
+-   [ ] Esqueceu a senha?
+-   [ ] Registrar novo usuário
+-   [ ] Menu lateral (drawer)
 -   [ ] Perfil do usuário
+-   [ ] Página inicial (home)
 -   [ ] Cadastrar hospitais e banco de sangue
 -   [ ] Cadastrar campanhas
 -   [ ] Histórico de doações
 -   [ ] Chatbot sobre doação de sangue
 -   [ ] Notificações de novas campanhas
+
+## Ferramentas
+
+-   Dart / Flutter
+-   Firebase
+-   Provider
+-   MobX
+-   MVC (Model View Controller)
 
 ## Publicações
 

@@ -32,3 +32,11 @@ flutter:
   uses-material-design: true
   assets:
     - lib/assets/
+
+flutter_icons:
+  ios: true
+  android: true
+  image_path_ios: "lib/assets/icon_complete.png"
+  image_path_android: "lib/assets/icon_complete.png"
+  adaptive_icon_background: "lib/assets/icon_background.png"
+  adaptive_icon_foreground: "lib/assets/icon_foreground.png"
