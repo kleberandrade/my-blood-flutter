@@ -4,7 +4,7 @@ import 'package:my_blood/app/modules/home/pages/home_page.dart';
 import 'package:my_blood/app/modules/login/controllers/account_controller.dart';
 import 'package:my_blood/app/modules/login/pages/forget_page.dart';
 import 'package:my_blood/app/modules/login/pages/sign_up_page.dart';
-import 'package:my_blood/app/modules/login/widgets/custom_input_field.dart';
+import 'package:my_blood/app/shared/widgets/custom_input_field.dart';
 import 'package:my_blood/app/modules/login/widgets/logotipo.dart';
 import 'package:my_blood/app/modules/login/widgets/password_input_field.dart';
 import 'package:my_blood/app/modules/login/widgets/submit_button.dart';

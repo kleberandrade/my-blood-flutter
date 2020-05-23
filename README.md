@@ -11,28 +11,40 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
     <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/forget.png" width="200"/>
 </p>
 
+<p align="center">
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/locations.png" width="200"/>
+/>
+</p>
+
 ## Funcionalidades
 
 -   [x] Splash screen
 -   [x] Login com email e senha
 -   [x] Registrar novo usuário
 -   [x] Esqueceu a senha?
--   [ ] Menu lateral (drawer)
 -   [ ] Perfil do usuário
--   [ ] Página inicial (home)
--   [ ] Cadastrar hospitais e banco de sangue
--   [ ] Cadastrar campanhas
 -   [ ] Histórico de doações
--   [ ] Chatbot sobre doação de sangue
--   [ ] Notificações de novas campanhas
+-   [ ] Cadastrar campanhas
+-   [ ] Listar campanhas
+-   [ ] Filtrar campanhas
+-   [ ] Compartilhar campanhas
+-   [ ] Doar em uma campanha
+-   [ ] Cadastrar hemocentros
+-   [x] Listar hemocentros
+-   [ ] Filtrar hemocentros
+-   [ ] Dúvidas frequentes (FAQ)
+-   [ ] Chatbot
+-   [ ] Notificações
 
 ## Ferramentas
 
--   Dart / Flutter
--   Firebase
--   Provider
--   MobX
--   MVC (Model View Controller)
+-   [x] Dart / Flutter
+-   [x] Firebase
+-   [x] Provider
+-   [x] MobX
+-   [x] MVC
+-   [x] Url Launcher
+-   [x] Flushbar
 
 ## Publicações
 
