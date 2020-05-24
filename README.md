@@ -18,17 +18,12 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 </p>
 
 <p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile1.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile2.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile_blood.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/historic.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/faq.png" width="200"/>
 </p>
 
 <p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/locations_list.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/locations_add.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/campaigns_list.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/campaigns_add.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/location_list.png" width="200"/>
 </p>
 
 ## Funcionalidades
