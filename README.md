@@ -2,6 +2,12 @@
 
 Aplicativo para tornar as doações de sangue mais simples tanto para quem precisa do sangue quanto para o doador, possibilitando que a própria comunidade publique campanhas de doação e que os doadores consigam filtrar estas campanhas por estado, cidade e tipo de sangue.
 
+## Organização do código
+
+<p align="center">
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/structure.png" width="800"/>
+</p>
+
 ## Screenshots
 
 <p align="center">
@@ -12,11 +18,17 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 </p>
 
 <p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile1.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile2.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile_blood.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/historic.png" width="200"/>
 </p>
 
 <p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/locations.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/locations_list.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/locations_add.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/campaigns_list.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/campaigns_add.png" width="200"/>
 </p>
 
 ## Funcionalidades
@@ -29,22 +41,16 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [ ] Trocar foto do perfil
 -   [ ] Histórico de doações
 -   [ ] Cadastrar campanhas
--   [ ] Listar campanhas
+-   [x] Listar campanhas
 -   [ ] Filtrar campanhas
+-   [ ] Registrar doação em campanha
 -   [ ] Compartilhar campanhas
--   [ ] Doar em uma campanha
 -   [ ] Cadastrar hemocentros
 -   [x] Listar hemocentros
 -   [ ] Filtrar hemocentros
--   [ ] Dúvidas frequentes (FAQ)
+-   [x] Dúvidas frequentes (FAQ)
 -   [ ] Chatbot
 -   [ ] Notificações
-
-## Organização do código
-
-<p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/structure.png" width="800"/>
-</p>
 
 ## Ferramentas e Recursos
 
@@ -58,10 +64,20 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [x] Bottom Navy Bar
 -   [x] Url Launcher
 -   [x] Maps Launcher
+-   [x] Expansion Tile Card
+
+## Store
+
+-   Play Store (em breve)
+-   Apple Store (em breve)
 
 ## Publicações
 
--   MUJICA, Ricki Warley Villanueva; SANTOS, Romanti-Ezer Gomes dos; GOUVEIA JUNIOR, Silas Rodrigues; ANDRADE, Kleber de Oliveira. **Desenvolvimento de um aplicativo para divulgar campanhas de doação de sangue**. Monografia (Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas) - Faculdade de Tecnologia de Americana – Centro Estadual de Educação Tecnológica Paula Souza. 92p, 2019. Disponível em <[https://drive.google.com/open?id=1mZAEDbrhYGrC_kcInRjU1zXDi6mH93qO](https://drive.google.com/open?id=1mZAEDbrhYGrC_kcInRjU1zXDi6mH93qO)>.
+-   OLIVEIRA, Guilbert Adalson de, MUJICA, Ricki Warley Villanueva; SANTOS, Romanti-Ezer Gomes dos; GOUVEIA JUNIOR, Silas Rodrigues; ANDRADE, Kleber de Oliveira. **Desenvolvimento de um aplicativo para divulgar campanhas de doação de sangue**. Monografia (Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas) - Faculdade de Tecnologia de Americana – Centro Estadual de Educação Tecnológica Paula Souza. 92p, 2019. Disponível em <[https://drive.google.com/open?id=1mZAEDbrhYGrC_kcInRjU1zXDi6mH93qO](https://drive.google.com/open?id=1mZAEDbrhYGrC_kcInRjU1zXDi6mH93qO)>.
+
+## Agradecimentos
+
+-   Logotipo criado por Grabriela Dall'Agnol (Texugo).
 
 ## Licença
 

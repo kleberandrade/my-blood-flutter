@@ -27,6 +27,7 @@ dependencies:
   maps_launcher: ^1.2.0
   extended_image: ^0.8.0
   intl: ^0.16.1
+  expansion_tile_card: ^1.0.3
 
 dev_dependencies:
   flutter_test:

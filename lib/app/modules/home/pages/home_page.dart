@@ -1,9 +1,9 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:my_blood/app/modules/campaigns/pages/campaign_page.dart';
+import 'package:my_blood/app/modules/faq/pages/faq_page.dart';
 import 'package:my_blood/app/modules/locations/pages/location_page.dart';
 import 'package:my_blood/app/modules/profile/pages/profile_page.dart';
-import 'package:my_blood/app/shared/widgets/centered_message.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
           ProfilePage(),
           CampaignPage(),
           LocationPage(),
-          CenteredMessage(message: 'Dúvidas'),
+          FaqPage(),
         ],
       ),
     );
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
           inactiveColor: Colors.grey,
         ),
         BottomNavyBarItem(
-          title: Text('Hemocentros'),
+          title: Text('Locais'),
           icon: Icon(Icons.local_hospital),
           activeColor: accentColor,
           inactiveColor: Colors.grey,

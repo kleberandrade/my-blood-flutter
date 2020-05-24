@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:my_blood/app/modules/faq/controllers/faq_controller.dart';
 import 'package:my_blood/app/modules/locations/controllers/location_controller.dart';
 import 'package:my_blood/app/modules/login/controllers/account_controller.dart';
 import 'package:my_blood/app/modules/login/pages/splash_page.dart';
@@ -25,9 +26,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<AccountController>.value(value: AccountController()),
+        Provider<ProfileController>.value(value: ProfileController()),
         Provider<CampaignController>.value(value: CampaignController()),
         Provider<LocationController>.value(value: LocationController()),
-        Provider<ProfileController>.value(value: ProfileController()),
+        Provider<FaqController>.value(value: FaqController()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
