@@ -40,20 +40,28 @@ class _SignInPageState extends State<SignInPage> {
   }
 
   onSuccess() {
-    Navigator.pushReplacementNamed(context, HomePage.routeName);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
   }
 
   onError(error) {
-    SnackBarHelper.showFailureMessage(context,
-        title: 'Erro', message: error);
+    SnackBarHelper.showFailureMessage(context, title: 'Erro', message: error);
   }
 
   navigatorToRegisterPage() {
-    Navigator.pushReplacementNamed(context, SignUpPage.routeName);
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => SignUpPage()),
+    );
   }
 
   navigatorToForgetPasswordPage() {
-    Navigator.pushNamed(context, ForgetPage.routeName);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ForgetPage()),
+    );
   }
 
   @override
@@ -72,7 +80,6 @@ class _SignInPageState extends State<SignInPage> {
               children: <Widget>[
                 Expanded(flex: 2, child: SizedBox()),
                 Logotipo(
-                  label: 'My Blood',
                   color: Theme.of(context).primaryColor,
                 ),
                 Expanded(child: SizedBox()),

@@ -21,7 +21,8 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [x] Login com email e senha
 -   [x] Registrar novo usuário
 -   [x] Esqueceu a senha?
--   [ ] Perfil do usuário
+-   [x] Perfil do usuário (visualizar e editar)
+-   [ ] Trocar foto do perfil
 -   [ ] Histórico de doações
 -   [ ] Cadastrar campanhas
 -   [ ] Listar campanhas
@@ -41,15 +42,18 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
     <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/structure.png" width="800"/>
 </p>
 
-## Ferramentas
+## Ferramentas e Recursos
 
 -   [x] Dart / Flutter
 -   [x] Firebase
 -   [x] Provider
 -   [x] MobX
 -   [x] MVC
--   [x] Url Launcher
 -   [x] Flushbar
+-   [x] Splashscreen
+-   [x] Bottom Navy Bar
+-   [x] Url Launcher
+-   [x] Maps Launcher
 
 ## Publicações
 

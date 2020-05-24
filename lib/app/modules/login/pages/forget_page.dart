@@ -29,7 +29,8 @@ class _ForgetPageState extends State<ForgetPage> {
   }
 
   navigatorToRegisterPage() {
-    Navigator.pushReplacementNamed(context, SignUpPage.routeName);
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => SignUpPage()));
   }
 
   sendPasswordResetEmail() {
@@ -76,9 +77,8 @@ class _ForgetPageState extends State<ForgetPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Expanded(flex: 2,child: SizedBox()),
+                Expanded(flex: 2, child: SizedBox()),
                 Logotipo(
-                  label: 'My Blood',
                   color: Theme.of(context).primaryColor,
                 ),
                 Expanded(child: SizedBox()),

@@ -7,6 +7,7 @@ class CustomInputField extends StatelessWidget {
   final TextInputType textInputType;
   final Function(String) onSaved;
   final Function(String) validator;
+  final TextEditingController controller;
 
   const CustomInputField({
     Key key,
@@ -16,6 +17,7 @@ class CustomInputField extends StatelessWidget {
     this.fillColor = const Color(0xfff3f3f4),
     this.textInputType = TextInputType.text,
     this.validator,
+    this.controller,
   }) : super(key: key);
 
   @override
@@ -27,6 +29,7 @@ class CustomInputField extends StatelessWidget {
         children: <Widget>[
           TextFormField(
             enabled: !busy,
+            controller: controller,
             keyboardType: textInputType,
             validator: validator,
             onSaved: onSaved,

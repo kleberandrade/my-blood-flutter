@@ -5,12 +5,34 @@ class UserModel {
   String name;
   String email;
   String picture;
+  String bloodType;
+  String phone;
+  String gender;
+  String cep;
+  String address;
+  String city;
+  String state;
+  String uf;
+  String neighborhood;
+  String birthDate;
+  String lastDonationDate;
   
   UserModel({
     this.uid,
     this.name,
     this.email,
     this.picture,
+    this.bloodType,
+    this.phone,
+    this.gender,
+    this.cep,
+    this.address,
+    this.city,
+    this.state,
+    this.uf,
+    this.neighborhood,
+    this.birthDate,
+    this.lastDonationDate,
   });
 
   UserModel copyWith({
@@ -18,12 +40,34 @@ class UserModel {
     String name,
     String email,
     String picture,
+    String bloodType,
+    String phone,
+    String gender,
+    String cep,
+    String address,
+    String city,
+    String state,
+    String uf,
+    String neighborhood,
+    String birthDate,
+    String lastDonationDate,
   }) {
     return UserModel(
       uid: uid ?? this.uid,
       name: name ?? this.name,
       email: email ?? this.email,
       picture: picture ?? this.picture,
+      bloodType: bloodType ?? this.bloodType,
+      phone: phone ?? this.phone,
+      gender: gender ?? this.gender,
+      cep: cep ?? this.cep,
+      address: address ?? this.address,
+      city: city ?? this.city,
+      state: state ?? this.state,
+      uf: uf ?? this.uf,
+      neighborhood: neighborhood ?? this.neighborhood,
+      birthDate: birthDate ?? this.birthDate,
+      lastDonationDate: lastDonationDate ?? this.lastDonationDate,
     );
   }
 
@@ -33,6 +77,17 @@ class UserModel {
       'name': name,
       'email': email,
       'picture': picture,
+      'bloodType': bloodType,
+      'phone': phone,
+      'gender': gender,
+      'cep': cep,
+      'address': address,
+      'city': city,
+      'state': state,
+      'uf': uf,
+      'neighborhood': neighborhood,
+      'birthDate': birthDate,
+      'lastDonationDate': lastDonationDate,
     };
   }
 
@@ -44,6 +99,17 @@ class UserModel {
       name: map['name'],
       email: map['email'],
       picture: map['picture'],
+      bloodType: map['bloodType'],
+      phone: map['phone'],
+      gender: map['gender'],
+      cep: map['cep'],
+      address: map['address'],
+      city: map['city'],
+      state: map['state'],
+      uf: map['uf'],
+      neighborhood: map['neighborhood'],
+      birthDate: map['birthDate'],
+      lastDonationDate: map['lastDonationDate'],
     );
   }
 
@@ -53,7 +119,7 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel(uid: $uid, name: $name, email: $email, picture: $picture)';
+    return 'UserModel(uid: $uid, name: $name, email: $email, picture: $picture, bloodType: $bloodType, phone: $phone, gender: $gender, cep: $cep, address: $address, city: $city, state: $state, uf: $uf, neighborhood: $neighborhood, birthDate: $birthDate, lastDonationDate: $lastDonationDate)';
   }
 
   @override
@@ -64,11 +130,36 @@ class UserModel {
         o.uid == uid &&
         o.name == name &&
         o.email == email &&
-        o.picture == picture;
+        o.picture == picture &&
+        o.bloodType == bloodType &&
+        o.phone == phone &&
+        o.gender == gender &&
+        o.cep == cep &&
+        o.address == address &&
+        o.city == city &&
+        o.state == state &&
+        o.uf == uf &&
+        o.neighborhood == neighborhood &&
+        o.birthDate == birthDate &&
+        o.lastDonationDate == lastDonationDate;
   }
 
   @override
   int get hashCode {
-    return uid.hashCode ^ name.hashCode ^ email.hashCode ^ picture.hashCode;
+    return uid.hashCode ^
+        name.hashCode ^
+        email.hashCode ^
+        picture.hashCode ^
+        bloodType.hashCode ^
+        phone.hashCode ^
+        gender.hashCode ^
+        cep.hashCode ^
+        address.hashCode ^
+        city.hashCode ^
+        state.hashCode ^
+        uf.hashCode ^
+        neighborhood.hashCode ^
+        birthDate.hashCode ^
+        lastDonationDate.hashCode;
   }
 }

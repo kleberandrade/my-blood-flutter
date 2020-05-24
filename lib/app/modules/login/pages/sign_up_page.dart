@@ -31,14 +31,16 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   navigatorToLoginPage() {
-    Navigator.pushReplacementNamed(context, SignInPage.routeName);
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => SignInPage()));
   }
 
   signUpWithCredentials() {
     final formState = _formKey.currentState;
     if (formState.validate()) {
       formState.save();
-      _controller.signUpWithCredentials(onSuccess: onSignUpSuccess, onError: onSignUpError);
+      _controller.signUpWithCredentials(
+          onSuccess: onSignUpSuccess, onError: onSignUpError);
     }
   }
 
@@ -47,7 +49,8 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   onSignUpSuccess() {
-    _controller.signInWithCredentials(onSuccess: navigatorToHomePage, onError: onSignInError);
+    _controller.signInWithCredentials(
+        onSuccess: navigatorToHomePage, onError: onSignInError);
   }
 
   onSignInError(error) {
@@ -55,7 +58,8 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   navigatorToHomePage() {
-    Navigator.popAndPushNamed(context, HomePage.routeName);
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => HomePage()));
   }
 
   @override
@@ -74,7 +78,6 @@ class _SignUpPageState extends State<SignUpPage> {
               children: <Widget>[
                 Expanded(flex: 2, child: SizedBox()),
                 Logotipo(
-                  label: 'My Blood',
                   color: Theme.of(context).primaryColor,
                 ),
                 Expanded(child: SizedBox()),

@@ -18,14 +18,6 @@ class _SplashPageState extends State<SplashPage> {
       loaderColor: Theme.of(context).canvasColor,
       photoSize: 75.0,
       image: Image.asset('lib/assets/logo.png', color: Colors.white),
-      title: Text(
-        'My Blood',
-        style: TextStyle(
-          fontSize: 32.0,
-          color: Colors.white,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
     );
   }
 }
