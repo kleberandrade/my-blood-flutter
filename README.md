@@ -12,6 +12,10 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 </p>
 
 <p align="center">
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile.png" width="200"/>
+</p>
+
+<p align="center">
     <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/locations.png" width="200"/>
 </p>
 
