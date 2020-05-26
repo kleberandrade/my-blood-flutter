@@ -38,7 +38,7 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [x] Registrar novo usuário
 -   [x] Esqueceu a senha?
 -   [x] Perfil do usuário
--   [ ] Trocar foto do perfil
+-   [x] Trocar foto do perfil
 -   [ ] Histórico de doações
 -   [ ] Cadastrar campanhas
 -   [ ] Listar campanhas
@@ -51,7 +51,6 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [x] Dúvidas frequentes (FAQ)
 -   [ ] Chatbot
 -   [ ] Notificações
--   [x] Widget Cep, Sexo, Tipo sanguíneo e Data
 
 ## Ferramentas e Recursos
 
@@ -76,9 +75,14 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 
 -   OLIVEIRA, Guilbert Adalson de, MUJICA, Ricki Warley Villanueva; SANTOS, Romanti-Ezer Gomes dos; GOUVEIA JUNIOR, Silas Rodrigues; ANDRADE, Kleber de Oliveira. **Desenvolvimento de um aplicativo para divulgar campanhas de doação de sangue**. Monografia (Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas) - Faculdade de Tecnologia de Americana – Centro Estadual de Educação Tecnológica Paula Souza. 92p, 2019. Disponível em <[https://drive.google.com/open?id=1mZAEDbrhYGrC_kcInRjU1zXDi6mH93qO](https://drive.google.com/open?id=1mZAEDbrhYGrC_kcInRjU1zXDi6mH93qO)>.
 
-## Agradecimentos
+## Equipe (Agradecimentos)
 
--   Logotipo criado por Grabriela Dall'Agnol (Texugo).
+-   Grabriela Dall'Agnol (Texugo)
+-   Guilbert Adalson de Oliveira
+-   Kleber de Oliveira Andrade
+-   Ricki Warley Villanueva Mujica
+-   Romanti-Ezer Gomes dos Santos
+-   Silas Rodrigues Gouveia Junior
 
 ## Licença
 

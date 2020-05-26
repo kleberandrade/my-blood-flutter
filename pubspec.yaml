@@ -1,7 +1,7 @@
 name: my_blood
 description: A new Flutter project.
 publish_to: "none"
-version: 0.1.2+2
+version: 0.2.0+3
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
