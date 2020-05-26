@@ -26,9 +26,15 @@ abstract class _ProfileControllerBase with Store {
     user = value;
   }
 
-  @action 
-  void save(){
+  @action
+  void save() {
     setEditable(false);
+    _repository.update(user);
+  }
+
+  @action
+  void setPicture(String pictureUrl) {
+    user.picture = pictureUrl;
     _repository.update(user);
   }
 

@@ -13,7 +13,6 @@ class CampaignCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: Icon(Icons.local_hospital),
         title: Text(campaign.name ?? ''),
         subtitle: Text('${campaign.address} - ${campaign.neighborhood}'),
         isThreeLine: true,

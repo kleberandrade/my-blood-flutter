@@ -8,14 +8,18 @@ class ProfileHeader extends StatelessWidget {
   final String email;
   final String lastDate;
   final String nextDate;
+  final Function onTapImage;
+  final bool editable;
 
   const ProfileHeader({
     Key key,
+    this.editable,
     this.name,
     this.pictureUrl,
     this.email,
     this.lastDate,
     this.nextDate,
+    this.onTapImage,
   }) : super(key: key);
 
   @override
@@ -30,11 +34,14 @@ class ProfileHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Expanded(child: SizedBox()),
-          AvatarNetwork(
-            initials: name ?? '?',
-            pictureUrl: pictureUrl ?? '',
-            size: 80.0,
-            leftPadding: 0.0,
+          GestureDetector(
+            onTap: editable ? onTapImage : null,
+            child: AvatarNetwork(
+              initials: name ?? '?',
+              pictureUrl: pictureUrl ?? '',
+              size: 80.0,
+              leftPadding: 0.0,
+            ),
           ),
           Expanded(child: SizedBox()),
           Text(

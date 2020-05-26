@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/profile/controllers/profile_controller.dart';
 import 'package:my_blood/app/modules/profile/widgets/profile_header.dart';
 import 'package:my_blood/app/shared/helpers/date_helper.dart';
+import 'package:my_blood/app/shared/helpers/firebase_image_helper.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 import 'package:my_blood/app/shared/widgets/custom_input_field.dart';
 import 'package:my_blood/app/shared/widgets/button_input_field.dart';
@@ -87,6 +90,25 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
+  Future _changeImage() async {
+    File image = await FirebaseImageHelper.getImage();
+    if (image != null) {
+      FirebaseImageHelper.uploadImage(
+        image: image,
+        onSuccess: (pictureUrl) {
+          SnackBarHelper.showSuccessMessage(
+            context,
+            title: 'Sucesso',
+            message: 'Upload da imagem concluído.',
+          );
+
+          print(pictureUrl);
+          _controller.setPicture(pictureUrl);
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,6 +142,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   lastDate: _controller.user.lastDonationDate ?? '--/--/----',
                   nextDate: _controller.user.lastDonationDate ??
                       DateHelper.format(DateTime.now()),
+                  editable: _controller.editable,
+                  onTapImage: _changeImage,
                 );
               }),
               Padding(

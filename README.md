@@ -37,8 +37,8 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [x] Login com email e senha
 -   [x] Registrar novo usuário
 -   [x] Esqueceu a senha?
--   [x] Perfil do usuário (visualizar e editar)
--   [x] Trocar foto do perfil
+-   [x] Perfil do usuário
+-   [ ] Trocar foto do perfil
 -   [ ] Histórico de doações
 -   [ ] Cadastrar campanhas
 -   [ ] Listar campanhas
