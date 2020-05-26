@@ -115,7 +115,14 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: Text('Perfil do doador'),
         elevation: 0,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.history),
+            onPressed: (){},
+          ),
+        ],
       ),
+    
       floatingActionButton: Observer(builder: (_) {
         return FloatingActionButton(
           child: Icon(_controller.editable ? Icons.save : Icons.edit),

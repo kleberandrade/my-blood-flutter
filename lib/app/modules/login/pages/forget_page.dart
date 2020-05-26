@@ -102,6 +102,7 @@ class _ForgetPageState extends State<ForgetPage> {
                     busy: _controller.busy,
                     validator: Validator.isValidEmail,
                     onSaved: _controller.setEmail,
+                    textInputType: TextInputType.emailAddress,
                   );
                 }),
                 SizedBox(height: 20),

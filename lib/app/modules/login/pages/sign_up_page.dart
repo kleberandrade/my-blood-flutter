@@ -50,7 +50,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
   onSignUpSuccess() {
     _controller.signInWithCredentials(
-        onSuccess: navigatorToHomePage, onError: onSignInError);
+      onSuccess: navigatorToHomePage,
+      onError: onSignInError,
+    );
   }
 
   onSignInError(error) {
@@ -85,6 +87,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   return CustomInputField(
                     label: 'Nome',
                     busy: _controller.busy,
+                    textInputType: TextInputType.text,
                     validator: Validator.isValidateName,
                     onSaved: _controller.setName,
                   );
@@ -94,6 +97,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   return CustomInputField(
                     label: 'Email',
                     busy: _controller.busy,
+                    textInputType: TextInputType.emailAddress,
                     validator: Validator.isValidEmail,
                     onSaved: _controller.setEmail,
                   );
@@ -103,6 +107,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   return PasswordInputField(
                     forgetPassword: false,
                     busy: _controller.busy,
+                    textInputType: TextInputType.text,
                     validator: Validator.isValidatePassword,
                     onSaved: _controller.setPassword,
                   );

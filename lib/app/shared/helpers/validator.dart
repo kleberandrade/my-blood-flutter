@@ -1,5 +1,4 @@
 class Validator {
-
   static String isNotEmptyText(String value) {
     if (value.isEmpty) return 'Por favor, o campo não pode estar vázio.';
 
@@ -25,12 +24,9 @@ class Validator {
   }
 
   static String isValidateName(String value) {
-    Pattern pattern = r"^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$";
-    RegExp regex = new RegExp(pattern);
-    if (!regex.hasMatch(value))
-      return 'Por favor, insira um nome.';
-    else
-      return null;
+    if (value.isEmpty) return 'Por favor, insira um nome.';
+
+    return null;
   }
 
   static String isValidateNumber(String value) {

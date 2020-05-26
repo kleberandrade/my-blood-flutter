@@ -12,7 +12,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 10,
+      seconds: 8,
       navigateAfterSeconds: new SignInPage(),
       backgroundColor: Theme.of(context).primaryColor,
       loaderColor: Theme.of(context).canvasColor,

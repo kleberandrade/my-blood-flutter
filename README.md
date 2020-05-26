@@ -2,12 +2,6 @@
 
 Aplicativo para tornar as doações de sangue mais simples tanto para quem precisa do sangue quanto para o doador, possibilitando que a própria comunidade publique campanhas de doação e que os doadores consigam filtrar estas campanhas por estado, cidade e tipo de sangue.
 
-## Organização do código
-
-<p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/structure.png" width="800"/>
-</p>
-
 ## Screenshots
 
 <p align="center">
@@ -52,7 +46,7 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [ ] Chatbot
 -   [ ] Notificações
 
-## Ferramentas e Recursos
+### Ferramentas e Recursos
 
 -   [x] Dart / Flutter
 -   [x] Firebase
@@ -66,7 +60,7 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [x] Maps Launcher
 -   [x] Expansion Tile Card
 
-## Store
+## Lojas
 
 -   Play Store: [com.kleberandrade.myblood](https://play.google.com/store/apps/details?id=com.kleberandrade.myblood)
 -   Apple Store (em breve)

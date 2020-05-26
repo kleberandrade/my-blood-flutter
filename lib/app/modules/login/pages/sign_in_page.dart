@@ -89,6 +89,7 @@ class _SignInPageState extends State<SignInPage> {
                       label: 'Email',
                       busy: _controller.busy,
                       validator: Validator.isValidEmail,
+                      textInputType: TextInputType.emailAddress,
                       onSaved: _controller.setEmail,
                     );
                   },
@@ -99,6 +100,7 @@ class _SignInPageState extends State<SignInPage> {
                     return PasswordInputField(
                       forgetPassword: true,
                       busy: _controller.busy,
+                      textInputType: TextInputType.text,
                       validator: Validator.isValidatePassword,
                       onTap: navigatorToForgetPasswordPage,
                       onSaved: _controller.setPassword,
