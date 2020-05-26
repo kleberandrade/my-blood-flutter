@@ -3,9 +3,14 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/profile/controllers/profile_controller.dart';
 import 'package:my_blood/app/modules/profile/widgets/profile_header.dart';
 import 'package:my_blood/app/shared/helpers/date_helper.dart';
+import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 import 'package:my_blood/app/shared/widgets/custom_input_field.dart';
+import 'package:my_blood/app/shared/widgets/button_input_field.dart';
+import 'package:my_blood/app/shared/widgets/selector_input_field.dart';
+import 'package:my_blood/app/shared/widgets/date_input_field.dart';
 import 'package:provider/provider.dart';
 import 'package:my_blood/app/shared/widgets/list_tile_header.dart';
+import 'package:search_cep/search_cep.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -32,8 +37,8 @@ class _ProfilePageState extends State<ProfilePage> {
     super.didChangeDependencies();
     _controller ??= Provider.of<ProfileController>(context);
     _controller.getCurrentUser().then((user) {
-      _birthDateController..text = user.birthDate;
-      _genderController..text = user.gender;
+      _birthDateController.text = user.birthDate;
+      _genderController.text = user.gender;
       _bloodTypeController.text = user.bloodType;
       _phoneController.text = user.phone;
       _cepController.text = user.cep;
@@ -63,6 +68,22 @@ class _ProfilePageState extends State<ProfilePage> {
     if (formState.validate()) {
       formState.save();
       _controller.save();
+    }
+  }
+
+  _onSearchCep(text) async {
+    final infoCepJSON = await ViaCepSearchCep.searchInfoByCep(cep: text);
+    if (infoCepJSON.searchCepError == null) {
+      _addressController.text = infoCepJSON.logradouro;
+      _neighborhoodController.text = infoCepJSON.bairro;
+      _stateController.text = infoCepJSON.uf;
+      _cityController.text = infoCepJSON.localidade;
+    } else {
+      SnackBarHelper.showFailureMessage(
+        context,
+        title: 'Erro',
+        message: infoCepJSON.searchCepError.errorMessage ?? '',
+      );
     }
   }
 
@@ -105,11 +126,9 @@ class _ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Observer(builder: (_) {
-                  return CustomInputField(
+                  return DateInputField(
                     busy: !_controller.editable,
-                    controller: TextEditingController(
-                      text: _controller.user.birthDate,
-                    ),
+                    controller: _birthDateController,
                     label: 'Data de nascimento',
                     onSaved: (value) {
                       _controller.user.birthDate = value;
@@ -120,12 +139,11 @@ class _ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Observer(builder: (_) {
-                  return CustomInputField(
+                  return SelectorInputField(
                     busy: !_controller.editable,
-                    controller: TextEditingController(
-                      text: _controller.user.gender,
-                    ),
+                    controller: _genderController,
                     label: 'Sexo',
+                    items: ['Feminino', 'Masculino'],
                     onSaved: (value) {
                       _controller.user.gender = value;
                     },
@@ -135,12 +153,11 @@ class _ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Observer(builder: (_) {
-                  return CustomInputField(
+                  return SelectorInputField(
                     busy: !_controller.editable,
-                    controller: TextEditingController(
-                      text: _controller.user.bloodType,
-                    ),
+                    controller: _bloodTypeController,
                     label: 'Tipo Sanguíneo',
+                    items: ['A+', 'A-', 'B+', 'B-', 'AB-', 'AB+', 'O-', 'O+'],
                     onSaved: (value) {
                       _controller.user.bloodType = value;
                     },
@@ -152,9 +169,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Observer(builder: (_) {
                   return CustomInputField(
                     busy: !_controller.editable,
-                    controller: TextEditingController(
-                      text: _controller.user.phone,
-                    ),
+                    controller: _phoneController,
                     label: 'Telefone',
                     onSaved: (value) {
                       _controller.user.phone = value;
@@ -166,15 +181,14 @@ class _ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Observer(builder: (_) {
-                  return CustomInputField(
+                  return ButtonInputField(
                     busy: !_controller.editable,
-                    controller: TextEditingController(
-                      text: _controller.user.cep,
-                    ),
+                    controller: _cepController,
                     label: 'CEP',
                     onSaved: (value) {
                       _controller.user.cep = value;
                     },
+                    onPressed: _onSearchCep,
                   );
                 }),
               ),
@@ -183,9 +197,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Observer(builder: (_) {
                   return CustomInputField(
                     busy: !_controller.editable,
-                    controller: TextEditingController(
-                      text: _controller.user.address,
-                    ),
+                    controller: _addressController,
                     label: 'Endereço',
                     onSaved: (value) {
                       _controller.user.address = value;
@@ -198,9 +210,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Observer(builder: (_) {
                   return CustomInputField(
                     busy: !_controller.editable,
-                    controller: TextEditingController(
-                      text: _controller.user.neighborhood,
-                    ),
+                    controller: _neighborhoodController,
                     label: 'Bairro',
                     onSaved: (value) {
                       _controller.user.neighborhood = value;
@@ -213,9 +223,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Observer(builder: (_) {
                   return CustomInputField(
                     busy: !_controller.editable,
-                    controller: TextEditingController(
-                      text: _controller.user.state,
-                    ),
+                    controller: _stateController,
                     label: 'Estado',
                     onSaved: (value) {
                       _controller.user.state = value;
@@ -228,9 +236,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Observer(builder: (_) {
                   return CustomInputField(
                     busy: !_controller.editable,
-                    controller: TextEditingController(
-                      text: _controller.user.city,
-                    ),
+                    controller: _cityController,
                     label: 'Cidade',
                     onSaved: (value) {
                       _controller.user.city = value;

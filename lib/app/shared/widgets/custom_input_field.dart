@@ -24,23 +24,18 @@ class CustomInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          TextFormField(
-            enabled: !busy,
-            controller: controller,
-            keyboardType: textInputType,
-            validator: validator,
-            onSaved: onSaved,
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: label,
-              fillColor: fillColor,
-              filled: true,
-            ),
-          )
-        ],
+      child: TextFormField(
+        enabled: !busy,
+        controller: controller,
+        keyboardType: textInputType,
+        validator: validator,
+        onSaved: onSaved,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          labelText: label,
+          fillColor: fillColor,
+          filled: true,
+        ),
       ),
     );
   }

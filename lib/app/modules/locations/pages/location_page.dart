@@ -4,6 +4,7 @@ import 'package:my_blood/app/modules/locations/controllers/location_controller.d
 import 'package:my_blood/app/modules/locations/widgets/location_card.dart';
 import 'package:my_blood/app/shared/widgets/busy_container.dart';
 import 'package:provider/provider.dart';
+import 'editor_location_page.dart';
 
 class LocationPage extends StatefulWidget {
   @override
@@ -20,11 +21,22 @@ class _LocationPageState extends State<LocationPage> {
     _controller.fetch();
   }
 
+  _navigatorToNewLocation() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => EditorLocationsPage()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hemocentros'),
+        title: Text('Locais para doação'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: _navigatorToNewLocation,
       ),
       body: Observer(
         builder: (_) {

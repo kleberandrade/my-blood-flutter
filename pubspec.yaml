@@ -1,7 +1,7 @@
 name: my_blood
 description: A new Flutter project.
 publish_to: "none"
-version: 1.0.0+1
+version: 0.1.2+2
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -28,6 +28,8 @@ dependencies:
   extended_image: ^0.8.0
   intl: ^0.16.1
   expansion_tile_card: ^1.0.3
+  simple_speed_dial: ^0.1.0
+  search_cep: ^2.0.1+1
 
 dev_dependencies:
   flutter_test:

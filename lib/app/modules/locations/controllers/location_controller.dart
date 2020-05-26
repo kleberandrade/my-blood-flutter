@@ -19,6 +19,9 @@ abstract class _LocationControllerBase with Store {
   @observable
   ObservableList<LocationModel> locations = ObservableList<LocationModel>();
 
+  @observable
+  LocationModel location = LocationModel();
+
   @action
   void setBusy(value) => busy = value;
 
@@ -40,12 +43,24 @@ abstract class _LocationControllerBase with Store {
   }
 
   @action
-  add(LocationModel campaign) async {
-    locations.add(campaign);
+  Future create(LocationModel location) async {
+    setBusy(true);
+    await _repository.create(location);
+    locations.add(location);
+    setBusy(false);
   }
 
   @action
-  clear() async {
+  Future save() async {
+    create(location);
+  }
+
+  @action
+  clearLocations() async {
     locations.clear();
+  }
+
+  clearLocation() async {
+    location = new LocationModel();
   }
 }

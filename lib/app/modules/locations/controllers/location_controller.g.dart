@@ -39,6 +39,21 @@ mixin _$LocationController on _LocationControllerBase, Store {
     });
   }
 
+  final _$locationAtom = Atom(name: '_LocationControllerBase.location');
+
+  @override
+  LocationModel get location {
+    _$locationAtom.reportRead();
+    return super.location;
+  }
+
+  @override
+  set location(LocationModel value) {
+    _$locationAtom.reportWrite(value, super.location, () {
+      super.location = value;
+    });
+  }
+
   final _$fetchAsyncAction = AsyncAction('_LocationControllerBase.fetch');
 
   @override
@@ -46,18 +61,26 @@ mixin _$LocationController on _LocationControllerBase, Store {
     return _$fetchAsyncAction.run(() => super.fetch());
   }
 
-  final _$addAsyncAction = AsyncAction('_LocationControllerBase.add');
+  final _$createAsyncAction = AsyncAction('_LocationControllerBase.create');
 
   @override
-  Future add(LocationModel campaign) {
-    return _$addAsyncAction.run(() => super.add(campaign));
+  Future<dynamic> create(LocationModel location) {
+    return _$createAsyncAction.run(() => super.create(location));
   }
 
-  final _$clearAsyncAction = AsyncAction('_LocationControllerBase.clear');
+  final _$saveAsyncAction = AsyncAction('_LocationControllerBase.save');
 
   @override
-  Future clear() {
-    return _$clearAsyncAction.run(() => super.clear());
+  Future<dynamic> save() {
+    return _$saveAsyncAction.run(() => super.save());
+  }
+
+  final _$clearLocationsAsyncAction =
+      AsyncAction('_LocationControllerBase.clearLocations');
+
+  @override
+  Future clearLocations() {
+    return _$clearLocationsAsyncAction.run(() => super.clearLocations());
   }
 
   final _$_LocationControllerBaseActionController =
@@ -78,7 +101,8 @@ mixin _$LocationController on _LocationControllerBase, Store {
   String toString() {
     return '''
 busy: ${busy},
-locations: ${locations}
+locations: ${locations},
+location: ${location}
     ''';
   }
 }

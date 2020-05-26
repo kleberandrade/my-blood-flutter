@@ -6,4 +6,8 @@ class DateHelper {
   static String format(DateTime date) {
     return _format.format(date);
   }
+
+  static DateTime parse(String dateString) {
+    return _format.parse(dateString);
+  }
 }

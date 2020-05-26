@@ -12,11 +12,10 @@ class UserModel {
   String address;
   String city;
   String state;
-  String uf;
   String neighborhood;
   String birthDate;
   String lastDonationDate;
-  
+
   UserModel({
     this.uid,
     this.name,
@@ -29,7 +28,6 @@ class UserModel {
     this.address,
     this.city,
     this.state,
-    this.uf,
     this.neighborhood,
     this.birthDate,
     this.lastDonationDate,
@@ -47,7 +45,6 @@ class UserModel {
     String address,
     String city,
     String state,
-    String uf,
     String neighborhood,
     String birthDate,
     String lastDonationDate,
@@ -64,7 +61,6 @@ class UserModel {
       address: address ?? this.address,
       city: city ?? this.city,
       state: state ?? this.state,
-      uf: uf ?? this.uf,
       neighborhood: neighborhood ?? this.neighborhood,
       birthDate: birthDate ?? this.birthDate,
       lastDonationDate: lastDonationDate ?? this.lastDonationDate,
@@ -84,7 +80,6 @@ class UserModel {
       'address': address,
       'city': city,
       'state': state,
-      'uf': uf,
       'neighborhood': neighborhood,
       'birthDate': birthDate,
       'lastDonationDate': lastDonationDate,
@@ -106,7 +101,6 @@ class UserModel {
       address: map['address'],
       city: map['city'],
       state: map['state'],
-      uf: map['uf'],
       neighborhood: map['neighborhood'],
       birthDate: map['birthDate'],
       lastDonationDate: map['lastDonationDate'],
@@ -119,7 +113,7 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel(uid: $uid, name: $name, email: $email, picture: $picture, bloodType: $bloodType, phone: $phone, gender: $gender, cep: $cep, address: $address, city: $city, state: $state, uf: $uf, neighborhood: $neighborhood, birthDate: $birthDate, lastDonationDate: $lastDonationDate)';
+    return 'UserModel(uid: $uid, name: $name, email: $email, picture: $picture, bloodType: $bloodType, phone: $phone, gender: $gender, cep: $cep, address: $address, city: $city, state: $state, neighborhood: $neighborhood, birthDate: $birthDate, lastDonationDate: $lastDonationDate)';
   }
 
   @override
@@ -138,7 +132,6 @@ class UserModel {
         o.address == address &&
         o.city == city &&
         o.state == state &&
-        o.uf == uf &&
         o.neighborhood == neighborhood &&
         o.birthDate == birthDate &&
         o.lastDonationDate == lastDonationDate;
@@ -157,7 +150,6 @@ class UserModel {
         address.hashCode ^
         city.hashCode ^
         state.hashCode ^
-        uf.hashCode ^
         neighborhood.hashCode ^
         birthDate.hashCode ^
         lastDonationDate.hashCode;

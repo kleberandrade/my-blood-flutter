@@ -24,6 +24,7 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 
 <p align="center">
     <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/location_list.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/location_edit.png" width="200"/>
 </p>
 
 ## Funcionalidades
@@ -36,12 +37,12 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [ ] Trocar foto do perfil
 -   [ ] Histórico de doações
 -   [ ] Cadastrar campanhas
--   [x] Listar campanhas
+-   [ ] Listar campanhas
 -   [ ] Filtrar campanhas
 -   [ ] Registrar doação em campanha
 -   [ ] Compartilhar campanhas
--   [ ] Cadastrar hemocentros
--   [x] Listar hemocentros
+-   [x] Cadastrar locais para doação
+-   [x] Listar locais para doação
 -   [ ] Filtrar hemocentros
 -   [x] Dúvidas frequentes (FAQ)
 -   [ ] Chatbot

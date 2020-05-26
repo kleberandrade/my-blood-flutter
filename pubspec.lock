@@ -595,6 +595,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.3"
+  search_cep:
+    dependency: "direct main"
+    description:
+      name: search_cep
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1+1"
   shelf:
     dependency: transitive
     description:
@@ -609,6 +616,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.3"
+  simple_speed_dial:
+    dependency: "direct main"
+    description:
+      name: simple_speed_dial
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -747,6 +761,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.6.1"
+  xml2json:
+    dependency: transitive
+    description:
+      name: xml2json
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.2.0"
   yaml:
     dependency: transitive
     description:
