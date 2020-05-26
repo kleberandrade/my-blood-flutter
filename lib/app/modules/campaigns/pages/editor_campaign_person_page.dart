@@ -3,6 +3,9 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/campaigns/controllers/campaign_controller.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
 import 'package:my_blood/app/shared/widgets/custom_input_field.dart';
+import 'package:my_blood/app/shared/widgets/date_input_field.dart';
+import 'package:my_blood/app/shared/widgets/list_tile_header.dart';
+import 'package:my_blood/app/shared/widgets/selector_input_field.dart';
 import 'package:my_blood/app/shared/widgets/submit_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -44,6 +47,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
         child: Form(
           child: Column(
             children: <Widget>[
+              ListTileHeader('Dados do paciente', leftPadding: 0.0),
               Observer(builder: (_) {
                 return CustomInputField(
                   busy: _controller.busy,
@@ -53,25 +57,20 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
                 );
               }),
               Observer(builder: (_) {
-                return CustomInputField(
+                return SelectorInputField(
+                  busy: _controller.busy,
+                  label: 'Tipo Sanguíneo',
+                  items: ['A+', 'A-', 'B+', 'B-', 'AB-', 'AB+', 'O-', 'O+'],
+                  onSaved: (value) {
+                    //_controller.user.bloodType = value;
+                  },
+                );
+              }),
+              ListTileHeader('Dados da campanha', leftPadding: 0.0),
+              Observer(builder: (_) {
+                return DateInputField(
                   busy: _controller.busy,
                   label: 'Data final da solicitação',
-                  onSaved: (value) {},
-                  validator: Validator.isNotEmptyText,
-                );
-              }),
-              Observer(builder: (_) {
-                return CustomInputField(
-                  busy: _controller.busy,
-                  label: 'Tipo de doação',
-                  onSaved: (value) {},
-                  validator: Validator.isNotEmptyText,
-                );
-              }),
-              Observer(builder: (_) {
-                return CustomInputField(
-                  busy: _controller.busy,
-                  label: 'Tipo sanguíneo preferencial',
                   onSaved: (value) {},
                   validator: Validator.isNotEmptyText,
                 );
@@ -87,15 +86,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
               Observer(builder: (_) {
                 return CustomInputField(
                   busy: _controller.busy,
-                  label: 'Motivo da solicitação',
-                  onSaved: (value) {},
-                  validator: Validator.isNotEmptyText,
-                );
-              }),
-              Observer(builder: (_) {
-                return CustomInputField(
-                  busy: _controller.busy,
-                  label: 'Observações',
+                  label: 'Local para doação',
                   onSaved: (value) {},
                   validator: Validator.isNotEmptyText,
                 );
@@ -104,6 +95,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
               Observer(
                 builder: (_) {
                   return SubmitButton(
+                    label: 'Registrar',
                     busy: _controller.busy,
                     firstColor: accentColor,
                     secondColor: primaryColor,

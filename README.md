@@ -18,13 +18,17 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 </p>
 
 <p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/faq.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile_1.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile_2.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/location_list.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/location_edit.png" width="200"/>
 </p>
 
 <p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/location_list.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/location_edit.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/campaign_list.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/campaign_person_edit.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/campaign_location_edit.png" width="200"/>
+    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/faq.png" width="200"/>
 </p>
 
 ## Funcionalidades
@@ -34,7 +38,7 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [x] Registrar novo usuário
 -   [x] Esqueceu a senha?
 -   [x] Perfil do usuário (visualizar e editar)
--   [ ] Trocar foto do perfil
+-   [x] Trocar foto do perfil
 -   [ ] Histórico de doações
 -   [ ] Cadastrar campanhas
 -   [ ] Listar campanhas
@@ -47,6 +51,7 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 -   [x] Dúvidas frequentes (FAQ)
 -   [ ] Chatbot
 -   [ ] Notificações
+-   [x] Widget Cep, Sexo, Tipo sanguíneo e Data
 
 ## Ferramentas e Recursos
 
@@ -64,7 +69,7 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 
 ## Store
 
--   Play Store (em breve)
+-   Play Store: [com.kleberandrade.myblood](https://play.google.com/store/apps/details?id=com.kleberandrade.myblood)
 -   Apple Store (em breve)
 
 ## Publicações

@@ -30,6 +30,8 @@ dependencies:
   expansion_tile_card: ^1.0.3
   simple_speed_dial: ^0.1.0
   search_cep: ^2.0.1+1
+  firebase_storage: ^3.1.6
+  image_picker: ^0.6.6+4
 
 dev_dependencies:
   flutter_test:

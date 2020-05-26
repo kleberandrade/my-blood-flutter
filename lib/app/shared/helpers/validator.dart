@@ -7,7 +7,7 @@ class Validator {
   }
 
   static String isValidEmail(String value) {
-    Pattern pattern = r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+';
+    Pattern pattern = r'^[_a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+';
     RegExp regex = new RegExp(pattern);
     if (!regex.hasMatch(value))
       return 'Email inválido.';

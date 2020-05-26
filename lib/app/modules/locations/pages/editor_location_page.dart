@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/locations/controllers/location_controller.dart';
+import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
+import 'package:my_blood/app/shared/widgets/button_input_field.dart';
 import 'package:my_blood/app/shared/widgets/custom_input_field.dart';
+import 'package:my_blood/app/shared/widgets/list_tile_header.dart';
 import 'package:my_blood/app/shared/widgets/submit_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:search_cep/search_cep.dart';
 
 class EditorLocationsPage extends StatefulWidget {
   @override
@@ -57,6 +61,22 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
     }
   }
 
+  _onSearchCep(text) async {
+    final infoCepJSON = await ViaCepSearchCep.searchInfoByCep(cep: text);
+    if (infoCepJSON.searchCepError == null) {
+      _addressController.text = infoCepJSON.logradouro;
+      _neighborhoodController.text = infoCepJSON.bairro;
+      _stateController.text = infoCepJSON.uf;
+      _cityController.text = infoCepJSON.localidade;
+    } else {
+      SnackBarHelper.showFailureMessage(
+        context,
+        title: 'Erro',
+        message: infoCepJSON.searchCepError.errorMessage ?? '',
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +84,7 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
         title: Text('Novo local de doação'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(10.0),
         child: Form(
           key: _formKey,
           child: Column(
@@ -74,18 +94,19 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
                   busy: _controller.busy,
                   controller: _nameController,
                   label: 'Nome do local de doação',
-                  onSaved: (value){
+                  onSaved: (value) {
                     _controller.location.name = value;
                   },
                   validator: Validator.isNotEmptyText,
                 );
               }),
+              ListTileHeader('Contato', leftPadding: 0.0),
               Observer(builder: (_) {
                 return CustomInputField(
                   busy: _controller.busy,
                   controller: _phoneController,
                   label: 'Telefone',
-                  onSaved: (value){
+                  onSaved: (value) {
                     _controller.location.phone = value;
                   },
                 );
@@ -95,19 +116,21 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
                   busy: _controller.busy,
                   controller: _urlController,
                   label: 'Site',
-                  onSaved: (value){
+                  onSaved: (value) {
                     _controller.location.url = value;
                   },
                 );
               }),
+              ListTileHeader('Localização', leftPadding: 0.0),
               Observer(builder: (_) {
-                return CustomInputField(
+                return ButtonInputField(
                   busy: _controller.busy,
                   controller: _cepController,
                   label: 'CEP',
-                  onSaved: (value){
+                  onSaved: (value) {
                     _controller.location.cep = value;
                   },
+                  onPressed: _onSearchCep,
                 );
               }),
               Observer(builder: (_) {
@@ -115,7 +138,7 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
                   busy: _controller.busy,
                   controller: _addressController,
                   label: 'Endereço',
-                  onSaved: (value){
+                  onSaved: (value) {
                     _controller.location.address = value;
                   },
                   validator: Validator.isNotEmptyText,
@@ -126,7 +149,7 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
                   busy: _controller.busy,
                   controller: _neighborhoodController,
                   label: 'Bairro',
-                  onSaved: (value){
+                  onSaved: (value) {
                     _controller.location.neighborhood = value;
                   },
                   validator: Validator.isNotEmptyText,
@@ -137,7 +160,7 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
                   busy: _controller.busy,
                   controller: _cityController,
                   label: 'Cidade',
-                  onSaved: (value){
+                  onSaved: (value) {
                     _controller.location.city = value;
                   },
                   validator: Validator.isNotEmptyText,
@@ -148,26 +171,17 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
                   busy: _controller.busy,
                   controller: _stateController,
                   label: 'Estado',
-                  onSaved: (value){
+                  onSaved: (value) {
                     _controller.location.state = value;
                   },
                   validator: Validator.isNotEmptyText,
-                );
-              }),
-              Observer(builder: (_) {
-                return CustomInputField(
-                  busy: _controller.busy,
-                  controller: _ufController,
-                  label: 'UF',
-                  onSaved: (value){
-                    _controller.location.uf = value;
-                  },
                 );
               }),
               SizedBox(height: 20),
               Observer(
                 builder: (_) {
                   return SubmitButton(
+                    label: 'Registrar',
                     busy: _controller.busy,
                     firstColor: accentColor,
                     secondColor: primaryColor,

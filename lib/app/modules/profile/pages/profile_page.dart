@@ -122,36 +122,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       DateHelper.format(DateTime.now()),
                 );
               }),
-              ListTileHeader('Informações importantes'),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Observer(builder: (_) {
-                  return DateInputField(
-                    busy: !_controller.editable,
-                    controller: _birthDateController,
-                    label: 'Data de nascimento',
-                    onSaved: (value) {
-                      _controller.user.birthDate = value;
-                    },
-                  );
-                }),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Observer(builder: (_) {
-                  return SelectorInputField(
-                    busy: !_controller.editable,
-                    controller: _genderController,
-                    label: 'Sexo',
-                    items: ['Feminino', 'Masculino'],
-                    onSaved: (value) {
-                      _controller.user.gender = value;
-                    },
-                  );
-                }),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
                   return SelectorInputField(
                     busy: !_controller.editable,
@@ -165,7 +137,34 @@ class _ProfilePageState extends State<ProfilePage> {
                 }),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Observer(builder: (_) {
+                  return DateInputField(
+                    busy: !_controller.editable,
+                    controller: _birthDateController,
+                    label: 'Data de nascimento',
+                    onSaved: (value) {
+                      _controller.user.birthDate = value;
+                    },
+                  );
+                }),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Observer(builder: (_) {
+                  return SelectorInputField(
+                    busy: !_controller.editable,
+                    controller: _genderController,
+                    label: 'Sexo',
+                    items: ['Feminino', 'Masculino'],
+                    onSaved: (value) {
+                      _controller.user.gender = value;
+                    },
+                  );
+                }),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
                   return CustomInputField(
                     busy: !_controller.editable,
@@ -177,9 +176,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   );
                 }),
               ),
-              ListTileHeader('Informações opcionais'),
+              ListTileHeader('Localização'),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
                   return ButtonInputField(
                     busy: !_controller.editable,
@@ -193,7 +192,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 }),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
                   return CustomInputField(
                     busy: !_controller.editable,
@@ -206,7 +205,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 }),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
                   return CustomInputField(
                     busy: !_controller.editable,
@@ -219,7 +218,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 }),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
                   return CustomInputField(
                     busy: !_controller.editable,
@@ -232,7 +231,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 }),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
                   return CustomInputField(
                     busy: !_controller.editable,
