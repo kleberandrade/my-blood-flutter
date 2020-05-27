@@ -3,14 +3,14 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/locations/controllers/location_controller.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
-import 'package:my_blood/app/shared/widgets/button_input_field.dart';
-import 'package:my_blood/app/shared/widgets/custom_input_field.dart';
-import 'package:my_blood/app/shared/widgets/list_tile_header.dart';
-import 'package:my_blood/app/shared/widgets/submit_button.dart';
+import 'package:my_blood/app/shared/widgets/forms/button_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
+import 'package:my_blood/app/shared/widgets/dialogs/back_dialog.dart';
+import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
+import 'package:my_blood/app/shared/widgets/forms/submit_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:search_cep/search_cep.dart';
-import 'package:my_blood/app/shared/widgets/back_dialog.dart';
 
 class EditorLocationsPage extends StatefulWidget {
   @override

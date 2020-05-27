@@ -7,12 +7,12 @@ import 'package:my_blood/app/modules/profile/widgets/profile_header.dart';
 import 'package:my_blood/app/shared/helpers/date_helper.dart';
 import 'package:my_blood/app/shared/helpers/firebase_image_helper.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
-import 'package:my_blood/app/shared/widgets/custom_input_field.dart';
-import 'package:my_blood/app/shared/widgets/button_input_field.dart';
-import 'package:my_blood/app/shared/widgets/selector_input_field.dart';
-import 'package:my_blood/app/shared/widgets/date_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/button_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/selector_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
 import 'package:provider/provider.dart';
-import 'package:my_blood/app/shared/widgets/list_tile_header.dart';
+import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
 import 'package:search_cep/search_cep.dart';
 
 class ProfilePage extends StatefulWidget {

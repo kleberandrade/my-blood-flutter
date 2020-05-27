@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/faq/controllers/faq_controller.dart';
 import 'package:my_blood/app/modules/faq/widgets/faq_card.dart';
-import 'package:my_blood/app/shared/widgets/busy_container.dart';
+import 'package:my_blood/app/shared/widgets/containers/busy_container.dart';
 import 'package:provider/provider.dart';
 
 class FaqPage extends StatefulWidget {

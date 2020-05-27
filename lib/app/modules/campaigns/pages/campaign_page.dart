@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/campaigns/controllers/campaign_controller.dart';
 import 'package:my_blood/app/modules/campaigns/widgets/campaign_card.dart';
-import 'package:my_blood/app/shared/widgets/busy_container.dart';
+import 'package:my_blood/app/shared/widgets/containers/busy_container.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';

@@ -34,14 +34,11 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 - [x] Perfil do usuário
 - [x] Trocar foto do perfil
 - [ ] Histórico de doações
-- [ ] Cadastrar campanhas
-- [ ] Listar campanhas
-- [ ] Filtrar campanhas
-- [ ] Registrar doação em campanha
+- [x] Cadastrar campanhas
+- [x] Listar campanhas
 - [ ] Compartilhar campanhas
 - [x] Cadastrar locais para doação
 - [x] Listar locais para doação
-- [ ] Filtrar hemocentros
 - [x] Dúvidas frequentes (FAQ)
 - [ ] Chatbot
 - [ ] Notificações
@@ -80,11 +77,11 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 
 - Grabriela Dall'Agnol (Texugo)
 - Guilbert Adalson de Oliveira
+- Jessica Mariane Pereira
 - Kleber de Oliveira Andrade
 - Ricki Warley Villanueva Mujica
 - Romanti-Ezer Gomes dos Santos
 - Silas Rodrigues Gouveia Junior
-- Jessica Mariane Pereira
 
 ## Licença
 

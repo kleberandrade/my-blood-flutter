@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_blood/app/shared/widgets/centered_circular_progress.dart';
-import 'package:my_blood/app/shared/widgets/centered_message.dart';
+import 'package:my_blood/app/shared/widgets/containers/centered_circular_progress.dart';
+import 'package:my_blood/app/shared/widgets/containers/centered_message.dart';
 
 class BusyContainer extends StatelessWidget {
   final bool busy;

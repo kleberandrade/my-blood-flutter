@@ -4,13 +4,13 @@ import 'package:my_blood/app/modules/home/pages/home_page.dart';
 import 'package:my_blood/app/modules/login/controllers/account_controller.dart';
 import 'package:my_blood/app/modules/login/pages/forget_page.dart';
 import 'package:my_blood/app/modules/login/pages/sign_up_page.dart';
-import 'package:my_blood/app/shared/widgets/custom_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
 import 'package:my_blood/app/modules/login/widgets/logotipo.dart';
 import 'package:my_blood/app/modules/login/widgets/password_input_field.dart';
 import 'package:my_blood/app/modules/login/widgets/text_button.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
-import 'package:my_blood/app/shared/widgets/submit_button.dart';
+import 'package:my_blood/app/shared/widgets/forms/submit_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 

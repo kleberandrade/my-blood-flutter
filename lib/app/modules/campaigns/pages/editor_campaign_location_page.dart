@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/campaigns/controllers/campaign_controller.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
-import 'package:my_blood/app/shared/widgets/custom_input_field.dart';
-import 'package:my_blood/app/shared/widgets/date_input_field.dart';
-import 'package:my_blood/app/shared/widgets/list_tile_header.dart';
-import 'package:my_blood/app/shared/widgets/submit_button.dart';
+import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
+import 'package:my_blood/app/shared/widgets/forms/submit_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
