@@ -173,6 +173,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   return DateInputField(
                     busy: !_controller.editable,
                     controller: _birthDateController,
+                    textInputType: TextInputType.datetime,
                     label: 'Data de nascimento',
                     onSaved: (value) {
                       _controller.user.birthDate = value;
@@ -200,6 +201,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   return CustomInputField(
                     busy: !_controller.editable,
                     controller: _phoneController,
+                    textInputType: TextInputType.phone,
                     label: 'Telefone',
                     onSaved: (value) {
                       _controller.user.phone = value;
@@ -215,6 +217,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     busy: !_controller.editable,
                     controller: _cepController,
                     label: 'CEP',
+                    textInputType: TextInputType.number,
                     onSaved: (value) {
                       _controller.user.cep = value;
                     },
@@ -228,6 +231,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   return CustomInputField(
                     busy: !_controller.editable,
                     controller: _addressController,
+                    textInputType: TextInputType.text,
                     label: 'Endereço',
                     onSaved: (value) {
                       _controller.user.address = value;
@@ -241,6 +245,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   return CustomInputField(
                     busy: !_controller.editable,
                     controller: _neighborhoodController,
+                    textInputType: TextInputType.text,
                     label: 'Bairro',
                     onSaved: (value) {
                       _controller.user.neighborhood = value;
@@ -254,6 +259,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   return CustomInputField(
                     busy: !_controller.editable,
                     controller: _stateController,
+                    textInputType: TextInputType.text,
                     label: 'Estado',
                     onSaved: (value) {
                       _controller.user.state = value;
@@ -268,6 +274,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     busy: !_controller.editable,
                     controller: _cityController,
                     label: 'Cidade',
+                    textInputType: TextInputType.text,
                     onSaved: (value) {
                       _controller.user.city = value;
                     },
