@@ -40,7 +40,9 @@ class _SignUpPageState extends State<SignUpPage> {
     if (formState.validate()) {
       formState.save();
       _controller.signUpWithCredentials(
-          onSuccess: onSignUpSuccess, onError: onSignUpError);
+        onSuccess: onSignUpSuccess,
+        onError: onSignUpError,
+      );
     }
   }
 
@@ -49,6 +51,12 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   onSignUpSuccess() {
+    SnackBarHelper.showSuccessMessage(
+      context,
+      title: 'Sucesso',
+      message: 'Registro realizado com sucesso.',
+    );
+
     _controller.signInWithCredentials(
       onSuccess: navigatorToHomePage,
       onError: onSignInError,
@@ -60,8 +68,11 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   navigatorToHomePage() {
+    Navigator.pop(context);
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => HomePage()));
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
   }
 
   @override

@@ -28,13 +28,13 @@ abstract class _AccountControllerBase with Store {
   void setBusy(bool value) => busy = value;
 
   @action
-  void setEmail(String value) => userEmail = value;
+  void setEmail(String value) => userEmail = value.trim();
 
   @action
-  void setPassword(String value) => userPassword = value;
+  void setPassword(String value) => userPassword = value.trim();
 
   @action
-  void setName(String value) => userName = value;
+  void setName(String value) => userName = value.trim();
 
   @action
   Future signInWithCredentials(
@@ -52,7 +52,8 @@ abstract class _AccountControllerBase with Store {
       {Function onSuccess, Function(String) onError}) async {
     setBusy(true);
     _repository
-        .createUserWithEmailAndPassword(email: userEmail, password: userPassword, name: userName)
+        .createUserWithEmailAndPassword(
+            email: userEmail, password: userPassword, name: userName)
         .then((value) => onSuccess())
         .catchError(onError)
         .whenComplete(() => setBusy(false));
