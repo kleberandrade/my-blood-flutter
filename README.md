@@ -84,6 +84,7 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 - Ricki Warley Villanueva Mujica
 - Romanti-Ezer Gomes dos Santos
 - Silas Rodrigues Gouveia Junior
+- Jessica Mariane Pereira
 
 ## Licença
 
