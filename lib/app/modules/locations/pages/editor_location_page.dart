@@ -3,7 +3,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/locations/controllers/location_controller.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
-import 'package:my_blood/app/shared/widgets/forms/button_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
 import 'package:my_blood/app/shared/widgets/dialogs/back_dialog.dart';
 import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
@@ -11,6 +10,7 @@ import 'package:my_blood/app/shared/widgets/forms/submit_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:search_cep/search_cep.dart';
+import 'package:my_blood/app/shared/widgets/forms/cep_button_input_field.dart';
 
 class EditorLocationsPage extends StatefulWidget {
   @override
@@ -29,7 +29,6 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
   final _ufController = TextEditingController();
   final _urlController = TextEditingController();
   final _phoneController = TextEditingController();
-
   LocationController _controller;
 
   @override
@@ -140,9 +139,8 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
                   }),
                   ListTileHeader('Localização', leftPadding: 0.0),
                   Observer(builder: (_) {
-                    return ButtonInputField(
+                    return CepButtonInputField(
                       busy: _controller.busy,
-                      controller: _cepController,
                       label: 'CEP',
                       onSaved: (value) {
                         _controller.location.cep = value;

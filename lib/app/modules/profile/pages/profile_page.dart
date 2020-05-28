@@ -8,7 +8,7 @@ import 'package:my_blood/app/shared/helpers/date_helper.dart';
 import 'package:my_blood/app/shared/helpers/firebase_image_helper.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
-import 'package:my_blood/app/shared/widgets/forms/button_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/cep_button_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/selector_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
 import 'package:provider/provider.dart';
@@ -213,9 +213,10 @@ class _ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
-                  return ButtonInputField(
+                  return CepButtonInputField(
                     busy: !_controller.editable,
                     controller: _cepController,
+                    textInput: _controller.user.cep,
                     label: 'CEP',
                     textInputType: TextInputType.number,
                     onSaved: (value) {
