@@ -60,6 +60,7 @@ abstract class _LocationControllerBase with Store {
     locations.clear();
   }
 
+  @action
   clearLocation() async {
     location = new LocationModel();
   }

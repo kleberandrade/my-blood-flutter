@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:my_blood/app/modules/campaigns/controllers/campaign_location_controller.dart';
 import 'package:my_blood/app/modules/faq/controllers/faq_controller.dart';
 import 'package:my_blood/app/modules/locations/controllers/location_controller.dart';
 import 'package:my_blood/app/modules/login/controllers/account_controller.dart';
 import 'package:my_blood/app/modules/login/pages/splash_page.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
-
-import 'app/modules/campaigns/controllers/campaign_controller.dart';
+import 'app/modules/campaigns/controllers/campaign_person_controller.dart';
 import 'app/modules/profile/controllers/profile_controller.dart';
 
 void main() {
@@ -27,7 +27,8 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider<AccountController>.value(value: AccountController()),
         Provider<ProfileController>.value(value: ProfileController()),
-        Provider<CampaignController>.value(value: CampaignController()),
+        Provider<CampaignPersonController>.value(value: CampaignPersonController()),
+        Provider<CampaignLocationController>.value(value: CampaignLocationController()),
         Provider<LocationController>.value(value: LocationController()),
         Provider<FaqController>.value(value: FaqController()),
       ],
