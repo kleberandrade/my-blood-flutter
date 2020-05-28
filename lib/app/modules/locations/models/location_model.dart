@@ -10,6 +10,8 @@ class LocationModel {
   String neighborhood;
   String url;
   String phone;
+  String number;
+  String complemento;
 
   LocationModel({
     this.name,
@@ -21,6 +23,8 @@ class LocationModel {
     this.neighborhood,
     this.url,
     this.phone,
+     this.number,
+    this.complemento,
   });
 
   LocationModel copyWith({
@@ -33,6 +37,8 @@ class LocationModel {
     String neighborhood,
     String url,
     String phone,
+    String number,
+    String complemento,
   }) {
     return LocationModel(
       name: name ?? this.name,
@@ -44,6 +50,8 @@ class LocationModel {
       neighborhood: neighborhood ?? this.neighborhood,
       url: url ?? this.url,
       phone: phone ?? this.phone,
+      number: number ?? this.number,
+      complemento: complemento ?? this.complemento,
     );
   }
 
@@ -58,6 +66,8 @@ class LocationModel {
       'neighborhood': neighborhood,
       'url': url,
       'phone': phone,
+      'number': number,
+      'complemento': complemento,
     };
   }
 
@@ -74,6 +84,8 @@ class LocationModel {
       neighborhood: map['neighborhood'],
       url: map['url'],
       phone: map['phone'],
+      number: map['number'],
+      complemento: map['complemento'],
     );
   }
 
@@ -83,11 +95,12 @@ class LocationModel {
 
   @override
   String toString() {
-    return 'LocationModel(name: $name, cep: $cep, address: $address, city: $city, state: $state, uf: $uf, neighborhood: $neighborhood, url: $url, phone: $phone)';
+    return 'LocationModel(name: $name, cep: $cep, address: $address, city: $city, state: $state, uf: $uf, neighborhood: $neighborhood, url: $url, phone: $phone, number: $number, complemento: $complemento)';
   }
 
   String getFullAddress({bool useUf = true}) {
     var completeAddress = address != null ? '${address ?? ''}' : '';
+    completeAddress += number != null ? ', $number' : '';
     completeAddress += neighborhood != null ? ', $neighborhood' : '';
     completeAddress += cep != null ? ', $cep' : '';
     completeAddress += city != null ? ', $city' : '';
@@ -108,7 +121,9 @@ class LocationModel {
         o.uf == uf &&
         o.neighborhood == neighborhood &&
         o.url == url &&
-        o.phone == phone;
+        o.phone == phone &&
+        o.number == number &&
+        o.complemento == complemento;
   }
 
   @override
@@ -121,6 +136,8 @@ class LocationModel {
         uf.hashCode ^
         neighborhood.hashCode ^
         url.hashCode ^
-        phone.hashCode;
+        phone.hashCode ^
+        number.hashCode ^
+        complemento.hashCode;
   }
 }

@@ -32,6 +32,8 @@ class _ProfilePageState extends State<ProfilePage> {
   final _phoneController = TextEditingController();
   final _cepController = MaskedTextController(mask: Mask.cepMask);
   final _addressController = TextEditingController();
+  final _numberController = TextEditingController();
+  final _complementoController = TextEditingController();
   final _neighborhoodController = TextEditingController();
   final _stateController = TextEditingController();
   final _cityController = TextEditingController();
@@ -49,6 +51,8 @@ class _ProfilePageState extends State<ProfilePage> {
       _phoneController.text = user.phone;
       _cepController.text = user.cep;
       _addressController.text = user.address;
+      _numberController.text = user.number;
+      _complementoController.text = user.complemento;
       _neighborhoodController.text = user.neighborhood;
       _stateController.text = user.state;
       _cityController.text = user.city;
@@ -238,6 +242,34 @@ class _ProfilePageState extends State<ProfilePage> {
                     label: 'Endereço',
                     onSaved: (value) {
                       _controller.user.address = value;
+                    },
+                  );
+                }),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Observer(builder: (_) {
+                  return CustomInputField(
+                    busy: !_controller.editable,
+                    controller: _numberController,
+                    textInputType: TextInputType.text,
+                    label: 'Número',
+                    onSaved: (value) {
+                      _controller.user.number = value;
+                    },
+                  );
+                }),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Observer(builder: (_) {
+                  return CustomInputField(
+                    busy: !_controller.editable,
+                    controller: _complementoController,
+                    textInputType: TextInputType.text,
+                    label: 'Complemento',
+                    onSaved: (value) {
+                      _controller.user.complemento = value;
                     },
                   );
                 }),

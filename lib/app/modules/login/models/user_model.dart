@@ -15,6 +15,8 @@ class UserModel {
   String neighborhood;
   String birthDate;
   String lastDonationDate;
+  String number;
+  String complemento;
 
   UserModel({
     this.uid,
@@ -31,6 +33,8 @@ class UserModel {
     this.neighborhood,
     this.birthDate,
     this.lastDonationDate,
+    this.number,
+    this.complemento,
   });
 
   UserModel copyWith({
@@ -48,6 +52,8 @@ class UserModel {
     String neighborhood,
     String birthDate,
     String lastDonationDate,
+    String number,
+    String complemento,
   }) {
     return UserModel(
       uid: uid ?? this.uid,
@@ -64,6 +70,8 @@ class UserModel {
       neighborhood: neighborhood ?? this.neighborhood,
       birthDate: birthDate ?? this.birthDate,
       lastDonationDate: lastDonationDate ?? this.lastDonationDate,
+      number: number ?? this.number,
+      complemento: complemento ?? this.complemento,
     );
   }
 
@@ -83,6 +91,8 @@ class UserModel {
       'neighborhood': neighborhood,
       'birthDate': birthDate,
       'lastDonationDate': lastDonationDate,
+      'number': number,
+      'complemento': complemento,
     };
   }
 
@@ -104,6 +114,8 @@ class UserModel {
       neighborhood: map['neighborhood'],
       birthDate: map['birthDate'],
       lastDonationDate: map['lastDonationDate'],
+      number: map['number'],
+      complemento: map['complemento'],
     );
   }
 
@@ -113,7 +125,7 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel(uid: $uid, name: $name, email: $email, picture: $picture, bloodType: $bloodType, phone: $phone, gender: $gender, cep: $cep, address: $address, city: $city, state: $state, neighborhood: $neighborhood, birthDate: $birthDate, lastDonationDate: $lastDonationDate)';
+    return 'UserModel(uid: $uid, name: $name, email: $email, picture: $picture, bloodType: $bloodType, phone: $phone, gender: $gender, cep: $cep, address: $address, city: $city, state: $state, neighborhood: $neighborhood, birthDate: $birthDate, lastDonationDate: $lastDonationDate, number: $number, complemento: $complemento)';
   }
 
   @override
@@ -134,7 +146,9 @@ class UserModel {
         o.state == state &&
         o.neighborhood == neighborhood &&
         o.birthDate == birthDate &&
-        o.lastDonationDate == lastDonationDate;
+        o.lastDonationDate == lastDonationDate &&
+        o.number == number &&
+        o.complemento == complemento;
   }
 
   @override
@@ -152,6 +166,8 @@ class UserModel {
         state.hashCode ^
         neighborhood.hashCode ^
         birthDate.hashCode ^
-        lastDonationDate.hashCode;
+        lastDonationDate.hashCode ^
+        number.hashCode ^
+        complemento.hashCode;
   }
 }

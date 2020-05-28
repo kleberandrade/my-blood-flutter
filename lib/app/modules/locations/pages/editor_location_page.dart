@@ -25,6 +25,8 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
   final _nameController = TextEditingController();
   final _cepController = MaskedTextController(mask: Mask.cepMask);
   final _addressController = TextEditingController();
+  final _numberController = TextEditingController();
+  final _complementoController = TextEditingController();
   final _neighborhoodController = TextEditingController();
   final _stateController = TextEditingController();
   final _cityController = TextEditingController();
@@ -48,6 +50,8 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
     _phoneController.dispose();
     _cepController.dispose();
     _addressController.dispose();
+    _numberController.dispose();
+    _complementoController.dispose();
     _neighborhoodController.dispose();
     _stateController.dispose();
     _cityController.dispose();
@@ -160,6 +164,28 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
                       label: 'Endereço',
                       onSaved: (value) {
                         _controller.location.address = value;
+                      },
+                      validator: Validator.isNotEmptyText,
+                    );
+                  }),
+                  Observer(builder: (_) {
+                    return CustomInputField(
+                      busy: _controller.busy,
+                      controller: _numberController,
+                      label: 'Número',
+                      onSaved: (value) {
+                        _controller.location.number = value;
+                      },
+                      validator: Validator.isNotEmptyText,
+                    );
+                  }),
+                  Observer(builder: (_) {
+                    return CustomInputField(
+                      busy: _controller.busy,
+                      controller: _complementoController,
+                      label: 'Complemento',
+                      onSaved: (value) {
+                        _controller.location.complemento = value;
                       },
                       validator: Validator.isNotEmptyText,
                     );
