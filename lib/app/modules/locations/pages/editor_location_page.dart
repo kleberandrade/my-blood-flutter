@@ -10,7 +10,9 @@ import 'package:my_blood/app/shared/widgets/forms/submit_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:search_cep/search_cep.dart';
-import 'package:my_blood/app/shared/widgets/forms/cep_button_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/button_input_field.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:my_blood/app/shared/masks.dart';
 
 class EditorLocationsPage extends StatefulWidget {
   @override
@@ -21,7 +23,7 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
   final _formKey = new GlobalKey<FormState>();
 
   final _nameController = TextEditingController();
-  final _cepController = TextEditingController();
+  final _cepController = MaskedTextController(mask: Mask.cepMask);
   final _addressController = TextEditingController();
   final _neighborhoodController = TextEditingController();
   final _stateController = TextEditingController();
@@ -121,6 +123,7 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
                     return CustomInputField(
                       busy: _controller.busy,
                       controller: _phoneController,
+                      textInputType: TextInputType.number,
                       label: 'Telefone',
                       onSaved: (value) {
                         _controller.location.phone = value;
@@ -139,8 +142,10 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
                   }),
                   ListTileHeader('Localização', leftPadding: 0.0),
                   Observer(builder: (_) {
-                    return CepButtonInputField(
+                    return ButtonInputField(
                       busy: _controller.busy,
+                      controller: _cepController,
+                      textInputType: TextInputType.number,
                       label: 'CEP',
                       onSaved: (value) {
                         _controller.location.cep = value;

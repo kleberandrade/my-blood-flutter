@@ -7,13 +7,16 @@ import 'package:my_blood/app/modules/profile/widgets/profile_header.dart';
 import 'package:my_blood/app/shared/helpers/date_helper.dart';
 import 'package:my_blood/app/shared/helpers/firebase_image_helper.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
+import 'package:my_blood/app/shared/widgets/forms/button_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
-import 'package:my_blood/app/shared/widgets/forms/cep_button_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/selector_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
 import 'package:provider/provider.dart';
 import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
 import 'package:search_cep/search_cep.dart';
+import 'package:flutter_masked_text/flutter_masked_text.dart';
+import 'package:my_blood/app/shared/masks.dart';
+
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -27,7 +30,7 @@ class _ProfilePageState extends State<ProfilePage> {
   final _genderController = TextEditingController();
   final _bloodTypeController = TextEditingController();
   final _phoneController = TextEditingController();
-  final _cepController = TextEditingController();
+  final _cepController = MaskedTextController(mask: Mask.cepMask);
   final _addressController = TextEditingController();
   final _neighborhoodController = TextEditingController();
   final _stateController = TextEditingController();
@@ -213,10 +216,9 @@ class _ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
-                  return CepButtonInputField(
+                  return ButtonInputField(
                     busy: !_controller.editable,
                     controller: _cepController,
-                    textInput: _controller.user.cep,
                     label: 'CEP',
                     textInputType: TextInputType.number,
                     onSaved: (value) {
