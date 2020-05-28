@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:my_blood/app/modules/campaigns/controllers/campaign_controller.dart';
-import 'package:my_blood/app/modules/campaigns/widgets/campaign_card.dart';
-import 'package:my_blood/app/shared/widgets/containers/busy_container.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
-import 'package:provider/provider.dart';
-import 'package:simple_speed_dial/simple_speed_dial.dart';
-
-import 'editor_campaign_location_page.dart';
-import 'editor_campaign_person_page.dart';
+import 'campaign_person_page.dart';
+import 'campaign_location_page.dart';
 
 class CampaignPage extends StatefulWidget {
   @override
@@ -16,6 +8,8 @@ class CampaignPage extends StatefulWidget {
 }
 
 class _CampaignPageState extends State<CampaignPage> {
+
+/*
   CampaignController _controller;
 
   @override
@@ -38,14 +32,59 @@ class _CampaignPageState extends State<CampaignPage> {
       MaterialPageRoute(builder: (context) => EditorCampaignPersonPage()),
     );
   }
+*/
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Campanhas'),
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Campanhas'),
+          bottom: TabBar(
+              labelColor: Colors.redAccent,
+              unselectedLabelColor: Colors.white,
+              indicatorSize: TabBarIndicatorSize.label,
+              indicator: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10)),
+                  color: Colors.white),
+              tabs: [
+                Tab(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text("APPS"),
+                  ),
+                ),
+                Tab(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text("MOVIES"),
+                  ),
+                ),
+                Tab(
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Text("GAMES"),
+                  ),
+                ),
+              ]),
+        ),
+        body: TabBarView(
+          children: <Widget>[
+            CampaignPersonPage(),
+            CampaignLocationPage(),
+          ],
+        ),
       ),
-      floatingActionButton: SpeedDial(
+    );
+  }
+}
+
+/*
+
+ floatingActionButton: SpeedDial(
         child: Icon(Icons.add),
         speedDialChildren: <SpeedDialChild>[
           SpeedDialChild(
@@ -87,6 +126,5 @@ class _CampaignPageState extends State<CampaignPage> {
           );
         },
       ),
-    );
-  }
-}
+
+      */

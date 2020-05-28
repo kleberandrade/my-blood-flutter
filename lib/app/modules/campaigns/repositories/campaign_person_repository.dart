@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:my_blood/app/modules/campaigns/models/campaign_model.dart';
+import 'package:my_blood/app/modules/campaigns/models/campaign_person_model.dart';
 
-class CampaignLocationRepository {
-  final _collection = Firestore.instance.collection('campaigns_location');
+class CampaignPersonRepository {
+  final _collection = Firestore.instance.collection('campaigns_person');
 
   Future<QuerySnapshot> getDocuments() {
     return _collection.getDocuments();
@@ -16,11 +16,11 @@ class CampaignLocationRepository {
     return _collection.snapshots();
   }
 
-  Future<DocumentReference> create(CampaignModel campaign) async {
+  Future<DocumentReference> create(CampaignPersonModel campaign) async {
     return _collection.add(campaign.toMap());
   }
 
-  Future update(String id, CampaignModel campaign) {
+  Future update(String id, CampaignPersonModel campaign) {
     return _collection.document(id).updateData(campaign.toMap());
   }
 

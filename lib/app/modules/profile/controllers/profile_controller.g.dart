@@ -84,6 +84,17 @@ mixin _$ProfileController on _ProfileControllerBase, Store {
   }
 
   @override
+  void setPicture(String pictureUrl) {
+    final _$actionInfo = _$_ProfileControllerBaseActionController.startAction(
+        name: '_ProfileControllerBase.setPicture');
+    try {
+      return super.setPicture(pictureUrl);
+    } finally {
+      _$_ProfileControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 editable: ${editable},

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:my_blood/app/modules/campaigns/controllers/campaign_controller.dart';
+import 'package:my_blood/app/modules/campaigns/controllers/campaign_person_controller.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
@@ -19,12 +19,12 @@ class EditorCampaignPersonPage extends StatefulWidget {
 class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
   final _formKey = new GlobalKey<FormState>();
 
-  CampaignController _controller;
+  CampaignPersonController _controller;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _controller ??= Provider.of<CampaignController>(context);
+    _controller ??= Provider.of<CampaignPersonController>(context);
   }
 
   _save() {

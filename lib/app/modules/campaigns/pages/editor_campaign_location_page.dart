@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:my_blood/app/modules/campaigns/controllers/campaign_controller.dart';
+import 'package:my_blood/app/modules/campaigns/controllers/campaign_location_controller.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
@@ -19,12 +19,12 @@ class _EditorCampaignLocationPageState
     extends State<EditorCampaignLocationPage> {
   final _formKey = new GlobalKey<FormState>();
 
-  CampaignController _controller;
+  CampaignLocationController _controller;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _controller ??= Provider.of<CampaignController>(context);
+    _controller ??= Provider.of<CampaignLocationController>(context);
   }
 
   _save() {
