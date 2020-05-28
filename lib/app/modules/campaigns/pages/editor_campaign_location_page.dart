@@ -5,6 +5,7 @@ import 'package:my_blood/app/shared/helpers/validator.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
+import 'package:my_blood/app/shared/widgets/forms/selector_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/submit_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -21,10 +22,22 @@ class _EditorCampaignLocationPageState
 
   CampaignLocationController _controller;
 
+  final _startDateController = TextEditingController();
+  final _endDateController = TextEditingController();
+  final _bloodTypeController = TextEditingController();
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     _controller ??= Provider.of<CampaignLocationController>(context);
+  }
+
+  @override
+  void dispose() {
+    _startDateController.dispose();
+    _endDateController.dispose();
+    _bloodTypeController.dispose();
+    super.dispose();
   }
 
   _save() {
@@ -45,6 +58,7 @@ class _EditorCampaignLocationPageState
       body: SingleChildScrollView(
         padding: EdgeInsets.all(10.0),
         child: Form(
+          key: _formKey,
           child: Column(
             children: <Widget>[
               ListTileHeader('Dados da campanha', leftPadding: 0.0),
@@ -69,13 +83,14 @@ class _EditorCampaignLocationPageState
                 );
               }),
               Observer(builder: (_) {
-                return CustomInputField(
+                return SelectorInputField(
                   busy: _controller.busy,
-                  label: 'Tipo sanguíneo',
+                  controller: _bloodTypeController,
+                  label: 'Tipo Sanguíneo',
+                  items: ['A+', 'A-', 'B+', 'B-', 'AB-', 'AB+', 'O-', 'O+'],
                   onSaved: (value) {
                     _controller.campaign.bloodType = value;
                   },
-                  validator: Validator.isNotEmptyText,
                 );
               }),
               Observer(builder: (_) {
@@ -92,21 +107,23 @@ class _EditorCampaignLocationPageState
               Observer(builder: (_) {
                 return DateInputField(
                   busy: _controller.busy,
+                  controller: _startDateController,
+                  textInputType: TextInputType.datetime,
                   label: 'Data de início',
                   onSaved: (value) {
                     _controller.campaign.startDate = value;
                   },
-                  validator: Validator.isNotEmptyText,
                 );
               }),
               Observer(builder: (_) {
                 return DateInputField(
                   busy: _controller.busy,
+                  controller: _endDateController,
+                  textInputType: TextInputType.datetime,
                   label: 'Data de término',
                   onSaved: (value) {
                     _controller.campaign.endDate = value;
                   },
-                  validator: Validator.isNotEmptyText,
                 );
               }),
               SizedBox(height: 20),

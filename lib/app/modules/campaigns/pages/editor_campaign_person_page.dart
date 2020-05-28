@@ -21,10 +21,20 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
 
   CampaignPersonController _controller;
 
+  final _endDateController = TextEditingController();
+  final _bloodTypeController = TextEditingController();
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     _controller ??= Provider.of<CampaignPersonController>(context);
+  }
+
+  @override
+  void dispose() {
+    _endDateController.dispose();
+    _bloodTypeController.dispose();
+    super.dispose();
   }
 
   _save() {
@@ -45,6 +55,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
       body: SingleChildScrollView(
         padding: EdgeInsets.all(10.0),
         child: Form(
+          key: _formKey,
           child: Column(
             children: <Widget>[
               ListTileHeader('Dados do paciente', leftPadding: 0.0),
@@ -61,6 +72,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
               Observer(builder: (_) {
                 return SelectorInputField(
                   busy: _controller.busy,
+                  controller: _bloodTypeController,
                   label: 'Tipo Sanguíneo',
                   items: ['A+', 'A-', 'B+', 'B-', 'AB-', 'AB+', 'O-', 'O+'],
                   onSaved: (value) {
@@ -72,6 +84,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
               Observer(builder: (_) {
                 return DateInputField(
                   busy: _controller.busy,
+                  controller: _endDateController,
                   label: 'Data final da solicitação',
                   onSaved: (value) {
                     _controller.campaign.endDate = value;

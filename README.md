@@ -37,6 +37,7 @@ Aplicativo para tornar as doações de sangue mais simples tanto para quem preci
 - [x] Cadastrar campanhas
 - [x] Listar campanhas
 - [ ] Compartilhar campanhas
+- [ ] Registrar doação em campanhas
 - [x] Cadastrar locais para doação
 - [x] Listar locais para doação
 - [x] Dúvidas frequentes (FAQ)
