@@ -31,7 +31,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
     final formState = _formKey.currentState;
     if (formState.validate()) {
       formState.save();
-      //_controller.save();
+      _controller.save();
       Navigator.pop(context);
     }
   }
@@ -52,7 +52,9 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
                 return CustomInputField(
                   busy: _controller.busy,
                   label: 'Nome do paciente',
-                  onSaved: (value) {},
+                  onSaved: (value) {
+                    _controller.campaign.name = value;
+                  },
                   validator: Validator.isNotEmptyText,
                 );
               }),
@@ -62,7 +64,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
                   label: 'Tipo Sanguíneo',
                   items: ['A+', 'A-', 'B+', 'B-', 'AB-', 'AB+', 'O-', 'O+'],
                   onSaved: (value) {
-                    //_controller.user.bloodType = value;
+                    _controller.campaign.bloodType = value;
                   },
                 );
               }),
@@ -71,7 +73,9 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
                 return DateInputField(
                   busy: _controller.busy,
                   label: 'Data final da solicitação',
-                  onSaved: (value) {},
+                  onSaved: (value) {
+                    _controller.campaign.endDate = value;
+                  },
                   validator: Validator.isNotEmptyText,
                 );
               }),
@@ -79,7 +83,9 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
                 return CustomInputField(
                   busy: _controller.busy,
                   label: 'Local de internação',
-                  onSaved: (value) {},
+                  onSaved: (value) {
+                    _controller.campaign.hospitalization = value;
+                  },
                   validator: Validator.isNotEmptyText,
                 );
               }),
@@ -87,7 +93,9 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
                 return CustomInputField(
                   busy: _controller.busy,
                   label: 'Local para doação',
-                  onSaved: (value) {},
+                  onSaved: (value) {
+                    _controller.campaign.location = value;
+                  },
                   validator: Validator.isNotEmptyText,
                 );
               }),

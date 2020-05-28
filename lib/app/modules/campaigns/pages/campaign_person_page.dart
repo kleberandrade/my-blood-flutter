@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/campaigns/controllers/campaign_person_controller.dart';
+import 'package:my_blood/app/modules/campaigns/pages/editor_campaign_person_page.dart';
+import 'package:my_blood/app/modules/campaigns/widgets/campaign_person_card.dart';
 import 'package:my_blood/app/shared/widgets/containers/busy_container.dart';
 import 'package:provider/provider.dart';
 
@@ -18,20 +20,21 @@ class _CampaignPersonPageState extends State<CampaignPersonPage> {
     _controller ??= Provider.of<CampaignPersonController>(context);
     _controller.fetch();
   }
-/*
-  _navigatorToNewLocation() {
+
+
+  _navigatorToNewCampaignPerson() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => EditorLocationsPage()),
+      MaterialPageRoute(builder: (context) => EditorCampaignPersonPage()),
     );
   }
-*/
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: _navigatorToNewCampaignPerson,
       ),
       body: Observer(
         builder: (_) {
@@ -42,8 +45,8 @@ class _CampaignPersonPageState extends State<CampaignPersonPage> {
               shrinkWrap: true,
               itemCount: _controller.campaigns.length,
               itemBuilder: (context, index) {
-                //final location = _controller.locations[index];
-                //1return LocationCard(location: location);
+                final campaign = _controller.campaigns[index];
+                return CampaignPersonCard(campaign: campaign);
               },
             ),
             length: _controller.campaigns.length,

@@ -17,6 +17,9 @@ abstract class _CampaignPersonControllerBase with Store {
   bool busy = false;
 
   @observable
+  CampaignPersonModel campaign = CampaignPersonModel();
+
+  @observable
   ObservableList<CampaignPersonModel> campaigns =
       ObservableList<CampaignPersonModel>();
 
@@ -42,12 +45,25 @@ abstract class _CampaignPersonControllerBase with Store {
   }
 
   @action
-  add(CampaignPersonModel campaign) async {
+  Future create(CampaignPersonModel campaign) async {
+    setBusy(true);
+    await _repository.create(campaign);
     campaigns.add(campaign);
+    setBusy(false);
   }
 
   @action
-  clear() async {
+  Future save() async {
+    create(campaign);
+  }
+
+  @action
+  clearLocations() async {
     campaigns.clear();
+  }
+
+  @action
+  clearLocation() async {
+    campaign = new CampaignPersonModel();
   }
 }

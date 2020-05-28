@@ -83,6 +83,14 @@ mixin _$LocationController on _LocationControllerBase, Store {
     return _$clearLocationsAsyncAction.run(() => super.clearLocations());
   }
 
+  final _$clearLocationAsyncAction =
+      AsyncAction('_LocationControllerBase.clearLocation');
+
+  @override
+  Future clearLocation() {
+    return _$clearLocationAsyncAction.run(() => super.clearLocation());
+  }
+
   final _$_LocationControllerBaseActionController =
       ActionController(name: '_LocationControllerBase');
 

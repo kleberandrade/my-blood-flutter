@@ -1,6 +1,6 @@
 import 'package:mobx/mobx.dart';
 import 'package:my_blood/app/modules/campaigns/models/campaign_location_model.dart';
-import 'package:my_blood/app/modules/campaigns/repositories/campaign_repository.dart';
+import 'package:my_blood/app/modules/campaigns/repositories/campaign_location_repository.dart';
 
 part 'campaign_location_controller.g.dart';
 
@@ -15,6 +15,9 @@ abstract class _CampaignLocationControllerBase with Store {
 
   @observable
   bool busy = false;
+
+  @observable
+  CampaignLocationModel campaign = CampaignLocationModel();
 
   @observable
   ObservableList<CampaignLocationModel> campaigns = ObservableList<CampaignLocationModel>();
@@ -39,14 +42,27 @@ abstract class _CampaignLocationControllerBase with Store {
 
     setBusy(false);
   }
-
+  
   @action
-  add(CampaignLocationModel campaign) async {
+  Future create(CampaignLocationModel campaign) async {
+    setBusy(true);
+    await _repository.create(campaign);
     campaigns.add(campaign);
+    setBusy(false);
   }
 
   @action
-  clear() async {
+  Future save() async {
+    create(campaign);
+  }
+
+  @action
+  clearLocations() async {
     campaigns.clear();
+  }
+
+  @action
+  clearLocation() async {
+    campaign = new CampaignLocationModel();
   }
 }

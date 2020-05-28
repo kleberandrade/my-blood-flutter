@@ -24,6 +24,21 @@ mixin _$CampaignLocationController on _CampaignLocationControllerBase, Store {
     });
   }
 
+  final _$campaignAtom = Atom(name: '_CampaignLocationControllerBase.campaign');
+
+  @override
+  CampaignLocationModel get campaign {
+    _$campaignAtom.reportRead();
+    return super.campaign;
+  }
+
+  @override
+  set campaign(CampaignLocationModel value) {
+    _$campaignAtom.reportWrite(value, super.campaign, () {
+      super.campaign = value;
+    });
+  }
+
   final _$campaignsAtom =
       Atom(name: '_CampaignLocationControllerBase.campaigns');
 
@@ -48,19 +63,35 @@ mixin _$CampaignLocationController on _CampaignLocationControllerBase, Store {
     return _$fetchAsyncAction.run(() => super.fetch());
   }
 
-  final _$addAsyncAction = AsyncAction('_CampaignLocationControllerBase.add');
+  final _$createAsyncAction =
+      AsyncAction('_CampaignLocationControllerBase.create');
 
   @override
-  Future add(CampaignLocationModel campaign) {
-    return _$addAsyncAction.run(() => super.add(campaign));
+  Future<dynamic> create(CampaignLocationModel campaign) {
+    return _$createAsyncAction.run(() => super.create(campaign));
   }
 
-  final _$clearAsyncAction =
-      AsyncAction('_CampaignLocationControllerBase.clear');
+  final _$saveAsyncAction = AsyncAction('_CampaignLocationControllerBase.save');
 
   @override
-  Future clear() {
-    return _$clearAsyncAction.run(() => super.clear());
+  Future<dynamic> save() {
+    return _$saveAsyncAction.run(() => super.save());
+  }
+
+  final _$clearLocationsAsyncAction =
+      AsyncAction('_CampaignLocationControllerBase.clearLocations');
+
+  @override
+  Future clearLocations() {
+    return _$clearLocationsAsyncAction.run(() => super.clearLocations());
+  }
+
+  final _$clearLocationAsyncAction =
+      AsyncAction('_CampaignLocationControllerBase.clearLocation');
+
+  @override
+  Future clearLocation() {
+    return _$clearLocationAsyncAction.run(() => super.clearLocation());
   }
 
   final _$_CampaignLocationControllerBaseActionController =
@@ -81,6 +112,7 @@ mixin _$CampaignLocationController on _CampaignLocationControllerBase, Store {
   String toString() {
     return '''
 busy: ${busy},
+campaign: ${campaign},
 campaigns: ${campaigns}
     ''';
   }

@@ -4,14 +4,14 @@ class CampaignPersonModel {
   String name;
   String bloodType;
   String endDate;
-  String localization;
+  String location;
   String hospitalization;
 
   CampaignPersonModel({
     this.name,
     this.bloodType,
     this.endDate,
-    this.localization,
+    this.location,
     this.hospitalization,
   });
 
@@ -26,7 +26,7 @@ class CampaignPersonModel {
       name: name ?? this.name,
       bloodType: bloodType ?? this.bloodType,
       endDate: endDate ?? this.endDate,
-      localization: localization ?? this.localization,
+      location: localization ?? this.location,
       hospitalization: hospitalization ?? this.hospitalization,
     );
   }
@@ -36,7 +36,7 @@ class CampaignPersonModel {
       'name': name,
       'bloodType': bloodType,
       'endDate': endDate,
-      'localization': localization,
+      'localization': location,
       'hospitalization': hospitalization,
     };
   }
@@ -48,7 +48,7 @@ class CampaignPersonModel {
       name: map['name'],
       bloodType: map['bloodType'],
       endDate: map['endDate'],
-      localization: map['localization'],
+      location: map['localization'],
       hospitalization: map['hospitalization'],
     );
   }
@@ -60,7 +60,7 @@ class CampaignPersonModel {
 
   @override
   String toString() {
-    return 'CampaignPersonModel(name: $name, bloodType: $bloodType, endDate: $endDate, localization: $localization, hospitalization: $hospitalization)';
+    return 'CampaignPersonModel(name: $name, bloodType: $bloodType, endDate: $endDate, localization: $location, hospitalization: $hospitalization)';
   }
 
   @override
@@ -71,7 +71,7 @@ class CampaignPersonModel {
         o.name == name &&
         o.bloodType == bloodType &&
         o.endDate == endDate &&
-        o.localization == localization &&
+        o.location == location &&
         o.hospitalization == hospitalization;
   }
 
@@ -80,7 +80,7 @@ class CampaignPersonModel {
     return name.hashCode ^
         bloodType.hashCode ^
         endDate.hashCode ^
-        localization.hashCode ^
+        location.hashCode ^
         hospitalization.hashCode;
   }
 }

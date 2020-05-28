@@ -31,7 +31,7 @@ class _EditorCampaignLocationPageState
     final formState = _formKey.currentState;
     if (formState.validate()) {
       formState.save();
-      //_controller.save();
+      _controller.save();
       Navigator.pop(context);
     }
   }
@@ -52,7 +52,9 @@ class _EditorCampaignLocationPageState
                 return CustomInputField(
                   busy: _controller.busy,
                   label: 'Nome da campanha',
-                  onSaved: (value) {},
+                  onSaved: (value) {
+                    _controller.campaign.name = value;
+                  },
                   validator: Validator.isNotEmptyText,
                 );
               }),
@@ -60,7 +62,9 @@ class _EditorCampaignLocationPageState
                 return CustomInputField(
                   busy: _controller.busy,
                   label: 'Descrição',
-                  onSaved: (value) {},
+                  onSaved: (value) {
+                    _controller.campaign.description = value;
+                  },
                   validator: Validator.isNotEmptyText,
                 );
               }),
@@ -68,7 +72,9 @@ class _EditorCampaignLocationPageState
                 return CustomInputField(
                   busy: _controller.busy,
                   label: 'Tipo sanguíneo',
-                  onSaved: (value) {},
+                  onSaved: (value) {
+                    _controller.campaign.bloodType = value;
+                  },
                   validator: Validator.isNotEmptyText,
                 );
               }),
@@ -76,7 +82,9 @@ class _EditorCampaignLocationPageState
                 return CustomInputField(
                   busy: _controller.busy,
                   label: 'Local para doação',
-                  onSaved: (value) {},
+                  onSaved: (value) {
+                    _controller.campaign.location = value;
+                  },
                   validator: Validator.isNotEmptyText,
                 );
               }),
@@ -85,7 +93,9 @@ class _EditorCampaignLocationPageState
                 return DateInputField(
                   busy: _controller.busy,
                   label: 'Data de início',
-                  onSaved: (value) {},
+                  onSaved: (value) {
+                    _controller.campaign.startDate = value;
+                  },
                   validator: Validator.isNotEmptyText,
                 );
               }),
@@ -93,7 +103,9 @@ class _EditorCampaignLocationPageState
                 return DateInputField(
                   busy: _controller.busy,
                   label: 'Data de término',
-                  onSaved: (value) {},
+                  onSaved: (value) {
+                    _controller.campaign.endDate = value;
+                  },
                   validator: Validator.isNotEmptyText,
                 );
               }),

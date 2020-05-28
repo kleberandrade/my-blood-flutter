@@ -24,6 +24,21 @@ mixin _$CampaignPersonController on _CampaignPersonControllerBase, Store {
     });
   }
 
+  final _$campaignAtom = Atom(name: '_CampaignPersonControllerBase.campaign');
+
+  @override
+  CampaignPersonModel get campaign {
+    _$campaignAtom.reportRead();
+    return super.campaign;
+  }
+
+  @override
+  set campaign(CampaignPersonModel value) {
+    _$campaignAtom.reportWrite(value, super.campaign, () {
+      super.campaign = value;
+    });
+  }
+
   final _$campaignsAtom = Atom(name: '_CampaignPersonControllerBase.campaigns');
 
   @override
@@ -46,18 +61,35 @@ mixin _$CampaignPersonController on _CampaignPersonControllerBase, Store {
     return _$fetchAsyncAction.run(() => super.fetch());
   }
 
-  final _$addAsyncAction = AsyncAction('_CampaignPersonControllerBase.add');
+  final _$createAsyncAction =
+      AsyncAction('_CampaignPersonControllerBase.create');
 
   @override
-  Future add(CampaignPersonModel campaign) {
-    return _$addAsyncAction.run(() => super.add(campaign));
+  Future<dynamic> create(CampaignPersonModel campaign) {
+    return _$createAsyncAction.run(() => super.create(campaign));
   }
 
-  final _$clearAsyncAction = AsyncAction('_CampaignPersonControllerBase.clear');
+  final _$saveAsyncAction = AsyncAction('_CampaignPersonControllerBase.save');
 
   @override
-  Future clear() {
-    return _$clearAsyncAction.run(() => super.clear());
+  Future<dynamic> save() {
+    return _$saveAsyncAction.run(() => super.save());
+  }
+
+  final _$clearLocationsAsyncAction =
+      AsyncAction('_CampaignPersonControllerBase.clearLocations');
+
+  @override
+  Future clearLocations() {
+    return _$clearLocationsAsyncAction.run(() => super.clearLocations());
+  }
+
+  final _$clearLocationAsyncAction =
+      AsyncAction('_CampaignPersonControllerBase.clearLocation');
+
+  @override
+  Future clearLocation() {
+    return _$clearLocationAsyncAction.run(() => super.clearLocation());
   }
 
   final _$_CampaignPersonControllerBaseActionController =
@@ -78,6 +110,7 @@ mixin _$CampaignPersonController on _CampaignPersonControllerBase, Store {
   String toString() {
     return '''
 busy: ${busy},
+campaign: ${campaign},
 campaigns: ${campaigns}
     ''';
   }
