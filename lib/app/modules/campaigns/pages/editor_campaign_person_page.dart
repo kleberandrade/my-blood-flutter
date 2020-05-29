@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/campaigns/controllers/campaign_person_controller.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
+import 'package:my_blood/app/shared/widgets/forms/blood_type_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
-import 'package:my_blood/app/shared/widgets/forms/selector_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/submit_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -70,11 +70,10 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
                 );
               }),
               Observer(builder: (_) {
-                return SelectorInputField(
+                return BloodTypeInputField(
                   busy: _controller.busy,
                   controller: _bloodTypeController,
-                  label: 'Tipo Sanguíneo',
-                  items: ['A+', 'A-', 'B+', 'B-', 'AB-', 'AB+', 'O-', 'O+'],
+                  label: 'Tipo sanguíneo',
                   onSaved: (value) {
                     _controller.campaign.bloodType = value;
                   },

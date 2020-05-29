@@ -7,15 +7,18 @@ import 'package:my_blood/app/modules/profile/widgets/profile_header.dart';
 import 'package:my_blood/app/shared/helpers/date_helper.dart';
 import 'package:my_blood/app/shared/helpers/image_helper.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
+import 'package:my_blood/app/shared/widgets/forms/blood_type_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/button_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
-import 'package:my_blood/app/shared/widgets/forms/selector_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/gender_type_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
+import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
 import 'package:search_cep/search_cep.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:my_blood/app/shared/masks.dart';
+import 'package:simple_speed_dial/simple_speed_dial.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -117,28 +120,75 @@ class _ProfilePageState extends State<ProfilePage> {
 
   void _settingModalBottomSheet(context) {
     showModalBottomSheet(
-        context: context,
-        builder: (BuildContext bc) {
-          return Container(
-            child: new Wrap(
-              children: <Widget>[
-                new ListTile(
-                    leading: new Icon(Icons.camera_alt),
-                    title: new Text('Câmera'),
-                    onTap: () {
-                      _changeImage(true);
-                    }),
-                new ListTile(
-                  leading: new Icon(Icons.image),
-                  title: new Text('Galeria'),
+      context: context,
+      builder: (BuildContext bc) {
+        return Container(
+          child: new Wrap(
+            children: <Widget>[
+              new ListTile(
+                  leading: new Icon(Icons.camera_alt),
+                  title: new Text('Câmera'),
                   onTap: () {
-                    _changeImage(false);
-                  },
-                ),
-              ],
-            ),
+                    _changeImage(true);
+                  }),
+              new ListTile(
+                leading: new Icon(Icons.image),
+                title: new Text('Galeria'),
+                onTap: () {
+                  _changeImage(false);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  _buildFloatingActionButton() {
+    return Observer(
+      builder: (_) {
+        if (_controller.editable) {
+          return FloatingActionButton(
+            child: Icon(Icons.save),
+            onPressed: _save,
           );
-        });
+        } else {
+          return SpeedDial(
+            child: Icon(Icons.add),
+            speedDialChildren: <SpeedDialChild>[
+              SpeedDialChild(
+                child: Icon(Icons.settings),
+                foregroundColor: canvasColor,
+                backgroundColor: accentColor,
+                label: 'Configurações',
+                onPressed: () {},
+              ),
+              SpeedDialChild(
+                child: Icon(Icons.history),
+                foregroundColor: canvasColor,
+                backgroundColor: accentColor,
+                label: 'Histórico',
+                onPressed: () {},
+              ),
+              SpeedDialChild(
+                child: Icon(Icons.edit),
+                foregroundColor: canvasColor,
+                backgroundColor: accentColor,
+                label: 'Editar',
+                onPressed: () {
+                  _controller.editable = true;
+                },
+              ),
+            ],
+            closedBackgroundColor: accentColor,
+            closedForegroundColor: canvasColor,
+            openBackgroundColor: canvasColor,
+            openForegroundColor: accentColor,
+          );
+        }
+      },
+    );
   }
 
   @override
@@ -147,25 +197,8 @@ class _ProfilePageState extends State<ProfilePage> {
       appBar: AppBar(
         title: Text('Perfil do doador'),
         elevation: 0,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.history),
-            onPressed: () {},
-          ),
-        ],
       ),
-      floatingActionButton: Observer(builder: (_) {
-        return FloatingActionButton(
-          child: Icon(_controller.editable ? Icons.save : Icons.edit),
-          onPressed: () {
-            if (_controller.editable) {
-              _save();
-            } else {
-              _controller.setEditable(true);
-            }
-          },
-        );
-      }),
+      floatingActionButton: _buildFloatingActionButton(),
       body: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -189,11 +222,10 @@ class _ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
-                  return SelectorInputField(
+                  return BloodTypeInputField(
                     busy: !_controller.editable,
                     controller: _bloodTypeController,
-                    label: 'Tipo Sanguíneo',
-                    items: ['A+', 'A-', 'B+', 'B-', 'AB-', 'AB+', 'O-', 'O+'],
+                    label: 'Tipo sanguíneo',
                     onSaved: (value) {
                       _controller.user.bloodType = value;
                     },
@@ -217,11 +249,10 @@ class _ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Observer(builder: (_) {
-                  return SelectorInputField(
+                  return GenderInputField(
                     busy: !_controller.editable,
                     controller: _genderController,
                     label: 'Sexo',
-                    items: ['Feminino', 'Masculino'],
                     onSaved: (value) {
                       _controller.user.gender = value;
                     },
@@ -278,7 +309,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   return CustomInputField(
                     busy: !_controller.editable,
                     controller: _numberController,
-                    textInputType: TextInputType.text,
+                    textInputType: TextInputType.number,
                     label: 'Número',
                     onSaved: (value) {
                       _controller.user.number = value;

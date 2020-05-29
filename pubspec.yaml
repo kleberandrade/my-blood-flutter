@@ -1,7 +1,7 @@
 name: my_blood
 description: Aplicativo para tornar as doações de sangue mais simples tanto para quem precisa do sangue quanto para o doador
 publish_to: "none"
-version: 0.3.0+5
+version: 0.4.0+6
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
