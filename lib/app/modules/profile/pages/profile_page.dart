@@ -5,7 +5,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/profile/controllers/profile_controller.dart';
 import 'package:my_blood/app/modules/profile/widgets/profile_header.dart';
 import 'package:my_blood/app/shared/helpers/date_helper.dart';
-import 'package:my_blood/app/shared/helpers/firebase_image_helper.dart';
+import 'package:my_blood/app/shared/helpers/image_helper.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 import 'package:my_blood/app/shared/widgets/forms/button_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
@@ -16,7 +16,6 @@ import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
 import 'package:search_cep/search_cep.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:my_blood/app/shared/masks.dart';
-
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -97,10 +96,10 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
-  Future _changeImage() async {
-    File image = await FirebaseImageHelper.getImage();
+  Future _changeImage(bool camera) async {
+    File image = await ImageHelper.getImage(camera);
     if (image != null) {
-      FirebaseImageHelper.uploadImage(
+      ImageHelper.uploadImage(
         image: image,
         onSuccess: (pictureUrl) {
           SnackBarHelper.showSuccessMessage(
@@ -116,6 +115,32 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
+  void _settingModalBottomSheet(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return Container(
+            child: new Wrap(
+              children: <Widget>[
+                new ListTile(
+                    leading: new Icon(Icons.camera_alt),
+                    title: new Text('Câmera'),
+                    onTap: () {
+                      _changeImage(true);
+                    }),
+                new ListTile(
+                  leading: new Icon(Icons.image),
+                  title: new Text('Galeria'),
+                  onTap: () {
+                    _changeImage(false);
+                  },
+                ),
+              ],
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,11 +150,10 @@ class _ProfilePageState extends State<ProfilePage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.history),
-            onPressed: (){},
+            onPressed: () {},
           ),
         ],
       ),
-    
       floatingActionButton: Observer(builder: (_) {
         return FloatingActionButton(
           child: Icon(_controller.editable ? Icons.save : Icons.edit),
@@ -157,7 +181,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   nextDate: _controller.user.lastDonationDate ??
                       DateHelper.format(DateTime.now()),
                   editable: _controller.editable,
-                  onTapImage: _changeImage,
+                  onTapImage: () {
+                    _settingModalBottomSheet(context);
+                  },
                 );
               }),
               Padding(

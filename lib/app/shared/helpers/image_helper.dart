@@ -5,9 +5,9 @@ import 'package:image_picker/image_picker.dart';
 
 import 'package:path/path.dart' as path;
 
-class FirebaseImageHelper {
-  static Future<File> getImage() async {
-    final image = await ImagePicker.pickImage(source: ImageSource.gallery);
+class ImageHelper {
+  static Future<File> getImage(bool camera) async {
+    final image = await ImagePicker.pickImage(source: camera ? ImageSource.camera : ImageSource.gallery);
     return image;
   }
 
