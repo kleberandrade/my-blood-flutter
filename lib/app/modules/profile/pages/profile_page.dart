@@ -113,8 +113,10 @@ class _ProfilePageState extends State<ProfilePage> {
             message: 'Upload da imagem concluído.',
           );
 
-          print(pictureUrl);
           _controller.setPicture(pictureUrl);
+          setState(() {
+            _controller.user.picture = pictureUrl;
+          });
         },
       );
     }
