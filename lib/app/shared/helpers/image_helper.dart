@@ -13,22 +13,25 @@ class ImageHelper {
         source: camera ? ImageSource.camera : ImageSource.gallery);
     if (image != null) {
       final cropped = await ImageCropper.cropImage(
-          sourcePath: image.path,
-          aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
-          cropStyle: CropStyle.circle,
-          compressQuality: 100,
-          maxWidth: 500,
-          maxHeight: 500,
-          compressFormat: ImageCompressFormat.jpg,
-          androidUiSettings: AndroidUiSettings(
-              toolbarColor: primaryColor,
-              toolbarTitle: 'Ajuste a sua foto :)',
-              statusBarColor: accentColor,
-              backgroundColor: Colors.white),
-          iosUiSettings: IOSUiSettings(
-            minimumAspectRatio: 1.0,
-          ));
-          return cropped;
+        sourcePath: image.path,
+        aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
+        cropStyle: CropStyle.circle,
+        compressQuality: 100,
+        maxWidth: 500,
+        maxHeight: 500,
+        compressFormat: ImageCompressFormat.jpg,
+        androidUiSettings: AndroidUiSettings(
+          toolbarWidgetColor: Colors.white,
+          toolbarColor: primaryColor,
+          toolbarTitle: 'Ajuste a sua foto :)',
+          statusBarColor: accentColor,
+          backgroundColor: Colors.white,
+        ),
+        iosUiSettings: IOSUiSettings(
+          minimumAspectRatio: 1.0,
+        ),
+      );
+      return cropped;
     }
   }
 

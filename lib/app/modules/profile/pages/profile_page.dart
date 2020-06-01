@@ -133,12 +133,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   leading: new Icon(Icons.camera_alt),
                   title: new Text('Câmera'),
                   onTap: () {
+                    Navigator.pop(context);
                     _changeImage(true);
                   }),
               new ListTile(
                 leading: new Icon(Icons.image),
                 title: new Text('Galeria'),
                 onTap: () {
+                  Navigator.pop(context);
                   _changeImage(false);
                 },
               ),
