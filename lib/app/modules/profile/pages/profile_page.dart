@@ -14,6 +14,7 @@ import 'package:my_blood/app/shared/widgets/forms/button_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/gender_type_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
+import 'package:my_blood/app/shared/widgets/forms/submit_button.dart';
 import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
@@ -21,6 +22,7 @@ import 'package:search_cep/search_cep.dart';
 import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:my_blood/app/shared/masks.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -82,6 +84,14 @@ class _ProfilePageState extends State<ProfilePage> {
     if (formState.validate()) {
       formState.save();
       _controller.save();
+    }
+  }
+
+  Future<void> _signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      print(e); // TODO: show dialog with error
     }
   }
 
@@ -169,8 +179,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 backgroundColor: accentColor,
                 label: 'Configurações',
                 onPressed: () {
-                  Navigator.push(context, 
-                    MaterialPageRoute(builder: (context) => ProfileSettingsPage()),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ProfileSettingsPage()),
                   );
                 },
               ),
@@ -180,8 +192,10 @@ class _ProfilePageState extends State<ProfilePage> {
                 backgroundColor: accentColor,
                 label: 'Histórico',
                 onPressed: () {
-                  Navigator.push(context, 
-                    MaterialPageRoute(builder: (context) => ProfileHistoricPage()),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ProfileHistoricPage()),
                   );
                 },
               ),
@@ -383,6 +397,21 @@ class _ProfilePageState extends State<ProfilePage> {
                     textInputType: TextInputType.text,
                     onSaved: (value) {
                       _controller.user.city = value;
+                    },
+                  );
+                }),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Observer(builder: (_) {
+                  return SubmitButton(
+                    label: 'LogOut',
+                    busy: _controller.editable,
+                    firstColor: accentColor,
+                    secondColor: primaryColor,
+                    onTap: () {
+                      _signOut();
+                      Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
                     },
                   );
                 }),
