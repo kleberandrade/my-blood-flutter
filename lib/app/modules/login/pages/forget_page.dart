@@ -8,7 +8,6 @@ import 'package:my_blood/app/modules/login/widgets/text_button.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
 import 'package:my_blood/app/shared/widgets/forms/submit_button.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
 class ForgetPage extends StatefulWidget {
@@ -63,7 +62,7 @@ class _ForgetPageState extends State<ForgetPage> {
         iconTheme: IconThemeData(
           color: Colors.black,
         ),
-        backgroundColor: canvasColor,
+        backgroundColor: Theme.of(context).canvasColor,
         elevation: 0.0,
       ),
       extendBodyBehindAppBar: true,
@@ -110,8 +109,8 @@ class _ForgetPageState extends State<ForgetPage> {
                   return SubmitButton(
                     label: 'Enviar',
                     busy: _controller.busy,
-                    firstColor: accentColor,
-                    secondColor: primaryColor,
+                    firstColor: Theme.of(context).accentColor,
+                    secondColor: Theme.of(context).primaryColor,
                     onTap: sendPasswordResetEmail,
                   );
                 }),

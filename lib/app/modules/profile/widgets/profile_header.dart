@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_blood/app/shared/widgets/avatar_network.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 
 class ProfileHeader extends StatelessWidget {
   final String name;
@@ -27,7 +26,7 @@ class ProfileHeader extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Container(
       width: width,
-      color: primaryColor,
+      color: Theme.of(context).primaryColor,
       height: 220.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -49,7 +48,7 @@ class ProfileHeader extends StatelessWidget {
             style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w500,
-              color: canvasColor,
+              color: Theme.of(context).canvasColor,
             ),
           ),
           Text(
@@ -57,19 +56,19 @@ class ProfileHeader extends StatelessWidget {
             style: TextStyle(
               fontSize: 14.0,
               fontWeight: FontWeight.w300,
-              color: canvasColor,
+              color: Theme.of(context).canvasColor,
             ),
           ),
           SizedBox(height: 10.0),
           Container(
-            color: primaryColor,
+            color: Theme.of(context).primaryColor,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                _buildDonationDate(label: 'Última doação', date: lastDate),
-                Icon(Icons.favorite, color: canvasColor),
-                _buildDonationDate(label: 'Próxima doação', date: nextDate),
+                _buildDonationDate(context, label: 'Última doação', date: lastDate),
+                Icon(Icons.favorite, color: Theme.of(context).canvasColor),
+                _buildDonationDate(context, label: 'Próxima doação', date: nextDate),
               ],
             ),
           ),
@@ -78,14 +77,14 @@ class ProfileHeader extends StatelessWidget {
     );
   }
 
-  _buildDonationDate({String label, String date}) {
+  _buildDonationDate(BuildContext context, {String label, String date}) {
     return Expanded(
       child: ListTile(
         title: Text(
           label,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: canvasColor,
+            color: Theme.of(context).canvasColor,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -93,7 +92,7 @@ class ProfileHeader extends StatelessWidget {
           date,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: canvasColor,
+            color: Theme.of(context).canvasColor,
             fontWeight: FontWeight.w300,
           ),
         ),

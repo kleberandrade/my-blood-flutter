@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 
 class SubmitButton extends StatelessWidget {
   final String label;
@@ -65,7 +64,7 @@ class SubmitButton extends StatelessWidget {
                     height: 21,
                     width: 21,
                     child: CircularProgressIndicator(
-                      backgroundColor: canvasColor,
+                      backgroundColor: Theme.of(context).canvasColor,
                     ),
                   )
                 : Text(

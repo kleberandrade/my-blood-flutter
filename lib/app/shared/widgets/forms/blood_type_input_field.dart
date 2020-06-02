@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 
 class BloodTypeInputField extends StatefulWidget {
   final String label;
@@ -140,16 +139,16 @@ class _BloodTypeInputFieldState extends State<BloodTypeInputField> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6.0),
             border: Border.all(
-              color: state.value == label ? primaryColor : Colors.black38,
+              color: state.value == label ? Theme.of(context).primaryColor : Colors.black38,
             ),
-            color: state.value == label ? primaryColor : Colors.transparent,
+            color: state.value == label ? Theme.of(context).primaryColor : Colors.transparent,
           ),
           alignment: Alignment.center,
           child: Text(
             label,
             style: TextStyle(
               fontWeight: FontWeight.w500,
-              color: state.value == label ? canvasColor : Colors.black38,
+              color: state.value == label ? Theme.of(context).canvasColor : Colors.black38,
             ),
           ),
         ),

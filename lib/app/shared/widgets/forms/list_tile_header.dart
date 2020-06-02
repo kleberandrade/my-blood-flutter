@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 
 class ListTileHeader extends StatefulWidget {
   final String title;
@@ -22,7 +21,7 @@ class _ListTileHeaderState extends State<ListTileHeader> {
       title: Text(
         widget.title ?? "",
         style: TextStyle(
-          color: primaryColor,
+          color: Theme.of(context).primaryColor,
           fontWeight: FontWeight.w500,
         ),
       ),

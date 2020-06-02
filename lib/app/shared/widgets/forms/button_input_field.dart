@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 
 class ButtonInputField extends StatefulWidget {
   final String label;
@@ -60,13 +59,13 @@ class _ButtonInputFieldState extends State<ButtonInputField> {
             width: 80.0,
             height: 60.0,
             decoration: BoxDecoration(
-              color: !widget.busy ? accentColor : widget.fillColor,
+              color: !widget.busy ? Theme.of(context).primaryColor : widget.fillColor,
               borderRadius: BorderRadius.all(Radius.circular(6)),
             ),
             child: IconButton(
               icon: Icon(
                 widget.icon,
-                color: !widget.busy ? canvasColor : Colors.black38,
+                color: !widget.busy ? Theme.of(context).canvasColor : Colors.black38,
               ),
               onPressed: !widget.busy
                   ? () {

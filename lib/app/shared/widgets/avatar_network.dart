@@ -1,6 +1,5 @@
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 
 class AvatarNetwork extends StatefulWidget {
   final String pictureUrl;
@@ -39,7 +38,7 @@ class _AvatarNetworkState extends State<AvatarNetwork> {
       ),
       child: ClipOval(
         child: Container(
-          color: accentColor,
+          color: Theme.of(context).primaryColor,
           width: widget.size,
           height: widget.size,
           child: ExtendedImage.network(
@@ -56,7 +55,7 @@ class _AvatarNetworkState extends State<AvatarNetwork> {
                     height: widget.size * 0.8,
                     child: Center(
                       child: CircularProgressIndicator(
-                        backgroundColor: canvasColor,
+                        backgroundColor: Theme.of(context).canvasColor,
                       ),
                     ),
                   );
@@ -65,7 +64,7 @@ class _AvatarNetworkState extends State<AvatarNetwork> {
                     child: Text(
                       widget.initials?.toUpperCase()[0] ?? '?',
                       style: TextStyle(
-                          color: canvasColor, fontSize: widget.size * 0.5),
+                          color: Theme.of(context).canvasColor, fontSize: widget.size * 0.5),
                     ),
                   );
                 case LoadState.completed:

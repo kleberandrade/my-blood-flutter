@@ -5,10 +5,9 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path;
-import 'package:my_blood/app/themes/app_theme.dart';
 
 class ImageHelper {
-  static Future<File> getImage(bool camera) async {
+  static Future<File> getImage(BuildContext context,  bool camera) async {
     final image = await ImagePicker.pickImage(
         source: camera ? ImageSource.camera : ImageSource.gallery);
     if (image != null) {
@@ -22,9 +21,9 @@ class ImageHelper {
         compressFormat: ImageCompressFormat.jpg,
         androidUiSettings: AndroidUiSettings(
           toolbarWidgetColor: Colors.white,
-          toolbarColor: primaryColor,
+          toolbarColor: Theme.of(context).primaryColor,
           toolbarTitle: 'Ajuste a sua foto :)',
-          statusBarColor: accentColor,
+          statusBarColor: Theme.of(context).primaryColor,
           backgroundColor: Colors.white,
         ),
         iosUiSettings: IOSUiSettings(

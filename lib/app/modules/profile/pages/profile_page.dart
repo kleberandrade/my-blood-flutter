@@ -14,7 +14,6 @@ import 'package:my_blood/app/shared/widgets/forms/button_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/gender_type_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
 import 'package:search_cep/search_cep.dart';
@@ -102,7 +101,7 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Future _changeImage(bool camera) async {
-    File image = await ImageHelper.getImage(camera);
+    File image = await ImageHelper.getImage(context, camera);
     if (image != null) {
       ImageHelper.uploadImage(
         image: image,
@@ -165,8 +164,8 @@ class _ProfilePageState extends State<ProfilePage> {
             speedDialChildren: <SpeedDialChild>[
               SpeedDialChild(
                 child: Icon(Icons.settings),
-                foregroundColor: canvasColor,
-                backgroundColor: accentColor,
+                foregroundColor: Theme.of(context).canvasColor,
+                backgroundColor: Theme.of(context).primaryColor,
                 label: 'Configurações',
                 onPressed: () {
                   Navigator.push(
@@ -178,8 +177,8 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               SpeedDialChild(
                 child: Icon(Icons.history),
-                foregroundColor: canvasColor,
-                backgroundColor: accentColor,
+                foregroundColor: Theme.of(context).canvasColor,
+                backgroundColor: Theme.of(context).primaryColor,
                 label: 'Histórico',
                 onPressed: () {
                   Navigator.push(
@@ -191,18 +190,18 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               SpeedDialChild(
                 child: Icon(Icons.edit),
-                foregroundColor: canvasColor,
-                backgroundColor: accentColor,
+                foregroundColor: Theme.of(context).canvasColor,
+                backgroundColor: Theme.of(context).primaryColor,
                 label: 'Editar',
                 onPressed: () {
                   _controller.editable = true;
                 },
               ),
             ],
-            closedBackgroundColor: accentColor,
-            closedForegroundColor: canvasColor,
-            openBackgroundColor: canvasColor,
-            openForegroundColor: accentColor,
+            closedBackgroundColor: Theme.of(context).primaryColor,
+            closedForegroundColor: Theme.of(context).canvasColor,
+            openBackgroundColor: Theme.of(context).canvasColor,
+            openForegroundColor: Theme.of(context).primaryColor,
           );
         }
       },

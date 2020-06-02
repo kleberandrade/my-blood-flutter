@@ -7,7 +7,6 @@ import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/list_tile_header.dart';
 import 'package:my_blood/app/shared/widgets/forms/submit_button.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 import 'package:provider/provider.dart';
 
 class EditorCampaignLocationPage extends StatefulWidget {
@@ -131,8 +130,8 @@ class _EditorCampaignLocationPageState
                   return SubmitButton(
                     label: 'Registrar',
                     busy: _controller.busy,
-                    firstColor: accentColor,
-                    secondColor: primaryColor,
+                    firstColor: Theme.of(context).accentColor,
+                    secondColor: Theme.of(context).primaryColor,
                     onTap: _save,
                   );
                 },

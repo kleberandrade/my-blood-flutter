@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_blood/app/shared/helpers/date_helper.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 
 class DateInputField extends StatelessWidget {
   final String label;
@@ -47,13 +46,13 @@ class DateInputField extends StatelessWidget {
             width: 80.0,
             height: 60.0,
             decoration: BoxDecoration(
-              color: !busy ? accentColor : fillColor,
+              color: !busy ? Theme.of(context).primaryColor : fillColor,
               borderRadius: BorderRadius.all(Radius.circular(4)),
             ),
             child: IconButton(
               icon: Icon(
                 Icons.date_range,
-                color: !busy ? canvasColor : Colors.black38,
+                color: !busy ? Theme.of(context).canvasColor : Colors.black38,
               ),
               onPressed: !busy
                   ? () {

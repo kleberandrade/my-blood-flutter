@@ -4,7 +4,6 @@ import 'package:my_blood/app/modules/campaigns/pages/campaign_page.dart';
 import 'package:my_blood/app/modules/faq/pages/faq_page.dart';
 import 'package:my_blood/app/modules/locations/pages/location_page.dart';
 import 'package:my_blood/app/modules/profile/pages/profile_page.dart';
-import 'package:my_blood/app/themes/app_theme.dart';
 
 class HomePage extends StatefulWidget {
   static const String routeName = '/home';
@@ -64,25 +63,25 @@ class _HomePageState extends State<HomePage> {
         BottomNavyBarItem(
           title: Text('Doador'),
           icon: Icon(Icons.person),
-          activeColor: accentColor,
+          activeColor: Theme.of(context).accentColor,
           inactiveColor: Colors.grey,
         ),
         BottomNavyBarItem(
           title: Text('Campanhas'),
           icon: Icon(Icons.apps),
-          activeColor: accentColor,
+          activeColor: Theme.of(context).accentColor,
           inactiveColor: Colors.grey,
         ),
         BottomNavyBarItem(
           title: Text('Locais'),
           icon: Icon(Icons.local_hospital),
-          activeColor: accentColor,
+          activeColor: Theme.of(context).accentColor,
           inactiveColor: Colors.grey,
         ),
         BottomNavyBarItem(
           title: Text('Dúvidas'),
           icon: Icon(Icons.question_answer),
-          activeColor: accentColor,
+          activeColor: Theme.of(context).accentColor,
           inactiveColor: Colors.grey,
         ),
       ],
