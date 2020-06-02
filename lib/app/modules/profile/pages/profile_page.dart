@@ -23,6 +23,8 @@ import 'package:flutter_masked_text/flutter_masked_text.dart';
 import 'package:my_blood/app/shared/masks.dart';
 import 'package:simple_speed_dial/simple_speed_dial.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:dynamic_theme/theme_switcher_widgets.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -219,6 +221,28 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
+  void _showChooser() {
+    showDialog<void>(
+        context: context,
+        builder: (context) {
+          return BrightnessSwitcherDialog(
+            onSelectedTheme: (brightness) {
+              DynamicTheme.of(context).setBrightness(brightness);
+            },
+          );
+        });
+  }
+
+  void _changeBrightness() {
+    print(Theme.of(context).brightness);
+    //DynamicTheme.of(context).setBrightness(Brightness.dark);
+    DynamicTheme.of(context).setBrightness(
+        Theme.of(context).brightness == Brightness.dark
+            ? Brightness.light
+            : Brightness.dark);
+            print(Theme.of(context).brightness);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -411,8 +435,21 @@ class _ProfilePageState extends State<ProfilePage> {
                     secondColor: primaryColor,
                     onTap: () {
                       _signOut();
-                      Navigator.pushNamedAndRemoveUntil(context, "/", (route) => false);
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, "/", (route) => false);
                     },
+                  );
+                }),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Observer(builder: (_) {
+                  return SubmitButton(
+                    label: 'Tema',
+                    busy: _controller.editable,
+                    firstColor: accentColor,
+                    secondColor: primaryColor,
+                    onTap: (){_changeBrightness();},
                   );
                 }),
               ),

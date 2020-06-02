@@ -11,23 +11,22 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+  var home;
   @override
   void initState() {
     super.initState();
     FirebaseAuth.instance.currentUser().then((res) {
       print(res);
       if (res != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => HomePage()),
-        );
+       setState(() {
+         home = HomePage();
+       }); 
       }
       else
       {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => SignInPage()),
-        );
+        setState(() {
+         home = SignInPage();
+       }); 
       }
     });
   }
@@ -36,7 +35,7 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return SplashScreen(
       seconds: 8,
-      //navigateAfterSeconds: user != null ? new HomePage() : new SignInPage(),
+      navigateAfterSeconds: home,
       backgroundColor: Theme.of(context).primaryColor,
       loaderColor: Theme.of(context).canvasColor,
       photoSize: 75.0,
