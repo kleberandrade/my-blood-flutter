@@ -12,6 +12,8 @@ import 'app/modules/campaigns/controllers/campaign_person_controller.dart';
 import 'app/modules/profile/controllers/profile_controller.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 
+import 'app/modules/profile/controllers/settings_controller.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
@@ -28,32 +30,34 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider<AccountController>.value(value: AccountController()),
         Provider<ProfileController>.value(value: ProfileController()),
-        Provider<CampaignPersonController>.value(
-            value: CampaignPersonController()),
-        Provider<CampaignLocationController>.value(
-            value: CampaignLocationController()),
+        Provider<CampaignPersonController>.value(value: CampaignPersonController()),
+        Provider<CampaignLocationController>.value(value: CampaignLocationController()),
         Provider<LocationController>.value(value: LocationController()),
         Provider<FaqController>.value(value: FaqController()),
+        Provider<SettingsController>.value(value: SettingsController()),
       ],
       child: DynamicTheme(
-          defaultBrightness: Brightness.light,
-          data: (brightness) => ThemeData(
-                primarySwatch: appTheme.primaryColor,
-                brightness: brightness,
-              ),
-          themedWidgetBuilder: (context, theme) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'My Blood',
-              theme: appTheme,
-              home: SplashPage(),
-              localizationsDelegates: [
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate
-              ],
-              supportedLocales: [const Locale('pt', 'BR')],
-            );
-          }),
+        defaultBrightness: Brightness.light,
+        data: (brightness) => ThemeData(
+          primarySwatch: appTheme.primaryColor,
+          accentColor: appTheme.accentColor,
+          canvasColor: appTheme.canvasColor,
+          brightness: brightness,
+        ),
+        themedWidgetBuilder: (context, theme) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'My Blood',
+            theme: theme,
+            home: SplashPage(),
+            localizationsDelegates: [
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate
+            ],
+            supportedLocales: [const Locale('pt', 'BR')],
+          );
+        },
+      ),
     );
   }
 }
