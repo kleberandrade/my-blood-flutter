@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:my_blood/app/shared/helpers/date_helper.dart';
+
 class UserModel {
   String uid;
   String name;
@@ -17,6 +19,19 @@ class UserModel {
   String lastDonationDate;
   String number;
   String complemento;
+
+  String dateToNextDonation() {
+    if (lastDonationDate == null) return DateHelper.format(DateTime.now());
+
+    final lastDate = DateHelper.parse(lastDonationDate);
+    if (gender == null)
+      return DateHelper.format(lastDate.add(Duration(days: 90)));
+
+    if (gender == 'Masculino')
+      return DateHelper.format(lastDate.add(Duration(days: 60)));
+    else
+      return DateHelper.format(lastDate.add(Duration(days: 90)));
+  }
 
   UserModel({
     this.uid,

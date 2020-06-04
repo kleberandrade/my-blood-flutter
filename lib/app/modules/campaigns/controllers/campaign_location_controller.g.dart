@@ -111,9 +111,9 @@ mixin _$CampaignLocationController on _CampaignLocationControllerBase, Store {
   @override
   String toString() {
     return '''
-busy: ${busy},
-campaign: ${campaign},
-campaigns: ${campaigns}
+busy: $busy,
+campaign: $campaign,
+campaigns: $campaigns
     ''';
   }
 }

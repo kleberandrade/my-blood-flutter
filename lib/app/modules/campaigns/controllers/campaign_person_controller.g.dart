@@ -109,9 +109,9 @@ mixin _$CampaignPersonController on _CampaignPersonControllerBase, Store {
   @override
   String toString() {
     return '''
-busy: ${busy},
-campaign: ${campaign},
-campaigns: ${campaigns}
+busy: $busy,
+campaign: $campaign,
+campaigns: $campaigns
     ''';
   }
 }

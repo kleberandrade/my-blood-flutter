@@ -37,7 +37,7 @@ class _SplashPageState extends State<SplashPage> {
       seconds: 8,
       navigateAfterSeconds: home,
       backgroundColor: Theme.of(context).primaryColor,
-      loaderColor: Theme.of(context).canvasColor,
+      loaderColor: Colors.white,
       photoSize: 75.0,
       image: Image.asset('lib/assets/logo.png', color: Colors.white),
     );

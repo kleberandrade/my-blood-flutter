@@ -3,13 +3,16 @@ import 'package:my_blood/app/modules/campaigns/models/campaign_person_model.dart
 
 class CampaignPersonCard extends StatelessWidget {
   final CampaignPersonModel campaign;
+  final Function onShare;
+  final Function onDonation;
 
   const CampaignPersonCard({
     Key key,
     this.campaign,
+    this.onShare,
+    this.onDonation,
   }) : super(key: key);
 
-  @override
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
@@ -28,25 +31,13 @@ class CampaignPersonCard extends StatelessWidget {
                   visible: true,
                   label: 'COMPARTILHAR',
                   icon: Icons.share,
-                  onPressed: () {
-                    //ServicesHelper.directions(campaign.getFullAddress(useUf: false));
-                  },
+                  onPressed: onShare,
                 ),
                 _buildButton(
                   visible: true,
                   label: 'DOAR',
                   icon: Icons.favorite,
-                  onPressed: () {
-                    //ServicesHelper.directions(campaign.getFullAddress(useUf: false));
-                  },
-                ),
-                _buildButton(
-                  visible: true,
-                  label: 'ROTA',
-                  icon: Icons.directions,
-                  onPressed: () {
-                    //ServicesHelper.directions(campaign.getFullAddress(useUf: false));
-                  },
+                  onPressed: onDonation,
                 ),
               ],
             ),

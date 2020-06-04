@@ -1,7 +1,7 @@
 name: my_blood
 description: Aplicativo para tornar as doações de sangue mais simples tanto para quem precisa do sangue quanto para o doador
 publish_to: "none"
-version: 0.4.0+6
+version: 0.6.0+8
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -35,6 +35,7 @@ dependencies:
   flutter_masked_text: ^0.8.0
   image_cropper: ^1.2.0
   dynamic_theme: ^1.0.1
+  social_share: ^2.0.4
 
 dev_dependencies:
   flutter_test:

@@ -129,12 +129,13 @@ class _ProfilePageState extends State<ProfilePage> {
           child: new Wrap(
             children: <Widget>[
               new ListTile(
-                  leading: new Icon(Icons.camera_alt),
-                  title: new Text('Câmera'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    _changeImage(true);
-                  }),
+                leading: new Icon(Icons.camera_alt),
+                title: new Text('Câmera'),
+                onTap: () {
+                  Navigator.pop(context);
+                  _changeImage(true);
+                },
+              ),
               new ListTile(
                 leading: new Icon(Icons.image),
                 title: new Text('Galeria'),
@@ -230,9 +231,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   name: _controller.user.name,
                   email: _controller.user.email,
                   pictureUrl: _controller.user.picture,
-                  lastDate: _controller.user.lastDonationDate ?? '--/--/----',
-                  nextDate: _controller.user.lastDonationDate ??
-                      DateHelper.format(DateTime.now()),
+                  lastDate: _controller.user.lastDonationDate ?? '--',
+                  nextDate: _controller.user.dateToNextDonation(),
                   editable: _controller.editable,
                   onTapImage: () {
                     _settingModalBottomSheet(context);

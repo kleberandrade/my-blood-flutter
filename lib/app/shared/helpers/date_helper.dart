@@ -8,6 +8,7 @@ class DateHelper {
   }
 
   static DateTime parse(String dateString) {
-    return _format.parse(dateString);
+    final date = _format.parse(dateString);
+    return DateTime(date.year, date.month, date.day);
   }
 }

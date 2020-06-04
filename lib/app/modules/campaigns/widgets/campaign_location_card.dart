@@ -3,10 +3,14 @@ import 'package:my_blood/app/modules/campaigns/models/campaign_location_model.da
 
 class CampaignLocationCard extends StatelessWidget {
   final CampaignLocationModel campaign;
+  final Function onShare;
+  final Function onDonation;
 
   const CampaignLocationCard({
     Key key,
     this.campaign,
+    this.onShare,
+    this.onDonation,
   }) : super(key: key);
 
   @override
@@ -28,25 +32,13 @@ class CampaignLocationCard extends StatelessWidget {
                   visible: true,
                   label: 'COMPARTILHAR',
                   icon: Icons.share,
-                  onPressed: () {
-                    //ServicesHelper.directions(campaign.getFullAddress(useUf: false));
-                  },
+                  onPressed: onShare,
                 ),
                 _buildButton(
                   visible: true,
                   label: 'DOAR',
                   icon: Icons.favorite,
-                  onPressed: () {
-                    //ServicesHelper.directions(campaign.getFullAddress(useUf: false));
-                  },
-                ),
-                _buildButton(
-                  visible: true,
-                  label: 'ROTA',
-                  icon: Icons.directions,
-                  onPressed: () {
-                    //ServicesHelper.directions(campaign.getFullAddress(useUf: false));
-                  },
+                  onPressed: onDonation,
                 ),
               ],
             ),
