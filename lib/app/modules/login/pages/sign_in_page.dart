@@ -79,7 +79,7 @@ class _SignInPageState extends State<SignInPage> {
               children: <Widget>[
                 Expanded(flex: 2, child: SizedBox()),
                 Logotipo(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).accentColor,
                 ),
                 Expanded(child: SizedBox()),
                 Observer(

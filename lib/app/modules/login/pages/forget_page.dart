@@ -29,7 +29,9 @@ class _ForgetPageState extends State<ForgetPage> {
 
   navigatorToRegisterPage() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => SignUpPage()));
+      context,
+      MaterialPageRoute(builder: (context) => SignUpPage()),
+    );
   }
 
   sendPasswordResetEmail() {
@@ -37,7 +39,9 @@ class _ForgetPageState extends State<ForgetPage> {
     if (formState.validate()) {
       formState.save();
       _controller.sendPasswordResetEmail(
-          onSuccess: onSuccess, onError: onError);
+        onSuccess: onSuccess,
+        onError: onError,
+      );
     }
   }
 
@@ -60,7 +64,7 @@ class _ForgetPageState extends State<ForgetPage> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: Colors.black,
+          color: Theme.of(context).accentColor,
         ),
         backgroundColor: Theme.of(context).canvasColor,
         elevation: 0.0,
@@ -78,7 +82,7 @@ class _ForgetPageState extends State<ForgetPage> {
               children: <Widget>[
                 Expanded(flex: 2, child: SizedBox()),
                 Logotipo(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).accentColor,
                 ),
                 Expanded(child: SizedBox()),
                 Text(

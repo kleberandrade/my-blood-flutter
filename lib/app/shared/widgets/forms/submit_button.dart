@@ -27,25 +27,18 @@ class SubmitButton extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 15),
         alignment: Alignment.center,
         decoration: BoxDecoration(
+          color: Theme.of(context).accentColor,
           borderRadius: BorderRadius.all(
             Radius.circular(5),
           ),
           boxShadow: <BoxShadow>[
             BoxShadow(
-              color: Colors.grey.shade200,
+              color: Colors.black12,
               offset: Offset(2, 4),
               blurRadius: 5,
               spreadRadius: 2,
             ),
           ],
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              firstColor,
-              secondColor,
-            ],
-          ),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -70,9 +63,8 @@ class SubmitButton extends StatelessWidget {
                 : Text(
                     label,
                     style: TextStyle(
-                      color: Colors.white,
                       fontSize: 18,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
           ],

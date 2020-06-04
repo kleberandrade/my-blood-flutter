@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class PasswordInputField extends StatefulWidget {
   final String label;
-  final Color fillColor;
   final bool forgetPassword;
   final bool busy;
   final Function onTap;
@@ -15,7 +14,6 @@ class PasswordInputField extends StatefulWidget {
     this.label = 'Senha',
     this.onSaved,
     this.busy = false,
-    this.fillColor = const Color(0xfff3f3f4),
     this.forgetPassword = false,
     this.onTap,
     this.textInputType,
@@ -50,7 +48,6 @@ class _PasswordInputFieldState extends State<PasswordInputField> {
             onSaved: widget.onSaved,
             decoration: InputDecoration(
               border: InputBorder.none,
-              fillColor: widget.fillColor,
               filled: true,
               labelText: widget.label,
               suffixIcon: IconButton(

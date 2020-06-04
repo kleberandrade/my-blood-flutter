@@ -38,7 +38,6 @@ class TextButton extends StatelessWidget {
             Text(
               label,
               style: TextStyle(
-                color: Theme.of(context).primaryColor,
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
               ),
