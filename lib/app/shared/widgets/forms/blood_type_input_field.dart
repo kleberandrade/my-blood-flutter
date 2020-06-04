@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class BloodTypeInputField extends StatefulWidget {
   final String label;
-  final Color fillColor;
   final bool busy;
   final Function(String) onSaved;
   final TextEditingController controller;
@@ -12,7 +11,6 @@ class BloodTypeInputField extends StatefulWidget {
     this.label,
     this.onSaved,
     this.busy = false,
-    this.fillColor = const Color(0xfff3f3f4),
     this.controller,
   }) : super(key: key);
 
@@ -34,7 +32,6 @@ class _BloodTypeInputFieldState extends State<BloodTypeInputField> {
         decoration: InputDecoration(
           border: InputBorder.none,
           labelText: widget.label,
-          fillColor: widget.fillColor,
           filled: true,
         ),
         readOnly: true,
@@ -139,16 +136,16 @@ class _BloodTypeInputFieldState extends State<BloodTypeInputField> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6.0),
             border: Border.all(
-              color: state.value == label ? Theme.of(context).primaryColor : Colors.black38,
+              color: state.value == label ? Theme.of(context).accentColor : Colors.black38,
             ),
-            color: state.value == label ? Theme.of(context).primaryColor : Colors.transparent,
+            color: state.value == label ? Theme.of(context).accentColor : Colors.transparent,
           ),
           alignment: Alignment.center,
           child: Text(
             label,
             style: TextStyle(
               fontWeight: FontWeight.w500,
-              color: state.value == label ? Theme.of(context).canvasColor : Colors.black38,
+              color: state.value == label ? Colors.white : Colors.black38,
             ),
           ),
         ),

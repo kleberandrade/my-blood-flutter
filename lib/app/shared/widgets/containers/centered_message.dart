@@ -33,7 +33,7 @@ class CenteredMessage extends StatelessWidget {
                   message ?? '',
                   style: TextStyle(
                     fontSize: fontSize,
-                    color: Colors.grey,
+                    color: Theme.of(context).accentColor
                   ),
                 )
               : SizedBox(),

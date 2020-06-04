@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class SelectorInputField extends StatefulWidget {
   final String label;
-  final Color fillColor;
   final bool busy;
   final Function(String) onSaved;
   final TextEditingController controller;
@@ -13,7 +12,6 @@ class SelectorInputField extends StatefulWidget {
     this.label,
     this.onSaved,
     this.busy = false,
-    this.fillColor = const Color(0xfff3f3f4),
     this.controller,
     this.items,
   }) : super(key: key);
@@ -37,7 +35,6 @@ class _SelectorInputFieldState extends State<SelectorInputField> {
         decoration: InputDecoration(
           border: InputBorder.none,
           labelText: widget.label,
-          fillColor: widget.fillColor,
           filled: true,
         ),
         readOnly: true,

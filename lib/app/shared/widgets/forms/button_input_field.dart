@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class ButtonInputField extends StatefulWidget {
   final String label;
-  final Color fillColor;
   final bool busy;
   final TextInputType textInputType;
   final Function(String) onSaved;
@@ -16,7 +15,6 @@ class ButtonInputField extends StatefulWidget {
     this.label,
     this.onSaved,
     this.busy = false,
-    this.fillColor = const Color(0xfff3f3f4),
     this.textInputType = TextInputType.text,
     this.validator,
     this.controller,
@@ -47,7 +45,6 @@ class _ButtonInputFieldState extends State<ButtonInputField> {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 labelText: widget.label,
-                fillColor: widget.fillColor,
                 filled: true,
               ),
               onChanged: (value) {
@@ -59,13 +56,13 @@ class _ButtonInputFieldState extends State<ButtonInputField> {
             width: 80.0,
             height: 60.0,
             decoration: BoxDecoration(
-              color: !widget.busy ? Theme.of(context).primaryColor : widget.fillColor,
+              color: !widget.busy ? Theme.of(context).accentColor : Theme.of(context).canvasColor,
               borderRadius: BorderRadius.all(Radius.circular(6)),
             ),
             child: IconButton(
               icon: Icon(
                 widget.icon,
-                color: !widget.busy ? Theme.of(context).canvasColor : Colors.black38,
+                color: !widget.busy ? Colors.white : Colors.black38,
               ),
               onPressed: !widget.busy
                   ? () {

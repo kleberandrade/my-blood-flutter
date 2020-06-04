@@ -3,7 +3,6 @@ import 'package:flutter_masked_text/flutter_masked_text.dart';
 
 class FoneInputField extends StatelessWidget {
   final String label;
-  final Color fillColor;
   final bool busy;
   final TextInputType textInputType;
   final Function(String) onSaved;
@@ -15,7 +14,6 @@ class FoneInputField extends StatelessWidget {
     this.label,
     this.onSaved,
     this.busy = false,
-    this.fillColor = const Color(0xfff3f3f4),
     this.textInputType = TextInputType.phone,
     this.validator,
     this.controller,
@@ -34,7 +32,6 @@ class FoneInputField extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           labelText: label,
-          fillColor: fillColor,
           filled: true,
         ),
       ),

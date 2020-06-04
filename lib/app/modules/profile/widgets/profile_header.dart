@@ -48,7 +48,7 @@ class ProfileHeader extends StatelessWidget {
             style: TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.w500,
-              color: Theme.of(context).canvasColor,
+              color: Colors.white,
             ),
           ),
           Text(
@@ -56,7 +56,7 @@ class ProfileHeader extends StatelessWidget {
             style: TextStyle(
               fontSize: 14.0,
               fontWeight: FontWeight.w300,
-              color: Theme.of(context).canvasColor,
+              color: Colors.white,
             ),
           ),
           SizedBox(height: 10.0),
@@ -66,9 +66,20 @@ class ProfileHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                _buildDonationDate(context, label: 'Última doação', date: lastDate),
-                Icon(Icons.favorite, color: Theme.of(context).canvasColor),
-                _buildDonationDate(context, label: 'Próxima doação', date: nextDate),
+                _buildDonationDate(
+                  context,
+                  label: 'Última doação',
+                  date: lastDate,
+                ),
+                Icon(
+                  Icons.favorite,
+                  color: Colors.white,
+                ),
+                _buildDonationDate(
+                  context,
+                  label: 'Próxima doação',
+                  date: nextDate,
+                ),
               ],
             ),
           ),
@@ -84,7 +95,7 @@ class ProfileHeader extends StatelessWidget {
           label,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Theme.of(context).canvasColor,
+            color: Colors.white,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -92,7 +103,7 @@ class ProfileHeader extends StatelessWidget {
           date,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Theme.of(context).canvasColor,
+            color: Colors.white,
             fontWeight: FontWeight.w300,
           ),
         ),

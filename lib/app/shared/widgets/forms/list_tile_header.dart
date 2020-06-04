@@ -21,7 +21,7 @@ class _ListTileHeaderState extends State<ListTileHeader> {
       title: Text(
         widget.title ?? "",
         style: TextStyle(
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).accentColor,
           fontWeight: FontWeight.w500,
         ),
       ),

@@ -165,43 +165,45 @@ class _ProfilePageState extends State<ProfilePage> {
               SpeedDialChild(
                 child: Icon(Icons.settings),
                 foregroundColor: Theme.of(context).canvasColor,
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Theme.of(context).accentColor,
                 label: 'Configurações',
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ProfileSettingsPage()),
+                      builder: (context) => ProfileSettingsPage(),
+                    ),
                   );
                 },
               ),
               SpeedDialChild(
                 child: Icon(Icons.history),
                 foregroundColor: Theme.of(context).canvasColor,
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Theme.of(context).accentColor,
                 label: 'Histórico',
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => ProfileHistoricPage()),
+                      builder: (context) => ProfileHistoricPage(),
+                    ),
                   );
                 },
               ),
               SpeedDialChild(
                 child: Icon(Icons.edit),
                 foregroundColor: Theme.of(context).canvasColor,
-                backgroundColor: Theme.of(context).primaryColor,
+                backgroundColor: Theme.of(context).accentColor,
                 label: 'Editar',
                 onPressed: () {
                   _controller.editable = true;
                 },
               ),
             ],
-            closedBackgroundColor: Theme.of(context).primaryColor,
+            closedBackgroundColor: Theme.of(context).accentColor,
             closedForegroundColor: Theme.of(context).canvasColor,
             openBackgroundColor: Theme.of(context).canvasColor,
-            openForegroundColor: Theme.of(context).primaryColor,
+            openForegroundColor: Theme.of(context).accentColor,
           );
         }
       },

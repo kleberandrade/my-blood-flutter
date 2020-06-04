@@ -25,7 +25,7 @@ class _CampaignPageState extends State<CampaignPage> {
                 topLeft: Radius.circular(10),
                 topRight: Radius.circular(10),
               ),
-              color: Colors.white,
+              color: Theme.of(context).canvasColor,
             ),
             tabs: [
               Tab(

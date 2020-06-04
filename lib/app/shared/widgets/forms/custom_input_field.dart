@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class CustomInputField extends StatelessWidget {
   final String label;
-  final Color fillColor;
   final bool busy;
   final TextInputType textInputType;
   final Function(String) onSaved;
@@ -14,7 +13,6 @@ class CustomInputField extends StatelessWidget {
     this.label,
     this.onSaved,
     this.busy = false,
-    this.fillColor = const Color(0xfff3f3f4),
     this.textInputType = TextInputType.text,
     this.validator,
     this.controller,
@@ -33,7 +31,6 @@ class CustomInputField extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           labelText: label,
-          fillColor: fillColor,
           filled: true,
         ),
       ),
