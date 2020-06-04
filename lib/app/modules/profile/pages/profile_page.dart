@@ -160,10 +160,11 @@ class _ProfilePageState extends State<ProfilePage> {
           );
         } else {
           return SpeedDial(
-            child: Icon(Icons.add),
+            child: Icon(Icons.add, color: Colors.white),
+            labelsStyle: TextStyle(color: Colors.black),
             speedDialChildren: <SpeedDialChild>[
               SpeedDialChild(
-                child: Icon(Icons.settings),
+                child: Icon(Icons.settings, color: Colors.white),
                 foregroundColor: Theme.of(context).canvasColor,
                 backgroundColor: Theme.of(context).accentColor,
                 label: 'Configurações',
@@ -177,7 +178,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 },
               ),
               SpeedDialChild(
-                child: Icon(Icons.history),
+                child: Icon(Icons.history, color: Colors.white),
                 foregroundColor: Theme.of(context).canvasColor,
                 backgroundColor: Theme.of(context).accentColor,
                 label: 'Histórico',
@@ -191,7 +192,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 },
               ),
               SpeedDialChild(
-                child: Icon(Icons.edit),
+                child: Icon(Icons.edit, color: Colors.white),
                 foregroundColor: Theme.of(context).canvasColor,
                 backgroundColor: Theme.of(context).accentColor,
                 label: 'Editar',
@@ -202,7 +203,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ],
             closedBackgroundColor: Theme.of(context).accentColor,
             closedForegroundColor: Theme.of(context).canvasColor,
-            openBackgroundColor: Theme.of(context).canvasColor,
+            openBackgroundColor: Theme.of(context).accentColor,
             openForegroundColor: Theme.of(context).accentColor,
           );
         }

@@ -41,6 +41,7 @@ class _ProfileSettingsPageState extends State<ProfileSettingsPage> {
           SwitchListTile(
             title: Text('Usar modo escuro?'),
             value: Theme.of(context).brightness == Brightness.dark,
+            activeColor: Theme.of(context).accentColor,
             onChanged: (value) {
               _controller.changeBrightness(context, value);
             },
@@ -48,6 +49,7 @@ class _ProfileSettingsPageState extends State<ProfileSettingsPage> {
           SwitchListTile(
             title: Text('Receber notificações somente do meu tipo sanguíneo?'),
             value: false,
+            activeColor: Theme.of(context).accentColor,
             onChanged: (value) {},
           ),
         ],

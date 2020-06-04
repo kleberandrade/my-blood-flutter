@@ -56,7 +56,7 @@ class _ButtonInputFieldState extends State<ButtonInputField> {
             width: 80.0,
             height: 60.0,
             decoration: BoxDecoration(
-              color: !widget.busy ? Theme.of(context).accentColor : Theme.of(context).canvasColor,
+              color: !widget.busy ? Theme.of(context).accentColor : Theme.of(context).dividerColor,
               borderRadius: BorderRadius.all(Radius.circular(6)),
             ),
             child: IconButton(

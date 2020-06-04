@@ -136,7 +136,7 @@ class _BloodTypeInputFieldState extends State<BloodTypeInputField> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6.0),
             border: Border.all(
-              color: state.value == label ? Theme.of(context).accentColor : Colors.black38,
+              color: state.value == label ? Theme.of(context).accentColor : Theme.of(context).disabledColor,
             ),
             color: state.value == label ? Theme.of(context).accentColor : Colors.transparent,
           ),
@@ -145,7 +145,7 @@ class _BloodTypeInputFieldState extends State<BloodTypeInputField> {
             label,
             style: TextStyle(
               fontWeight: FontWeight.w500,
-              color: state.value == label ? Colors.white : Colors.black38,
+              color: state.value == label ? Colors.white : Theme.of(context).disabledColor,
             ),
           ),
         ),
