@@ -4,7 +4,8 @@ import 'package:my_blood/app/modules/campaigns/repositories/campaign_location_re
 
 part 'campaign_location_controller.g.dart';
 
-class CampaignLocationController = _CampaignLocationControllerBase with _$CampaignLocationController;
+class CampaignLocationController = _CampaignLocationControllerBase
+    with _$CampaignLocationController;
 
 abstract class _CampaignLocationControllerBase with Store {
   CampaignLocationRepository _repository;
@@ -20,10 +21,16 @@ abstract class _CampaignLocationControllerBase with Store {
   CampaignLocationModel campaign = CampaignLocationModel();
 
   @observable
-  ObservableList<CampaignLocationModel> campaigns = ObservableList<CampaignLocationModel>();
+  ObservableList<CampaignLocationModel> campaigns =
+      ObservableList<CampaignLocationModel>();
 
   @action
   void setBusy(value) => busy = value;
+
+  @action
+  void setPicture(String pictureUrl) {
+    campaign.photoPath = pictureUrl;
+  }
 
   @action
   Future fetch() async {
@@ -42,7 +49,7 @@ abstract class _CampaignLocationControllerBase with Store {
 
     setBusy(false);
   }
-  
+
   @action
   Future create(CampaignLocationModel campaign) async {
     setBusy(true);

@@ -27,6 +27,11 @@ abstract class _CampaignPersonControllerBase with Store {
   void setBusy(value) => busy = value;
 
   @action
+  void setPicture(String pictureUrl) {
+    campaign.photoPath = pictureUrl;
+  }
+
+  @action
   Future fetch() async {
     setBusy(true);
     try {

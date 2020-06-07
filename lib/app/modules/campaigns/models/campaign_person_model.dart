@@ -6,6 +6,7 @@ class CampaignPersonModel {
   String endDate;
   String location;
   String hospitalization;
+  String photoPath;
 
   CampaignPersonModel({
     this.name,
@@ -13,6 +14,7 @@ class CampaignPersonModel {
     this.endDate,
     this.location,
     this.hospitalization,
+    this.photoPath
   });
 
   CampaignPersonModel copyWith({
@@ -21,6 +23,7 @@ class CampaignPersonModel {
     String endDate,
     String localization,
     String hospitalization,
+    String photoPath,
   }) {
     return CampaignPersonModel(
       name: name ?? this.name,
@@ -28,6 +31,7 @@ class CampaignPersonModel {
       endDate: endDate ?? this.endDate,
       location: localization ?? this.location,
       hospitalization: hospitalization ?? this.hospitalization,
+      photoPath: photoPath ?? this.photoPath,
     );
   }
 
@@ -38,6 +42,7 @@ class CampaignPersonModel {
       'endDate': endDate,
       'localization': location,
       'hospitalization': hospitalization,
+      'photoPath': photoPath,
     };
   }
 
@@ -50,6 +55,7 @@ class CampaignPersonModel {
       endDate: map['endDate'],
       location: map['localization'],
       hospitalization: map['hospitalization'],
+      photoPath: map['photoPath'],
     );
   }
 
@@ -60,7 +66,7 @@ class CampaignPersonModel {
 
   @override
   String toString() {
-    return 'CampaignPersonModel(name: $name, bloodType: $bloodType, endDate: $endDate, localization: $location, hospitalization: $hospitalization)';
+    return 'CampaignPersonModel(name: $name, bloodType: $bloodType, endDate: $endDate, localization: $location, hospitalization: $hospitalization, photoPath: $photoPath)';
   }
 
   @override
@@ -72,7 +78,8 @@ class CampaignPersonModel {
         o.bloodType == bloodType &&
         o.endDate == endDate &&
         o.location == location &&
-        o.hospitalization == hospitalization;
+        o.hospitalization == hospitalization &&
+        o.photoPath == photoPath;
   }
 
   @override
@@ -81,6 +88,7 @@ class CampaignPersonModel {
         bloodType.hashCode ^
         endDate.hashCode ^
         location.hashCode ^
-        hospitalization.hashCode;
+        hospitalization.hashCode ^
+        photoPath.hashCode;
   }
 }

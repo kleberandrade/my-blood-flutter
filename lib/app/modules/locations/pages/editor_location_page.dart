@@ -90,6 +90,7 @@ class _EditorLocationsPageState extends State<EditorLocationsPage> {
               onConfirm: () => Navigator.of(context).pop(false),
               onCancel: () => Navigator.of(context).pop(true),
               title: 'Locais',
+              msg: 'cadastro de locais',
             );
           },
         ) ??

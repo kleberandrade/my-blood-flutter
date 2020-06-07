@@ -109,11 +109,22 @@ mixin _$CampaignLocationController on _CampaignLocationControllerBase, Store {
   }
 
   @override
+  void setPicture(String pictureUrl) {
+    final _$actionInfo = _$_CampaignLocationControllerBaseActionController
+        .startAction(name: '_CampaignLocationControllerBase.setPicture');
+    try {
+      return super.setPicture(pictureUrl);
+    } finally {
+      _$_CampaignLocationControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-busy: $busy,
-campaign: $campaign,
-campaigns: $campaigns
+busy: ${busy},
+campaign: ${campaign},
+campaigns: ${campaigns}
     ''';
   }
 }

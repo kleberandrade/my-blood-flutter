@@ -7,6 +7,7 @@ class CampaignLocationModel {
   String location;
   String startDate;
   String endDate;
+  String photoPath;
 
   CampaignLocationModel({
     this.name,
@@ -15,6 +16,7 @@ class CampaignLocationModel {
     this.location,
     this.startDate,
     this.endDate,
+    this.photoPath
   });
 
   CampaignLocationModel copyWith({
@@ -24,6 +26,7 @@ class CampaignLocationModel {
     String location,
     String startDate,
     String endDate,
+    String photoPath,
   }) {
     return CampaignLocationModel(
       name: name ?? this.name,
@@ -32,6 +35,7 @@ class CampaignLocationModel {
       location: location ?? this.location,
       startDate: startDate ?? this.startDate,
       endDate: endDate ?? this.endDate,
+      photoPath: photoPath ?? this.photoPath,
     );
   }
 
@@ -43,6 +47,7 @@ class CampaignLocationModel {
       'location': location,
       'startDate': startDate,
       'endDate': endDate,
+      'photoPath': photoPath,
     };
   }
 
@@ -56,6 +61,7 @@ class CampaignLocationModel {
       location: map['location'],
       startDate: map['startDate'],
       endDate: map['endDate'],
+      photoPath: map['photoPath'],
     );
   }
 
@@ -66,7 +72,7 @@ class CampaignLocationModel {
 
   @override
   String toString() {
-    return 'CampaignLocationModel(name: $name, description: $description, bloodType: $bloodType, location: $location, startDate: $startDate, endDate: $endDate)';
+    return 'CampaignLocationModel(name: $name, description: $description, bloodType: $bloodType, location: $location, startDate: $startDate, endDate: $endDate, photoPath: $photoPath)';
   }
 
   @override
@@ -79,7 +85,8 @@ class CampaignLocationModel {
         o.bloodType == bloodType &&
         o.location == location &&
         o.startDate == startDate &&
-        o.endDate == endDate;
+        o.endDate == endDate &&
+        o.photoPath == photoPath;
   }
 
   @override
@@ -89,6 +96,7 @@ class CampaignLocationModel {
         bloodType.hashCode ^
         location.hashCode ^
         startDate.hashCode ^
-        endDate.hashCode;
+        endDate.hashCode ^
+        photoPath.hashCode;
   }
 }

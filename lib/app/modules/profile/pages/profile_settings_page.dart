@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_blood/app/modules/login/pages/sign_in_page.dart';
 import 'package:my_blood/app/modules/profile/controllers/settings_controller.dart';
+import 'package:my_blood/app/shared/widgets/dialogs/back_dialog.dart';
 import 'package:provider/provider.dart';
 
 class ProfileSettingsPage extends StatefulWidget {
@@ -9,7 +10,6 @@ class ProfileSettingsPage extends StatefulWidget {
 }
 
 class _ProfileSettingsPageState extends State<ProfileSettingsPage> {
-
   SettingsController _controller;
 
   @override
@@ -18,6 +18,24 @@ class _ProfileSettingsPageState extends State<ProfileSettingsPage> {
     _controller ??= Provider.of<SettingsController>(context);
   }
 
+  Future<bool> _logOut() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return BackDialog(
+          onConfirm: () => Navigator.of(context).pop(false),
+          onCancel: () => _controller.signOut().then((value) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => SignInPage()),
+            );
+          }),
+          title: 'Sair',
+          msg: 'aplicativo',
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +46,7 @@ class _ProfileSettingsPageState extends State<ProfileSettingsPage> {
       floatingActionButton: FloatingActionButton.extended(
         label: Text('Sair do aplicativo'),
         icon: Icon(Icons.exit_to_app),
-        onPressed: () {
-          _controller.signOut().then((value) {
-            Navigator.pushReplacement(context, 
-              MaterialPageRoute(builder: (context) => SignInPage()),
-            );
-          });
-        },
+        onPressed:_logOut,
       ),
       body: ListView(
         children: <Widget>[

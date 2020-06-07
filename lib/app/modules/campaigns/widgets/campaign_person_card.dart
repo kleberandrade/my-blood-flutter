@@ -20,6 +20,7 @@ class CampaignPersonCard extends StatelessWidget {
         child: Column(
           children: <Widget>[
             ListTile(
+              leading: CircleAvatar(backgroundImage: NetworkImage(campaign.photoPath ?? ''),),
               title: Text(campaign.name ?? ''),
               subtitle: Text(campaign.location),
             ),

@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/campaigns/controllers/campaign_person_controller.dart';
 import 'package:my_blood/app/shared/helpers/validator.dart';
+import 'package:my_blood/app/shared/widgets/containers/photobox.dart';
 import 'package:my_blood/app/shared/widgets/forms/blood_type_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/custom_input_field.dart';
 import 'package:my_blood/app/shared/widgets/forms/date_input_field.dart';
@@ -22,7 +25,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
 
   final _endDateController = TextEditingController();
   final _bloodTypeController = TextEditingController();
-
+  File _image;
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -57,6 +60,14 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
           key: _formKey,
           child: Column(
             children: <Widget>[
+              Observer(builder: (_) {
+                return PhotoBox(
+                  busy: _controller.busy,
+                  onChanged: (pictureUrl) {
+                    _controller.setPicture(pictureUrl);
+                  },
+                );
+              }),
               ListTileHeader('Dados do paciente', leftPadding: 0.0),
               Observer(builder: (_) {
                 return CustomInputField(

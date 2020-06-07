@@ -107,11 +107,22 @@ mixin _$CampaignPersonController on _CampaignPersonControllerBase, Store {
   }
 
   @override
+  void setPicture(String pictureUrl) {
+    final _$actionInfo = _$_CampaignPersonControllerBaseActionController
+        .startAction(name: '_CampaignPersonControllerBase.setPicture');
+    try {
+      return super.setPicture(pictureUrl);
+    } finally {
+      _$_CampaignPersonControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
-busy: $busy,
-campaign: $campaign,
-campaigns: $campaigns
+busy: ${busy},
+campaign: ${campaign},
+campaigns: ${campaigns}
     ''';
   }
 }
