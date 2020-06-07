@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_blood/app/modules/campaigns/models/campaign_person_model.dart';
 
 class CampaignPersonRepository {

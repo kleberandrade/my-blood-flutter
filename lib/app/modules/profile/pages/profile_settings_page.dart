@@ -18,7 +18,7 @@ class _ProfileSettingsPageState extends State<ProfileSettingsPage> {
     _controller ??= Provider.of<SettingsController>(context);
   }
 
-  Future<bool> _logOut() {
+  _logOut() {
     showDialog(
       context: context,
       builder: (context) {
@@ -46,7 +46,7 @@ class _ProfileSettingsPageState extends State<ProfileSettingsPage> {
       floatingActionButton: FloatingActionButton.extended(
         label: Text('Sair do aplicativo'),
         icon: Icon(Icons.exit_to_app),
-        onPressed:_logOut,
+        onPressed: _logOut,
       ),
       body: ListView(
         children: <Widget>[

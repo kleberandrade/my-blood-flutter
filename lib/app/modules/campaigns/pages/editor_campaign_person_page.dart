@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:my_blood/app/modules/campaigns/controllers/campaign_person_controller.dart';
@@ -25,7 +23,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
 
   final _endDateController = TextEditingController();
   final _bloodTypeController = TextEditingController();
-  File _image;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();

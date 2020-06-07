@@ -6,7 +6,6 @@ import 'package:my_blood/app/modules/profile/controllers/profile_controller.dart
 import 'package:my_blood/app/modules/profile/pages/profile_historic_page.dart';
 import 'package:my_blood/app/modules/profile/pages/profile_settings_page.dart';
 import 'package:my_blood/app/modules/profile/widgets/profile_header.dart';
-import 'package:my_blood/app/shared/helpers/date_helper.dart';
 import 'package:my_blood/app/shared/helpers/image_helper.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 import 'package:my_blood/app/shared/widgets/forms/blood_type_input_field.dart';

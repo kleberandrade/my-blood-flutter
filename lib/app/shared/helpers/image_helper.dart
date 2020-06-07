@@ -32,15 +32,20 @@ class ImageHelper {
       );
       return cropped;
     }
+
+    return null;
   }
 
   static Future uploadImage({File image, Function(String) onSuccess}) async {
     String filename = path.basename(image.path);
     StorageReference storage = FirebaseStorage.instance.ref().child(filename);
-    StorageUploadTask task = storage.putFile(image);
-    StorageTaskSnapshot snapshot = await task.onComplete;
-    storage.getDownloadURL().then((fileURL) {
-      onSuccess(fileURL);
-    });
+    StorageUploadTask uploadTask = storage.putFile(image);
+    StorageTaskSnapshot storageSnapshot = await uploadTask.onComplete;
+
+    var downloadUrl = await storageSnapshot.ref.getDownloadURL();
+    if (uploadTask.isComplete) {
+      var url = downloadUrl.toString();
+      onSuccess(url);
+    }
   }
 }
