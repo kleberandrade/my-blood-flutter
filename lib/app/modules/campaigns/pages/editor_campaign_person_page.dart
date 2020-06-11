@@ -61,7 +61,7 @@ class _EditorCampaignPersonPageState extends State<EditorCampaignPersonPage> {
               Observer(builder: (_) {
                 return PhotoBox(
                   busy: _controller.busy,
-                  onChanged: (pictureUrl) {
+                  onChanged: (pictureUrl, imagePath) {
                     _controller.setPicture(pictureUrl);
                   },
                 );

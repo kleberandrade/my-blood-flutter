@@ -11,7 +11,7 @@ class CampaignBottomSheet{
     'doacaodesangue'
   ];
 
-  static void show(BuildContext context, String text) {
+  static void show(BuildContext context, String text, String imagePath) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -24,6 +24,22 @@ class CampaignBottomSheet{
                 onTap: () {
                   Navigator.pop(context);
                   SocialShare.copyToClipboard(text);
+                },
+              ),
+              new ListTile(
+                leading: new Icon(FontAwesomeIcons.facebook),
+                title: new Text('Facebook'),
+                onTap: () {
+                  Navigator.pop(context);
+                  SocialShare.shareFacebookStory(imagePath, '#ffffff', '#000000', '',appId: '300836977741771');
+                },
+              ),
+              new ListTile(
+                leading: new Icon(FontAwesomeIcons.instagram),
+                title: new Text('Instagram'),
+                onTap: () {
+                  Navigator.pop(context);
+                  SocialShare.shareFacebookStory('', '#ffffff', '#000000', '',appId: '300836977741771');
                 },
               ),
               new ListTile(

@@ -8,6 +8,7 @@ class CampaignLocationModel {
   String startDate;
   String endDate;
   String photoPath;
+  String imagePath;
 
   CampaignLocationModel({
     this.name,
@@ -16,7 +17,8 @@ class CampaignLocationModel {
     this.location,
     this.startDate,
     this.endDate,
-    this.photoPath
+    this.photoPath,
+    this.imagePath,
   });
 
   CampaignLocationModel copyWith({
@@ -27,6 +29,7 @@ class CampaignLocationModel {
     String startDate,
     String endDate,
     String photoPath,
+    String imagePath,
   }) {
     return CampaignLocationModel(
       name: name ?? this.name,
@@ -36,6 +39,7 @@ class CampaignLocationModel {
       startDate: startDate ?? this.startDate,
       endDate: endDate ?? this.endDate,
       photoPath: photoPath ?? this.photoPath,
+      imagePath: imagePath ?? this.imagePath,
     );
   }
 
@@ -48,6 +52,7 @@ class CampaignLocationModel {
       'startDate': startDate,
       'endDate': endDate,
       'photoPath': photoPath,
+      'imagePath': imagePath,
     };
   }
 
@@ -62,6 +67,7 @@ class CampaignLocationModel {
       startDate: map['startDate'],
       endDate: map['endDate'],
       photoPath: map['photoPath'],
+      imagePath: map['imagePath'],
     );
   }
 
@@ -72,7 +78,7 @@ class CampaignLocationModel {
 
   @override
   String toString() {
-    return 'CampaignLocationModel(name: $name, description: $description, bloodType: $bloodType, location: $location, startDate: $startDate, endDate: $endDate, photoPath: $photoPath)';
+    return 'CampaignLocationModel(name: $name, description: $description, bloodType: $bloodType, location: $location, startDate: $startDate, endDate: $endDate, photoPath: $photoPath, imagePath: $imagePath)';
   }
 
   @override
@@ -86,7 +92,8 @@ class CampaignLocationModel {
         o.location == location &&
         o.startDate == startDate &&
         o.endDate == endDate &&
-        o.photoPath == photoPath;
+        o.photoPath == photoPath &&
+        o.imagePath == imagePath;
   }
 
   @override
@@ -97,6 +104,7 @@ class CampaignLocationModel {
         location.hashCode ^
         startDate.hashCode ^
         endDate.hashCode ^
-        photoPath.hashCode;
+        photoPath.hashCode ^
+        imagePath.hashCode;
   }
 }

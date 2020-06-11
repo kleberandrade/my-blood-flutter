@@ -120,6 +120,17 @@ mixin _$CampaignLocationController on _CampaignLocationControllerBase, Store {
   }
 
   @override
+  void setImagePath(String imagePath) {
+    final _$actionInfo = _$_CampaignLocationControllerBaseActionController
+        .startAction(name: '_CampaignLocationControllerBase.setImagePath');
+    try {
+      return super.setImagePath(imagePath);
+    } finally {
+      _$_CampaignLocationControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 busy: ${busy},

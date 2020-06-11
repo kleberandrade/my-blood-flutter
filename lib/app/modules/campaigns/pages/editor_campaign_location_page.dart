@@ -64,8 +64,9 @@ class _EditorCampaignLocationPageState
               Observer(builder: (_) {
                 return PhotoBox(
                   busy: _controller.busy,
-                  onChanged: (pictureUrl) {
+                  onChanged: (pictureUrl, imagePath) {
                     _controller.setPicture(pictureUrl);
+                    _controller.setImagePath(imagePath);
                   },
                 );
               }),
