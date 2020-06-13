@@ -32,7 +32,7 @@ abstract class _CampaignLocationControllerBase with Store {
     campaign.photoPath = pictureUrl;
   }
 
-@action
+  @action
   void setImagePath(String imagePath){
     campaign.imagePath = imagePath;
   }

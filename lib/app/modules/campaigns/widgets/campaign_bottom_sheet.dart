@@ -10,6 +10,7 @@ class CampaignBottomSheet{
     'sangue',
     'doacaodesangue'
   ];
+  static final urlAPP = 'https://play.google.com/store/apps/details?id=com.kleberandrade.myblood';
 
   static void show(BuildContext context, String text, String imagePath) {
     showModalBottomSheet(
@@ -31,7 +32,7 @@ class CampaignBottomSheet{
                 title: new Text('Facebook'),
                 onTap: () {
                   Navigator.pop(context);
-                  SocialShare.shareFacebookStory(imagePath, '#ffffff', '#000000', '',appId: '300836977741771');
+                  SocialShare.shareFacebookStory(imagePath, '#ffffff', '#000000', urlAPP,appId: '300836977741771');
                 },
               ),
               new ListTile(
@@ -39,7 +40,7 @@ class CampaignBottomSheet{
                 title: new Text('Instagram'),
                 onTap: () {
                   Navigator.pop(context);
-                  SocialShare.shareFacebookStory('', '#ffffff', '#000000', '',appId: '300836977741771');
+                  SocialShare.shareInstagramStory(imagePath, '#ffffff', '#000000', urlAPP);
                 },
               ),
               new ListTile(

@@ -7,6 +7,7 @@ class CampaignPersonModel {
   String location;
   String hospitalization;
   String photoPath;
+  String imagePath;
 
   CampaignPersonModel({
     this.name,
@@ -14,7 +15,8 @@ class CampaignPersonModel {
     this.endDate,
     this.location,
     this.hospitalization,
-    this.photoPath
+    this.photoPath,
+    this.imagePath
   });
 
   CampaignPersonModel copyWith({
@@ -24,6 +26,7 @@ class CampaignPersonModel {
     String localization,
     String hospitalization,
     String photoPath,
+    String imagePath,
   }) {
     return CampaignPersonModel(
       name: name ?? this.name,
@@ -32,6 +35,7 @@ class CampaignPersonModel {
       location: localization ?? this.location,
       hospitalization: hospitalization ?? this.hospitalization,
       photoPath: photoPath ?? this.photoPath,
+      imagePath: imagePath ?? this.imagePath,
     );
   }
 
@@ -43,6 +47,7 @@ class CampaignPersonModel {
       'localization': location,
       'hospitalization': hospitalization,
       'photoPath': photoPath,
+      'imagePath': imagePath,
     };
   }
 
@@ -56,6 +61,7 @@ class CampaignPersonModel {
       location: map['localization'],
       hospitalization: map['hospitalization'],
       photoPath: map['photoPath'],
+      imagePath: map['imagePath'],
     );
   }
 
@@ -66,7 +72,7 @@ class CampaignPersonModel {
 
   @override
   String toString() {
-    return 'CampaignPersonModel(name: $name, bloodType: $bloodType, endDate: $endDate, localization: $location, hospitalization: $hospitalization, photoPath: $photoPath)';
+    return 'CampaignPersonModel(name: $name, bloodType: $bloodType, endDate: $endDate, localization: $location, hospitalization: $hospitalization, photoPath: $photoPath, imagePath: $imagePath)';
   }
 
   @override
@@ -79,7 +85,8 @@ class CampaignPersonModel {
         o.endDate == endDate &&
         o.location == location &&
         o.hospitalization == hospitalization &&
-        o.photoPath == photoPath;
+        o.photoPath == photoPath && 
+        o.imagePath == imagePath;
   }
 
   @override
@@ -89,6 +96,7 @@ class CampaignPersonModel {
         endDate.hashCode ^
         location.hashCode ^
         hospitalization.hashCode ^
-        photoPath.hashCode;
+        photoPath.hashCode ^
+        imagePath.hashCode;
   }
 }
