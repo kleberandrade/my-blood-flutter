@@ -36,6 +36,7 @@ dependencies:
   image_cropper: ^1.2.0
   dynamic_theme: ^1.0.1
   social_share: ^2.0.4
+  http: ^0.12.1
 
 dev_dependencies:
   flutter_test:

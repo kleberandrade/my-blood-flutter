@@ -33,11 +33,6 @@ abstract class _CampaignLocationControllerBase with Store {
   }
 
   @action
-  void setImagePath(String imagePath){
-    campaign.imagePath = imagePath;
-  }
-
-  @action
   Future fetch() async {
     setBusy(true);
     try {

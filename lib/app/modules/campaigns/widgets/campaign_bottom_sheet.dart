@@ -2,17 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:social_share/social_share.dart';
+import 'package:my_blood/app/shared/helpers/local_imagepath.dart';
 
-class CampaignBottomSheet{
+class CampaignBottomSheet {
   static final hashtags = [
     'doesangue',
     'salvevidas',
     'sangue',
     'doacaodesangue'
   ];
-  static final urlAPP = 'https://play.google.com/store/apps/details?id=com.kleberandrade.myblood';
+  static final urlAPP =
+      'https://play.google.com/store/apps/details?id=com.kleberandrade.myblood';
 
-  static void show(BuildContext context, String text, String imagePath) {
+  static void show(BuildContext context, String text, String imageUrl) {
+    String imagePath = '';
+    LocalImagePath.readFile(imageUrl).then((String result) {
+      imagePath = result;
+    });
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -32,7 +38,9 @@ class CampaignBottomSheet{
                 title: new Text('Facebook'),
                 onTap: () {
                   Navigator.pop(context);
-                  SocialShare.shareFacebookStory(imagePath, '#ffffff', '#000000', urlAPP,appId: '300836977741771');
+                  SocialShare.shareFacebookStory(
+                      imagePath, '#ffffff', '#000000', urlAPP,
+                      appId: '300836977741771');
                 },
               ),
               new ListTile(
@@ -40,7 +48,8 @@ class CampaignBottomSheet{
                 title: new Text('Instagram'),
                 onTap: () {
                   Navigator.pop(context);
-                  SocialShare.shareInstagramStory(imagePath, '#ffffff', '#000000', urlAPP);
+                  SocialShare.shareInstagramStory(
+                      imagePath, '#ffffff', '#000000', urlAPP);
                 },
               ),
               new ListTile(

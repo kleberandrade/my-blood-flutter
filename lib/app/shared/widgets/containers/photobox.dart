@@ -5,7 +5,7 @@ import 'package:my_blood/app/shared/helpers/image_helper.dart';
 import 'package:my_blood/app/shared/helpers/snackbar_helper.dart';
 
 class PhotoBox extends StatefulWidget {
-  final Function(String,String) onChanged;
+  final Function(String) onChanged;
   final bool busy;
   final String initialPhotoPath;
 
@@ -39,7 +39,7 @@ class _PhotoBoxState extends State<PhotoBox> {
           setState(() {
             _image = image;
             if (widget.onChanged != null) {
-              widget.onChanged(pictureUrl ?? '', _image.path ?? '');
+              widget.onChanged(pictureUrl ?? '');
             }
           });
         },

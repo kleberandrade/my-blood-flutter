@@ -59,7 +59,7 @@ class _CampaignLocationPageState extends State<CampaignLocationPage> {
                     CampaignBottomSheet.show(
                       context,
                       '${campaign.name} precisa de doação de sangue do tipo ${campaign.bloodType}\n\nInformações para quem puder doar:\n${campaign.location}',
-                      _controller.campaigns[index].imagePath ?? '',
+                      _controller.campaigns[index].photoPath  ?? '',
                     );
                   },
                   onDonation: () {

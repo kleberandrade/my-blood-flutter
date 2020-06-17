@@ -118,17 +118,6 @@ mixin _$CampaignPersonController on _CampaignPersonControllerBase, Store {
   }
 
   @override
-  void setImagePath(String imagePath) {
-    final _$actionInfo = _$_CampaignPersonControllerBaseActionController
-        .startAction(name: '_CampaignPersonControllerBase.setImagePath');
-    try {
-      return super.setImagePath(imagePath);
-    } finally {
-      _$_CampaignPersonControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     return '''
 busy: ${busy},
