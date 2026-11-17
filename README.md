@@ -1,5 +1,45 @@
 # My Blood
 
+[![Language: Dart](https://img.shields.io/badge/Language-Dart-0175C2)](https://github.com/kleberandrade/my-blood-flutter/blob/master/pubspec.yaml)
+[![Framework: Flutter](https://img.shields.io/badge/Framework-Flutter-02569B)](https://github.com/kleberandrade/my-blood-flutter/blob/master/pubspec.yaml)
+
+Flutter app prototype for discovering and publishing community blood-donation campaigns.
+
+## Getting started
+
+- Select a Flutter release whose bundled Dart SDK satisfies the manifest constraint, then run the commands below from the repository root.
+
+```sh
+flutter pub get
+flutter run
+```
+
+- If the app depends on Firebase or another external service, configure your own service project using the dependencies and original notes; credentials are not supplied by this guide.
+
+## Recorded requirements
+
+- Dart SDK constraint from [`pubspec.yaml`](https://github.com/kleberandrade/my-blood-flutter/blob/master/pubspec.yaml): `>=2.7.0 <3.0.0`.
+
+## Repository map
+
+- [lib](https://github.com/kleberandrade/my-blood-flutter/tree/master/lib)
+- [android](https://github.com/kleberandrade/my-blood-flutter/tree/master/android)
+- [ios](https://github.com/kleberandrade/my-blood-flutter/tree/master/ios)
+
+## Validation status
+
+This update documents the tracked source and project metadata. It does not certify a successful build, device test or compatibility with a current toolchain. Follow any project-specific validation instructions in the original material.
+
+## License and attribution
+
+No standalone repository-wide license file was identified in this review. Preserve the original credits and any component-specific licenses; this documentation update grants no additional rights.
+
+---
+
+## Original project material
+
+# My Blood
+
 Aplicativo para tornar as doações de sangue mais simples tanto para quem precisa do sangue quanto para o doador, possibilitando que a própria comunidade publique campanhas de doação e que os doadores consigam filtrar estas campanhas por estado, cidade e tipo de sangue.
 
 ## Screenshots
