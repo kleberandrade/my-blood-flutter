@@ -31,7 +31,6 @@
 /build/
 
 # Web related
-lib/generated_plugin_registrant.dart
 
 # Symbolication related
 app.*.symbols
@@ -45,3 +44,5 @@ app.*.map.json
 # Keys
 /android/app/google-services.json
 /android/key.properties
+
+**/ephemeral/
