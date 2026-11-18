@@ -1,147 +1,104 @@
 # My Blood
 
-[![Language: Dart](https://img.shields.io/badge/Language-Dart-0175C2)](https://github.com/kleberandrade/my-blood-flutter/blob/master/pubspec.yaml)
-[![Framework: Flutter](https://img.shields.io/badge/Framework-Flutter-02569B)](https://github.com/kleberandrade/my-blood-flutter/blob/master/pubspec.yaml)
+![My Blood conceptual cover: community connections in burgundy and rose](docs/cover.svg)
 
-Flutter app prototype for discovering and publishing community blood-donation campaigns.
+[![Flutter 3.50.0](https://img.shields.io/badge/Flutter-3.50.0-02569B?logo=flutter)](https://docs.flutter.dev/)
+[![Dart 3.14.0](https://img.shields.io/badge/Dart-3.14.0-0175C2?logo=dart)](pubspec.yaml)
+[![Verify](https://github.com/kleberandrade/my-blood-flutter/actions/workflows/verify.yml/badge.svg)](https://github.com/kleberandrade/my-blood-flutter/actions/workflows/verify.yml)
+[![MIT](https://img.shields.io/badge/License-MIT-53655c)](LICENSE)
 
-## Getting started
+A community blood-donation campaign **demonstration** with a responsive Flutter interface. Discover fictional campaigns, combine region and blood-type filters, create/edit local examples, and keep bookmarks across browser reloads. No account or backend setup is required.
 
-- Select a Flutter release whose bundled Dart SDK satisfies the manifest constraint, then run the commands below from the repository root.
+**All campaigns and facility addresses are synthetic. This is not a clinical screening tool, a live donor network or an appointment service. Do not enter real personal or health data.**
+
+## Run locally
+
+Install Flutter **3.50.0**, which includes Dart **3.14.0**, from the [official SDK archive](https://docs.flutter.dev/install/archive). The tested SDK reports framework revision `ab2912035e`; `.flutter-version` records the release pin. A project-specific SDK/cache was used for validation without changing the shared Flutter installation.
 
 ```sh
-flutter pub get
-flutter run
+git clone https://github.com/kleberandrade/my-blood-flutter.git
+cd my-blood-flutter
+flutter --version
+flutter pub get --enforce-lockfile
+flutter run -d chrome
 ```
 
-- If the app depends on Firebase or another external service, configure your own service project using the dependencies and original notes; credentials are not supplied by this guide.
+For a release build with local renderer resources:
 
-## Recorded requirements
+```sh
+flutter build web --release --no-web-resources-cdn
+python3 -m http.server 8743 --bind 127.0.0.1 --directory build/web
+```
 
-- Dart SDK constraint from [`pubspec.yaml`](https://github.com/kleberandrade/my-blood-flutter/blob/master/pubspec.yaml): `>=2.7.0 <3.0.0`.
+Open [the local application](http://127.0.0.1:8743). Keep the same origin/port when checking persistence. Initial dependency installation requires network access. A built site must be served over HTTP, not opened as a `file://` page. This project does not include an offline service worker or promise first-load offline support.
 
-## Repository map
+## Explore the demo
 
-- [lib](https://github.com/kleberandrade/my-blood-flutter/tree/master/lib)
-- [android](https://github.com/kleberandrade/my-blood-flutter/tree/master/android)
-- [ios](https://github.com/kleberandrade/my-blood-flutter/tree/master/ios)
+1. Open **Campaigns**. Search `sao paulo` to see accent-insensitive matching; choose SP, Campinas and O+ together to narrow the initial examples to one result. All eight ABO/Rh labels are exact filters, never clinical compatibility calculations.
+2. Select **Create demo campaign**, enter a fictional title and description, and choose a fictional location/type. Titles require 5–80 trimmed characters; descriptions require 10–500. City/state come from the location so they cannot disagree.
+3. Select **Explore → Edit** on a campaign you created. Seed examples are read-only. Saving creates or edits content only in this browser.
+4. Bookmark a campaign and open **My space**. Reload the page to verify the campaign and bookmark remain. Switch PT-BR/EN using the circular flag control; authored campaign text is preserved.
+5. Open **Sharing preview**, then **Copy demo text** if desired. No messenger is opened and no message is sent. The preview always marks the example as fictional; there are no public campaign links.
+6. Read **About donation** for official references. **Locations** contains fictional facilities only. For actual donation services, use official sources and confirm all details with the hemocenter.
 
-## Validation status
+Use **My space → Clear my local data** to remove created campaigns, bookmarks and language preference after confirmation. If storage is corrupt or unavailable, the app shows a retry/reset screen; it does not silently discard data. Failed writes retain the previous screen state.
 
-This update documents the tracked source and project metadata. It does not certify a successful build, device test or compatibility with a current toolchain. Follow any project-specific validation instructions in the original material.
+## Current screenshots
 
-## License and attribution
+These are actual captures of the locally running release build, not mockups. The cover above is an original conceptual vector illustration.
 
-No standalone repository-wide license file was identified in this review. Preserve the original credits and any component-specific licenses; this documentation update grants no additional rights.
+![Desktop campaign catalog with demo label, search and combined filters](docs/screenshots/desktop.jpg)
 
----
+![Mobile campaign catalog with compact navigation and synthetic examples](docs/screenshots/mobile.jpg)
 
-## Original project material
+![English interface retaining a locally created Portuguese campaign and bookmark](docs/screenshots/persistence-en.jpg)
 
-# My Blood
+## Architecture
 
-Aplicativo para tornar as doações de sangue mais simples tanto para quem precisa do sangue quanto para o doador, possibilitando que a própria comunidade publique campanhas de doação e que os doadores consigam filtrar estas campanhas por estado, cidade e tipo de sangue.
+- `lib/domain/campaign.dart`: validated campaign values, fictional location catalog, synthetic examples and pure combined filters.
+- `lib/data/repository.dart`: `CampaignRepository` contract, versioned `DemoData` serialization and asynchronous local adapter.
+- `lib/ui/app.dart`: navigation, local state transitions, catalog, profile, detail and sharing dialogs. Storage writes complete before UI state is committed; only one write runs at a time.
+- `lib/ui/campaign_editor.dart`: form boundaries and local create/edit behavior.
+- `lib/ui/information_pages.dart`: fictional locations and educational information with official references.
+- `lib/ui/language_button.dart`: local vector flags and an accessible, labeled 48-pixel language control.
+- `test/`: behavior tests covering domain, real persistence adapter with in-memory platform storage, interface workflows, links, clipboard and accessibility.
 
-## Screenshots
+**Glossary:** campaign = synthetic community example; location = fictional facility; bookmark = saved campaign ID; local publication = persistence on this browser origin. None of these represents a donation, patient or clinical request.
 
-<p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/splash.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/login.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/register.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/forget.png" width="200"/>
-</p>
+The original Firebase/MobX implementation could not run without an external service and used obsolete non-null-safe packages. Its unavailable account and cloud modules were removed from the active path rather than presented as working login. Historical source remains in Git; the [historical README](docs/legacy-project.md) preserves the original research and screenshots. See the [integration contract](docs/integration.md) for the exact data shape, replacement boundary and future emulator requirements. No remote adapter or emulator is claimed to exist.
 
-<p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile_1.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/profile_2.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/location_list.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/location_edit.png" width="200"/>
-</p>
+## Dependencies and verified limits
 
-<p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/campaign_list.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/campaign_person_edit.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/campaign_location_edit.png" width="200"/>
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/faq.png" width="200"/>
-</p>
+`pubspec.lock` is committed. Direct runtime packages are Material UI **1.11.1**, shared_preferences **2.5.6** and url_launcher **6.3.3**, with Flutter localization libraries. The active API path uses `package:material_ui/material_ui.dart`, replacing the deprecated Flutter Material re-export in this SDK. Development uses flutter_lints **6.0.0**, Flutter tests and platform interfaces for isolated tests.
 
-## Funcionalidades
+The online `flutter pub outdated` check reported direct/development packages current on 17 November 2026. `material_color_utilities` **0.13.0** and `test_api` **0.7.14** remain pinned by the SDK, although **0.13.1** and **0.7.15** exist. No dependency overrides are used. The tested toolchain, not an unrestricted “latest” claim, defines compatibility.
 
-- [x] Splash screen
-- [x] Login com email e senha
-- [x] Registrar novo usuário
-- [x] Esqueceu a senha?
-- [x] Perfil do usuário
-- [x] Trocar foto do perfil
-- [ ] Histórico de doações
-- [x] Cadastrar campanhas
-- [x] Listar campanhas
-- [ ] Compartilhar campanhas
-- [ ] Registrar doação em campanhas
-- [x] Cadastrar locais para doação
-- [x] Listar locais para doação
-- [x] Dúvidas frequentes (FAQ)
-- [ ] Chatbot
-- [ ] Notificações
+Web is the validated target. Android/iOS support files were regenerated with the same SDK, preserving application identity `com.kleberandrade.myblood` and adding current brand icons. **No Android/iOS build, emulator, physical-device test or signing was performed.** Native external-link/storage behavior remains unverified. Distribution signing must be configured separately before a specifically authorized release; no SDK licenses were accepted.
 
-## Organização do código
+Local storage is not encrypted, backed up or synchronized. Browser cleanup/private mode can remove data. One active editing tab is supported; concurrent tabs are last-writer-wins. Seed content remains Portuguese when switching the interface to English, just like user-authored campaign text. Official external links need connectivity, and browser policies can block a new window or clipboard access; failures are surfaced.
 
-<p align="center">
-    <img src="https://github.com/kleberandrade/my-blood-flutter/blob/master/figures/structure.png" width="800"/>
-</p>
+## Verification
 
-### Ferramentas e Recursos
+```sh
+dart format --output=none --set-exit-if-changed lib test
+flutter analyze --no-pub
+flutter test --no-pub
+flutter build web --release --no-pub --no-web-resources-cdn
+flutter pub outdated
+```
 
-- [x] Dart / Flutter
-- [x] Firebase
-- [x] Provider
-- [x] MobX
-- [x] MVC
-- [x] Flushbar
-- [x] Splashscreen
-- [x] Bottom Navy Bar
-- [x] Url Launcher
-- [x] Maps Launcher
-- [x] Expansion Tile Card
+Analysis, 12 tests and the release Web build passed locally. Browser checks cover desktop/mobile layouts, actual creation/bookmark persistence after reload, language preservation, sharing preview and empty search. Accessibility tests cover labeled touch targets and 1.6× text on a 390-pixel viewport. These checks do not constitute a full assistive-technology audit. See [validation details](docs/validation.md), [privacy](docs/privacy.md), [contribution guide](CONTRIBUTING.md) and [changelog](CHANGELOG.md).
 
-## Publicações
+## Teaching material and publication
 
-- OLIVEIRA, Guilbert Adalson de, MUJICA, Ricki Warley Villanueva; SANTOS, Romanti-Ezer Gomes dos; GOUVEIA JUNIOR, Silas Rodrigues; ANDRADE, Kleber de Oliveira. **Desenvolvimento de um aplicativo para divulgar campanhas de doação de sangue**. Monografia (Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas) - Faculdade de Tecnologia de Americana – Centro Estadual de Educação Tecnológica Paula Souza. 92p, 2019. Disponível em <[https://drive.google.com/open?id=1mZAEDbrhYGrC_kcInRjU1zXDi6mH93qO](https://drive.google.com/open?id=1mZAEDbrhYGrC_kcInRjU1zXDi6mH93qO)>.
+A concrete Portuguese [lesson revision](docs/lesson-revision.pt-BR.md) includes verified examples, current captures, official references and exactly five final exercises. No related Medium URL was found in the repository or a focused public search, and no editable lesson was identified. No article was changed or newsletter sent. The draft must be matched to the author's original URL before editorial publication.
 
-## Downloads
+Repository code/documentation push and metadata updates are within the modernization authorization. No app hosting, backend, package, store release or production deployment is included or authorized by this work.
 
-<p align="center">
-<a href='https://play.google.com/store/apps/details?id=com.kleberandrade.myblood'><img alt='Get it on Google Play' src='https://play.google.com/intl/pt_BR/badges/static/images/badges/pt_badge_web_generic.png' width="35%"/></a>
-</p>
+## Authors, research and license
 
-## Agradecimentos
+Original project copyright **2019–2020 Kleber de Oliveira Andrade**. The original README contains an MIT grant; it is now retained in [LICENSE](LICENSE), with authorship intact.
 
-- Grabriela Dall'Agnol (Texugo)
-- Guilbert Adalson de Oliveira
-- Jessica Mariane Pereira
-- Kleber de Oliveira Andrade
-- Ricki Warley Villanueva Mujica
-- Romanti-Ezer Gomes dos Santos
-- Silas Rodrigues Gouveia Junior
+Original acknowledgments: Grabriela Dall'Agnol (Texugo), Guilbert Adalson de Oliveira, Jessica Mariane Pereira, Kleber de Oliveira Andrade, Ricki Warley Villanueva Mujica, Romanti-Ezer Gomes dos Santos and Silas Rodrigues Gouveia Junior.
 
-## Licença
-
-    Copyright 2019-2020 Kleber de Oliveira Andrade
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
+OLIVEIRA, Guilbert Adalson de; MUJICA, Ricki Warley Villanueva; SANTOS, Romanti-Ezer Gomes dos; GOUVEIA JUNIOR, Silas Rodrigues; ANDRADE, Kleber de Oliveira. **Desenvolvimento de um aplicativo para divulgar campanhas de doação de sangue**. Monograph, Faculdade de Tecnologia de Americana, Centro Estadual de Educação Tecnológica Paula Souza, 92 pages, 2019. [Original research document](https://drive.google.com/open?id=1mZAEDbrhYGrC_kcInRjU1zXDi6mH93qO).
